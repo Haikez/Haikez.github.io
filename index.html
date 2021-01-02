@@ -17,18 +17,18 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"haikezi.vicp.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="嗨客伊甸园">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://haikezi.vicp.io/index.html">
 <meta property="og:site_name" content="嗨客伊甸园">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="倪矗">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://haikezi.vicp.io/">
 
 
 <script id="page-configurations">
@@ -146,7 +146,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/02/Git+Nginx%E6%90%AD%E5%BB%BA%E8%BF%9C%E7%A8%8BWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+    <link itemprop="mainEntityOfPage" href="http://haikezi.vicp.io/2021/01/02/Git+Nginx%E6%90%AD%E5%BB%BA%E8%BF%9C%E7%A8%8BWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -171,7 +171,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-01-02 15:50:20 / Modified: 09:52:30" itemprop="dateCreated datePublished" datetime="2021-01-02T15:50:20+08:00">2021-01-02</time>
+              <time title="Created: 2021-01-02 15:50:20 / Modified: 16:51:19" itemprop="dateCreated datePublished" datetime="2021-01-02T15:50:20+08:00">2021-01-02</time>
             </span>
 
           
@@ -185,9 +185,28 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Git-Nginx搭建远程Web服务器"><a href="#Git-Nginx搭建远程Web服务器" class="headerlink" title="Git+Nginx搭建远程Web服务器"></a>Git+Nginx搭建远程Web服务器</h2><h3 id="一、服务器端配置"><a href="#一、服务器端配置" class="headerlink" title="一、服务器端配置"></a>一、服务器端配置</h3><h4 id="1-创建git文件夹用于存放网站文件"><a href="#1-创建git文件夹用于存放网站文件" class="headerlink" title="1. 创建git文件夹用于存放网站文件"></a>1. 创建git文件夹用于存放网站文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir .myblog</span><br><span class="line">$ <span class="built_in">cd</span> .myblog/</span><br><span class="line">$ git init --bare</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/01/02/Git+Nginx%E6%90%AD%E5%BB%BA%E8%BF%9C%E7%A8%8BWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-12-31%20%E4%B8%8B%E5%8D%884.38.37.png"></p>
-<h4 id><a href="#" class="headerlink" title></a></h4>
+          <h2 id="Git-Nginx搭建远程Web服务器"><a href="#Git-Nginx搭建远程Web服务器" class="headerlink" title="Git+Nginx搭建远程Web服务器"></a>Git+Nginx搭建远程Web服务器</h2><h3 id="方案一"><a href="#方案一" class="headerlink" title="方案一:"></a>方案一:</h3><h4 id="一、服务器端配置"><a href="#一、服务器端配置" class="headerlink" title="一、服务器端配置"></a>一、服务器端配置</h4><h5 id="1-创建git文件夹用于存放网站文件"><a href="#1-创建git文件夹用于存放网站文件" class="headerlink" title="1. 创建git文件夹用于存放网站文件"></a>1. 创建git文件夹用于存放网站文件</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span></span><br><span class="line">$ mkdir .myblog</span><br><span class="line">$ <span class="built_in">cd</span> .myblog/</span><br><span class="line">$ git init --bare</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/01/02/Git+Nginx%E6%90%AD%E5%BB%BA%E8%BF%9C%E7%A8%8BWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/01.png"></p>
+<h5 id="2-在服务器选择一个放置网站的目录，假设这个目录为-var-www-myblog"><a href="#2-在服务器选择一个放置网站的目录，假设这个目录为-var-www-myblog" class="headerlink" title="2. 在服务器选择一个放置网站的目录，假设这个目录为/var/www/myblog"></a>2. 在服务器选择一个放置网站的目录，假设这个目录为/var/www/myblog</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir -p /var/www/myblog</span><br><span class="line">$ <span class="built_in">cd</span> /var/www/</span><br><span class="line">$ git <span class="built_in">clone</span> ~/.myblog myblog</span><br></pre></td></tr></table></figure>
+<h5 id="3-自动部署"><a href="#3-自动部署" class="headerlink" title="3. 自动部署"></a>3. 自动部署</h5><p>git 有个功能叫做hook，也就是说在我们提交代码的时候会触发一些操作，这就是hook Git的挂钩（Hook）主要包含：</p>
+<p>applypatch-msg post-update pre-rebase commit-msg pre-applypatch update post-commit pre-commit post-receive prepare-commit-msg</p>
+<p>我们要用到的是post-update这个hook 进入到我们的git服务器的文件夹~/.myblog/hooks 进入到hook文件夹 使用ls命令可以看到许多hook脚本的sample<br><img src="/2021/01/02/Git+Nginx%E6%90%AD%E5%BB%BA%E8%BF%9C%E7%A8%8BWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-02%20%E4%B8%8B%E5%8D%884.33.40.png"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/.myblog/hooks</span><br><span class="line">$ vim post-update</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/01/02/Git+Nginx%E6%90%AD%E5%BB%BA%E8%BF%9C%E7%A8%8BWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-02%20%E4%B8%8B%E5%8D%884.35.39.png"><br>新建一个post-update脚本 输入以下命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="built_in">cd</span> /var/www/myblog</span><br><span class="line">env -i git pull</span><br></pre></td></tr></table></figure>
+<p>给新建的post-update赋予权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chmod +x post-update</span><br></pre></td></tr></table></figure>
+<h5 id="4-配置nginx"><a href="#4-配置nginx" class="headerlink" title="4..配置nginx"></a>4..配置nginx</h5><p>编辑nginx的配置文件/etc/nginx/sites-available</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/nginx/sites-available/default</span><br><span class="line"></span><br><span class="line"><span class="comment">###### 编辑以下内容:</span></span><br><span class="line">server &#123;</span><br><span class="line">	listen 80 default_server;</span><br><span class="line">	listen [::]:80 default_server;</span><br><span class="line"></span><br><span class="line">	<span class="comment"># SSL configuration</span></span><br><span class="line">	<span class="comment">#</span></span><br><span class="line">	<span class="comment"># listen 443 ssl default_server;</span></span><br><span class="line">	<span class="comment"># listen [::]:443 ssl default_server;</span></span><br><span class="line">	<span class="comment">#</span></span><br><span class="line">	<span class="comment"># Note: You should disable gzip for SSL traffic.</span></span><br><span class="line">	<span class="comment"># See: https://bugs.debian.org/773332</span></span><br><span class="line">	<span class="comment">#</span></span><br><span class="line">	<span class="comment"># Read up on ssl_ciphers to ensure a secure configuration.</span></span><br><span class="line">	<span class="comment"># See: https://bugs.debian.org/765782</span></span><br><span class="line">	<span class="comment">#</span></span><br><span class="line">	<span class="comment"># Self signed certs generated by the ssl-cert package</span></span><br><span class="line">	<span class="comment"># Don&#x27;t use them in a production server!</span></span><br><span class="line">	<span class="comment">#</span></span><br><span class="line">	<span class="comment"># include snippets/snakeoil.conf;</span></span><br><span class="line"></span><br><span class="line">	root /var/www/myblog;</span><br><span class="line"></span><br><span class="line">	<span class="comment"># Add index.php to the list if you are using PHP</span></span><br><span class="line">	index index.html index.htm index.nginx-debian.html;</span><br><span class="line"></span><br><span class="line">	server_name _;</span><br><span class="line"></span><br><span class="line">	location / &#123;</span><br><span class="line">		<span class="comment"># First attempt to serve request as file, then</span></span><br><span class="line">		<span class="comment"># as directory, then fall back to displaying a 404.</span></span><br><span class="line">		try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ =404;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/01/02/Git+Nginx%E6%90%AD%E5%BB%BA%E8%BF%9C%E7%A8%8BWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-02%20%E4%B8%8B%E5%8D%884.42.11.png"><br>这里主要修改server_name为你的域名 修改root目录为hexo静态文件的目录,以上面目录举例/var/www/myblog要注意nginx需要有该目录的文件读取权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo chown -R pi:pi /var/www</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/01/02/Git+Nginx%E6%90%AD%E5%BB%BA%E8%BF%9C%E7%A8%8BWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-02%20%E4%B8%8B%E5%8D%884.48.56.png"><br>重启nginx:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo nginx -s reload</span><br></pre></td></tr></table></figure>
+<h5 id="服务端配置完成！！！"><a href="#服务端配置完成！！！" class="headerlink" title="服务端配置完成！！！"></a>服务端配置完成！！！</h5><h4 id="二、客户端配置"><a href="#二、客户端配置" class="headerlink" title="二、客户端配置"></a>二、客户端配置</h4><h5 id="1-通过ssh秘钥和树莓派建立连接"><a href="#1-通过ssh秘钥和树莓派建立连接" class="headerlink" title="1. 通过ssh秘钥和树莓派建立连接"></a>1. 通过ssh秘钥和树莓派建立连接</h5><p><a href="./2020/12/31/SSH%E7%A7%98%E9%92%A5%E5%AE%89%E8%A3%85%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/index.html">SSH秘钥连接到服务器</a></p>
+<h5 id="2-配置public推送"><a href="#2-配置public推送" class="headerlink" title="2. 配置public推送"></a>2. 配置public推送</h5><p>由于树莓派性能不强劲，所以采用在本机用hexo生成public文件夹。用git提交生成好的public文件夹到树莓派。具体提交方法采用hexo的hexo-deployer-git插件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> myblog</span><br><span class="line">$ vim _config.yml</span><br></pre></td></tr></table></figure>
+<p>将deploy配置下的repo参数改为刚刚在树莓派上新建的.myblog路径。<br><img src="/2021/01/02/Git+Nginx%E6%90%AD%E5%BB%BA%E8%BF%9C%E7%A8%8BWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-02%20%E4%B8%8B%E5%8D%884.22.15.png"><br>每次维护完项目后输入: hexo d 即可完成推送。</p>
+
       
     </div>
 
@@ -206,7 +225,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/02/Hexo%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+    <link itemprop="mainEntityOfPage" href="http://haikezi.vicp.io/2021/01/02/Hexo%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -231,7 +250,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-01-02 15:05:20 / Modified: 10:03:05" itemprop="dateCreated datePublished" datetime="2021-01-02T15:05:20+08:00">2021-01-02</time>
+              <time title="Created: 2021-01-02 15:05:20 / Modified: 12:23:06" itemprop="dateCreated datePublished" datetime="2021-01-02T15:05:20+08:00">2021-01-02</time>
             </span>
 
           
@@ -267,7 +286,7 @@
 <h5 id="2-打开hexo的配置文件-config-yml找到-post-asset-folder，把这个选项从false改成true"><a href="#2-打开hexo的配置文件-config-yml找到-post-asset-folder，把这个选项从false改成true" class="headerlink" title="2. 打开hexo的配置文件_config.yml找到 post_asset_folder，把这个选项从false改成true"></a>2. 打开hexo的配置文件_config.yml找到 post_asset_folder，把这个选项从false改成true</h5><h5 id="3-打开"><a href="#3-打开" class="headerlink" title="3.打开"></a>3.打开</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/node_modules/hexo-asset-image/index.js</span><br></pre></td></tr></table></figure>
 <p>将内容更换为下面的代码</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;use strict&#x27;</span>;</span><br><span class="line">var cheerio = require(<span class="string">&#x27;cheerio&#x27;</span>);</span><br><span class="line"></span><br><span class="line">// http://stackoverflow.com/questions/14480345/how-to-get-the-nth-occurrence-in-a-string</span><br><span class="line"><span class="keyword">function</span> getPosition(str, m, i) &#123;</span><br><span class="line">  <span class="built_in">return</span> str.split(m, i).join(m).length;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var version = String(hexo.version).split(<span class="string">&#x27;.&#x27;</span>);</span><br><span class="line">hexo.extend.filter.register(<span class="string">&#x27;after_post_render&#x27;</span>, <span class="keyword">function</span>(data)&#123;</span><br><span class="line">  var config = hexo.config;</span><br><span class="line">  <span class="keyword">if</span>(config.post_asset_folder)&#123;</span><br><span class="line">        var link = data.permalink;</span><br><span class="line">    <span class="keyword">if</span>(version.length &gt; 0 &amp;&amp; Number(version[0]) == 3)</span><br><span class="line">       var beginPos = getPosition(link, <span class="string">&#x27;/&#x27;</span>, 1) + 1;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">       var beginPos = getPosition(link, <span class="string">&#x27;/&#x27;</span>, 3) + 1;</span><br><span class="line">    // In hexo 3.1.1, the permalink of <span class="string">&quot;about&quot;</span> page is like <span class="string">&quot;.../about/index.html&quot;</span>.</span><br><span class="line">    var endPos = link.lastIndexOf(<span class="string">&#x27;/&#x27;</span>) + 1;</span><br><span class="line">    link = link.substring(beginPos, endPos);</span><br><span class="line"></span><br><span class="line">    var toprocess = [<span class="string">&#x27;excerpt&#x27;</span>, <span class="string">&#x27;more&#x27;</span>, <span class="string">&#x27;content&#x27;</span>];</span><br><span class="line">    <span class="keyword">for</span>(var i = 0; i &lt; toprocess.length; i++)&#123;</span><br><span class="line">      var key = toprocess[i];</span><br><span class="line"> </span><br><span class="line">      var $ = cheerio.load(data[key], &#123;</span><br><span class="line">        ignoreWhitespace: <span class="literal">false</span>,</span><br><span class="line">        xmlMode: <span class="literal">false</span>,</span><br><span class="line">        lowerCaseTags: <span class="literal">false</span>,</span><br><span class="line">        decodeEntities: <span class="literal">false</span></span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">      $(<span class="string">&#x27;img&#x27;</span>).each(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        <span class="keyword">if</span> ($(this).attr(<span class="string">&#x27;src&#x27;</span>))&#123;</span><br><span class="line">            // For windows style path, we replace <span class="string">&#x27;\&#x27;</span> to <span class="string">&#x27;/&#x27;</span>.</span><br><span class="line">            var src = $(this).attr(<span class="string">&#x27;src&#x27;</span>).replace(<span class="string">&#x27;\\&#x27;</span>, <span class="string">&#x27;/&#x27;</span>);</span><br><span class="line">            <span class="keyword">if</span>(!/http[s]*.*|\/\/.*/.<span class="built_in">test</span>(src) &amp;&amp;</span><br><span class="line">               !/^\s*\//.<span class="built_in">test</span>(src)) &#123;</span><br><span class="line">              // For <span class="string">&quot;about&quot;</span> page, the first part of <span class="string">&quot;src&quot;</span> can<span class="string">&#x27;t be removed.</span></span><br><span class="line"><span class="string">              // In addition, to support multi-level local directory.</span></span><br><span class="line"><span class="string">              var linkArray = link.split(&#x27;</span>/<span class="string">&#x27;).filter(function(elem)&#123;</span></span><br><span class="line"><span class="string">                return elem != &#x27;</span><span class="string">&#x27;;</span></span><br><span class="line"><span class="string">              &#125;);</span></span><br><span class="line"><span class="string">              var srcArray = src.split(&#x27;</span>/<span class="string">&#x27;).filter(function(elem)&#123;</span></span><br><span class="line"><span class="string">                return elem != &#x27;</span><span class="string">&#x27; &amp;&amp; elem != &#x27;</span>.<span class="string">&#x27;;</span></span><br><span class="line"><span class="string">              &#125;);</span></span><br><span class="line"><span class="string">              if(srcArray.length &gt; 1)</span></span><br><span class="line"><span class="string">                srcArray.shift();</span></span><br><span class="line"><span class="string">              src = srcArray.join(&#x27;</span>/<span class="string">&#x27;);</span></span><br><span class="line"><span class="string">              $(this).attr(&#x27;</span>src<span class="string">&#x27;, config.root + link + src);</span></span><br><span class="line"><span class="string">              console.info&amp;&amp;console.info(&quot;update link as:--&gt;&quot;+config.root + link + src);</span></span><br><span class="line"><span class="string">            &#125;</span></span><br><span class="line"><span class="string">        &#125;else&#123;</span></span><br><span class="line"><span class="string">            console.info&amp;&amp;console.info(&quot;no src attr, skipped...&quot;);</span></span><br><span class="line"><span class="string">            console.info&amp;&amp;console.info($(this));</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">      &#125;);</span></span><br><span class="line"><span class="string">      data[key] = $.html();</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">&#125;);</span></span><br></pre></td></tr></table></figure>
-<h5 id="4-现在就可以插入图片了，比如hexo-new-post-photo之后就在source-posts生成photo-md文件和photo文件夹，我们把要插入的图片复制到photo文件夹内就好了。"><a href="#4-现在就可以插入图片了，比如hexo-new-post-photo之后就在source-posts生成photo-md文件和photo文件夹，我们把要插入的图片复制到photo文件夹内就好了。" class="headerlink" title="4.现在就可以插入图片了，比如hexo new post photo之后就在source/_posts生成photo.md文件和photo文件夹，我们把要插入的图片复制到photo文件夹内就好了。"></a>4.现在就可以插入图片了，比如hexo new post photo之后就在source/_posts生成photo.md文件和photo文件夹，我们把要插入的图片复制到photo文件夹内就好了。</h5><h4 id="Hexo下Git代码提交插件"><a href="#Hexo下Git代码提交插件" class="headerlink" title="Hexo下Git代码提交插件"></a>Hexo下Git代码提交插件</h4><ol>
+<h5 id="4-现在就可以插入图片了，比如hexo-new-post-photo之后就在source-posts生成photo-md文件和photo文件夹，我们把要插入的图片复制到photo文件夹内就好了。"><a href="#4-现在就可以插入图片了，比如hexo-new-post-photo之后就在source-posts生成photo-md文件和photo文件夹，我们把要插入的图片复制到photo文件夹内就好了。" class="headerlink" title="4.现在就可以插入图片了，比如hexo new post photo之后就在source/_posts生成photo.md文件和photo文件夹，我们把要插入的图片复制到photo文件夹内就好了。"></a>4.现在就可以插入图片了，比如hexo new post photo之后就在source/_posts生成photo.md文件和photo文件夹，我们把要插入的图片复制到photo文件夹内就好了。</h5><h4 id="Hexo下Git代码提交插件-–-hexo-deployer-git"><a href="#Hexo下Git代码提交插件-–-hexo-deployer-git" class="headerlink" title="Hexo下Git代码提交插件 – hexo-deployer-git"></a>Hexo下Git代码提交插件 – hexo-deployer-git</h4><ol>
 <li>输入以下命令安装插件<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></li>
 <li>修改配置：_config.yml<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: &lt;repository url&gt; <span class="comment">#仓库地址</span></span><br><span class="line">  branch: [branch]       <span class="comment">#分支</span></span><br><span class="line">  message: [message]     <span class="comment">#描述</span></span><br></pre></td></tr></table></figure>
 <img src="/2021/01/02/Hexo%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-02%20%E4%B8%8A%E5%8D%8810.00.51.png"></li>
@@ -298,7 +317,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/31/SSH%E7%A7%98%E9%92%A5%E5%AE%89%E8%A3%85%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+    <link itemprop="mainEntityOfPage" href="http://haikezi.vicp.io/2020/12/31/SSH%E7%A7%98%E9%92%A5%E5%AE%89%E8%A3%85%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -329,7 +348,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-01-02 09:53:01" itemprop="dateModified" datetime="2021-01-02T09:53:01+08:00">2021-01-02</time>
+                <time title="Modified: 2021-01-02 12:23:06" itemprop="dateModified" datetime="2021-01-02T12:23:06+08:00">2021-01-02</time>
               </span>
 
           
@@ -379,7 +398,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/31/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%85%8D%E7%BD%AE%E8%8A%B1%E7%94%9F%E5%A3%B3%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">
+    <link itemprop="mainEntityOfPage" href="http://haikezi.vicp.io/2020/12/31/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%85%8D%E7%BD%AE%E8%8A%B1%E7%94%9F%E5%A3%B3%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -410,7 +429,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-01-02 09:51:53" itemprop="dateModified" datetime="2021-01-02T09:51:53+08:00">2021-01-02</time>
+                <time title="Modified: 2021-01-02 12:23:06" itemprop="dateModified" datetime="2021-01-02T12:23:06+08:00">2021-01-02</time>
               </span>
 
           
@@ -460,7 +479,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/30/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%92%8C%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/">
+    <link itemprop="mainEntityOfPage" href="http://haikezi.vicp.io/2020/12/30/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%92%8C%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -491,7 +510,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-01-02 09:52:01" itemprop="dateModified" datetime="2021-01-02T09:52:01+08:00">2021-01-02</time>
+                <time title="Modified: 2021-01-02 12:23:06" itemprop="dateModified" datetime="2021-01-02T12:23:06+08:00">2021-01-02</time>
               </span>
 
           
@@ -532,7 +551,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/15/Arch%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/">
+    <link itemprop="mainEntityOfPage" href="http://haikezi.vicp.io/2020/12/15/Arch%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -563,7 +582,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-01-02 09:52:51" itemprop="dateModified" datetime="2021-01-02T09:52:51+08:00">2021-01-02</time>
+                <time title="Modified: 2021-01-02 12:23:06" itemprop="dateModified" datetime="2021-01-02T12:23:06+08:00">2021-01-02</time>
               </span>
 
           
@@ -596,7 +615,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/15/ArchLinux%E5%AE%89%E8%A3%85/">
+    <link itemprop="mainEntityOfPage" href="http://haikezi.vicp.io/2020/12/15/ArchLinux%E5%AE%89%E8%A3%85/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -627,7 +646,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-01-02 09:52:47" itemprop="dateModified" datetime="2021-01-02T09:52:47+08:00">2021-01-02</time>
+                <time title="Modified: 2021-01-02 12:23:06" itemprop="dateModified" datetime="2021-01-02T12:23:06+08:00">2021-01-02</time>
               </span>
 
           
@@ -741,7 +760,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/15/%E9%93%BE%E8%A1%A8/">
+    <link itemprop="mainEntityOfPage" href="http://haikezi.vicp.io/2020/12/15/%E9%93%BE%E8%A1%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -772,7 +791,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-01-02 09:51:41" itemprop="dateModified" datetime="2021-01-02T09:51:41+08:00">2021-01-02</time>
+                <time title="Modified: 2021-01-02 12:23:06" itemprop="dateModified" datetime="2021-01-02T12:23:06+08:00">2021-01-02</time>
               </span>
 
           
@@ -925,7 +944,7 @@ void DispList(LinkNode * L)
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/14/%E6%95%85%E4%BA%8B%E8%B5%B7%E6%BA%90/">
+    <link itemprop="mainEntityOfPage" href="http://haikezi.vicp.io/2020/12/14/%E6%95%85%E4%BA%8B%E8%B5%B7%E6%BA%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -956,7 +975,7 @@ void DispList(LinkNode * L)
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-01-02 09:52:06" itemprop="dateModified" datetime="2021-01-02T09:52:06+08:00">2021-01-02</time>
+                <time title="Modified: 2021-01-02 12:23:06" itemprop="dateModified" datetime="2021-01-02T12:23:06+08:00">2021-01-02</time>
               </span>
 
           
