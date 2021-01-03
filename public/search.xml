@@ -85,8 +85,10 @@
 </blockquote>
 <h3 id="7-退出chroot重启"><a href="#7-退出chroot重启" class="headerlink" title="7.退出chroot重启"></a>7.退出chroot重启</h3><p>执行：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@archiso~] <span class="built_in">exit</span></span><br><span class="line">[root@archiso~] reboot</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Linux学习</category>
+      </categories>
       <tags>
-        <tag>Linux学习</tag>
         <tag>ArchLinux</tag>
       </tags>
   </entry>
@@ -94,6 +96,12 @@
     <title>Arch双系统安装</title>
     <url>/2020/12/15/Arch%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/</url>
     <content><![CDATA[]]></content>
+      <categories>
+        <category>Linux学习</category>
+      </categories>
+      <tags>
+        <tag>ArchLinux</tag>
+      </tags>
   </entry>
   <entry>
     <title>Git+Nginx搭建远程Web服务器</title>
@@ -121,6 +129,12 @@
 <p>将deploy配置下的repo参数改为刚刚在树莓派上新建的.myblog路径。<br><img src="/2021/01/02/Git+Nginx%E6%90%AD%E5%BB%BA%E8%BF%9C%E7%A8%8BWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-02%20%E4%B8%8B%E5%8D%884.22.15.png"><br>每次维护完项目后输入: hexo d 即可完成推送。<br><img src="/2021/01/02/Git+Nginx%E6%90%AD%E5%BB%BA%E8%BF%9C%E7%A8%8BWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-02%20%E4%B8%8B%E5%8D%884.52.59.png"></p>
 <h5 id="大功告成！！！"><a href="#大功告成！！！" class="headerlink" title="大功告成！！！"></a>大功告成！！！</h5><p>最后附上成果图:<br><img src="/2021/01/02/Git+Nginx%E6%90%AD%E5%BB%BA%E8%BF%9C%E7%A8%8BWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-02%20%E4%B8%8B%E5%8D%884.55.51.png"></p>
 ]]></content>
+      <categories>
+        <category>树莓派的反击</category>
+      </categories>
+      <tags>
+        <tag>树莓派服务器</tag>
+      </tags>
   </entry>
   <entry>
     <title>Hexo框架搭建个人博客</title>
@@ -160,6 +174,12 @@
 <li>清除hexo缓存使用命令：hexo clear，生成项目文件命令:hexo g,验证主题是否正确启用，命令为：hexo s –debug<br><img src="/2021/01/02/Hexo%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-02%20%E4%B8%8A%E5%8D%889.54.11.png"><h5 id="大功告成！！！"><a href="#大功告成！！！" class="headerlink" title="大功告成！！！"></a>大功告成！！！</h5></li>
 </ol>
 ]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>搭建个人博客</tag>
+      </tags>
   </entry>
   <entry>
     <title>SSH秘钥安装到服务器</title>
@@ -182,22 +202,12 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PasswordAuthentication no <span class="comment">#可不设置</span></span><br></pre></td></tr></table></figure>
 <p>最后，重启 SSH 服务：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ service sshd restart</span><br></pre></td></tr></table></figure>]]></content>
-  </entry>
-  <entry>
-    <title>故事起源</title>
-    <url>/2020/12/14/%E6%95%85%E4%BA%8B%E8%B5%B7%E6%BA%90/</url>
-    <content><![CDATA[<h3 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;怀揣着对电脑的热爱以及喜欢折腾的癖好，省吃俭用几个月，于2020年11月15日剁手购入了一台咸鱼二手HP4540s笔记本电脑。从此开启了一段新的折腾旅程。</p>
-<h3 id="本次折腾的内容如下："><a href="#本次折腾的内容如下：" class="headerlink" title="本次折腾的内容如下："></a>本次折腾的内容如下：</h3><ul>
-<li>给电脑安装ArchLinux系统</li>
-<li>在原有的win7系统上配置Arch双系统</li>
-<li>给ArchLinux配置dwm窗口管理器</li>
-<li>动态窗口管理器和桌面环境的之间的切换</li>
-<li>配置美化一下你的dwm</li>
-<li>给电脑安装配置vim编辑器</li>
-<li>Oh-my-zsh一个比bash好用的Shell</li>
-</ul>
-<p>以上是一台电脑这太电脑刚入手时的基本配置，但并不是终极配置。终极配置是什么样子的？我的回答是我也不知道。生命不息，折腾不止！！！这套配置会持续地更新下去。每一步都是当前的最新配置。曾有人问我，折腾这个东西有什么🐦 用？一时间我也给不出答案，但当我的以一台黑苹果成功登入时。我想答案已经不言而喻了。我不求我折腾的这些东西会给我日常的学习生活带来哪些辉煌的成就。我只会去想折腾的最后彼岸依然花开。这是成长和学习的过程，在经历了一番风雨的洗礼之后会当凌绝顶！！！</p>
-]]></content>
+      <categories>
+        <category>Linux学习</category>
+      </categories>
+      <tags>
+        <tag>SSH秘钥管理</tag>
+      </tags>
   </entry>
   <entry>
     <title>树莓派系统安装和基本配置</title>
@@ -211,6 +221,12 @@
 <h4 id="烧录镜像"><a href="#烧录镜像" class="headerlink" title="烧录镜像:"></a>烧录镜像:</h4><img src="/2020/12/30/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%92%8C%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-12-30%20%E4%B8%8B%E5%8D%883.26.38.png"><h4 id="烧录完成后重新插拔读卡器"><a href="#烧录完成后重新插拔读卡器" class="headerlink" title="烧录完成后重新插拔读卡器"></a>烧录完成后重新插拔读卡器</h4><h3 id="3-开启ssh服务"><a href="#3-开启ssh服务" class="headerlink" title="3. 开启ssh服务"></a>3. 开启ssh服务</h3><h4 id="新建文件名为ssh的文件。"><a href="#新建文件名为ssh的文件。" class="headerlink" title="新建文件名为ssh的文件。"></a>新建文件名为ssh的文件。</h4><h4 id="将ssh文件拖入SD卡的boot分区。"><a href="#将ssh文件拖入SD卡的boot分区。" class="headerlink" title="将ssh文件拖入SD卡的boot分区。"></a>将ssh文件拖入SD卡的boot分区。</h4><h3 id="4-使树莓派开机自动连接Wi-Fi"><a href="#4-使树莓派开机自动连接Wi-Fi" class="headerlink" title="4. 使树莓派开机自动连接Wi-Fi"></a>4. 使树莓派开机自动连接Wi-Fi</h3><h4 id="新建名为wpa-supplicant-conf的文件。"><a href="#新建名为wpa-supplicant-conf的文件。" class="headerlink" title="新建名为wpa_supplicant.conf的文件。"></a>新建名为wpa_supplicant.conf的文件。</h4><h4 id="编辑文件内容为"><a href="#编辑文件内容为" class="headerlink" title="编辑文件内容为"></a>编辑文件内容为</h4><img src="/2020/12/30/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%92%8C%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-12-30%20%E4%B8%8B%E5%8D%883.37.27.png"><h4 id="将文件wpa-supplicant-conf拖入SD卡的boot分区。"><a href="#将文件wpa-supplicant-conf拖入SD卡的boot分区。" class="headerlink" title="将文件wpa_supplicant.conf拖入SD卡的boot分区。"></a>将文件wpa_supplicant.conf拖入SD卡的boot分区。</h4><h3 id="5-将SD卡插入树莓派开机即可"><a href="#5-将SD卡插入树莓派开机即可" class="headerlink" title="5. 将SD卡插入树莓派开机即可"></a>5. 将SD卡插入树莓派开机即可</h3></li>
 </ol>
 ]]></content>
+      <categories>
+        <category>树莓派的反击</category>
+      </categories>
+      <tags>
+        <tag>树莓派历练</tag>
+      </tags>
   </entry>
   <entry>
     <title>树莓派配置花生壳内网穿透</title>
@@ -233,6 +249,12 @@
 <h4 id="8、在外网的电脑上，打开连接SSH服务的工具程序，输入域名与5位数端口号。"><a href="#8、在外网的电脑上，打开连接SSH服务的工具程序，输入域名与5位数端口号。" class="headerlink" title="8、在外网的电脑上，打开连接SSH服务的工具程序，输入域名与5位数端口号。"></a>8、在外网的电脑上，打开连接SSH服务的工具程序，输入域名与5位数端口号。</h4><p><img src="/2020/12/31/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%85%8D%E7%BD%AE%E8%8A%B1%E7%94%9F%E5%A3%B3%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/2020-12-30-16-13-36.png"></p>
 <h4 id="9、远程访问树莓派的SSH服务成功，此时只要保持树莓派上安装的花生壳程序在线即可。"><a href="#9、远程访问树莓派的SSH服务成功，此时只要保持树莓派上安装的花生壳程序在线即可。" class="headerlink" title="9、远程访问树莓派的SSH服务成功，此时只要保持树莓派上安装的花生壳程序在线即可。"></a>9、远程访问树莓派的SSH服务成功，此时只要保持树莓派上安装的花生壳程序在线即可。</h4><p><img src="/2020/12/31/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%85%8D%E7%BD%AE%E8%8A%B1%E7%94%9F%E5%A3%B3%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/2020-12-30-16-13-41.png"></p>
 <h4 id="五、如果重装了系统"><a href="#五、如果重装了系统" class="headerlink" title="五、如果重装了系统"></a>五、如果重装了系统</h4><h4 id="用树莓派的SN码登陆花生壳，绑定原有的账号。然后删除原来账号的端口，新建新端口。即可生效。"><a href="#用树莓派的SN码登陆花生壳，绑定原有的账号。然后删除原来账号的端口，新建新端口。即可生效。" class="headerlink" title="用树莓派的SN码登陆花生壳，绑定原有的账号。然后删除原来账号的端口，新建新端口。即可生效。"></a>用树莓派的SN码登陆花生壳，绑定原有的账号。然后删除原来账号的端口，新建新端口。即可生效。</h4>]]></content>
+      <categories>
+        <category>树莓派的反击</category>
+      </categories>
+      <tags>
+        <tag>内网穿透</tag>
+      </tags>
   </entry>
   <entry>
     <title>链表</title>
@@ -358,5 +380,11 @@ void DispList(LinkNode * L)
 <p></p></code></pre><p></p>
 </details>
 ]]></content>
+      <categories>
+        <category>数据结构学习</category>
+      </categories>
+      <tags>
+        <tag>链表</tag>
+      </tags>
   </entry>
 </search>
