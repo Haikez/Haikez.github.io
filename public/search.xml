@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>ArchLinux安装</title>
+    <url>/2020/12/15/ArchLinux%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>ArchLinux是通用 x86-64 GNU/Linux 发行版，同时也是一个非常简洁的Linux。它将简洁定义为将简洁定义为：避免任何不必要的添加、修改和复杂增加。甚至连vim都不自带！这也给它的安装带来了难度。但与此同时它也提供了非常详细并且更新及时的Wiki（帮助文档），供开发者学习使用。</p>
+<h2 id="Arction"><a href="#Arction" class="headerlink" title="Arction:"></a>Arction:</h2><h3 id="1-下载安装镜像到U盘"><a href="#1-下载安装镜像到U盘" class="headerlink" title="1.下载安装镜像到U盘"></a>1.下载安装镜像到U盘</h3><blockquote>
+<p>镜像地址:  <a href="http://mirrors.163.com/archlinux/iso">http://mirrors.163.com/archlinux/iso</a></p>
+</blockquote>
+<h3 id="2-登入系统给磁盘分区"><a href="#2-登入系统给磁盘分区" class="headerlink" title="2.登入系统给磁盘分区"></a>2.登入系统给磁盘分区</h3><p>同步时间：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@archiso~] timedatectl set-ntp <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>查看当前磁盘各个分区：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@archiso~] lsblk</span><br></pre></td></tr></table></figure>
+<p>设置分区：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@archiso~] cfdisk /dev/sdx  <span class="comment">#选gpt设置分区,sdx为你想要安装的那个分区</span></span><br></pre></td></tr></table></figure>
+<h4 id="当电脑里面已经有别的系统且也是UEFI引导时："><a href="#当电脑里面已经有别的系统且也是UEFI引导时：" class="headerlink" title="当电脑里面已经有别的系统且也是UEFI引导时："></a>当电脑里面已经有别的系统且也是UEFI引导时：</h4><p>分区方案：<br>sdx1—————1G————–swap分区<br>sdx2—————nG————–主分区</p>
+<h4 id="当电脑还是空机时"><a href="#当电脑还是空机时" class="headerlink" title="当电脑还是空机时"></a>当电脑还是空机时</h4><p>分区方案：<br>sdx1—————1G————–swap分区<br>sdx2—————nG————–主分区<br>sdx3—————500M————ESP分区</p>
+<h4 id="格式化分区"><a href="#格式化分区" class="headerlink" title="格式化分区"></a>格式化分区</h4><p>对于 root、home 分区等直接使用 ext4 文件系统进行初始化。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@archiso~] mkfs.ext4 /dev/sdx2</span><br></pre></td></tr></table></figure>
+<p>对于交换分区，不能使用上述命令进行格式化，而需要使用 mkswap 将其初始化。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@archiso~] mkswap /dev/sdx1</span><br><span class="line">[root@archiso~] swapon /dev/sdx1</span><br></pre></td></tr></table></figure>
+<p>电脑为空机执行:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@archiso~] mkfs.fat -F32 /dev/sda1</span><br></pre></td></tr></table></figure>
+<p>(格式化ESP分区)</p>
+<h4 id="挂载分区"><a href="#挂载分区" class="headerlink" title="挂载分区"></a>挂载分区</h4><blockquote>
+<p>假设系统内的ESP分区为sdxn</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 挂载根分区</span></span><br><span class="line">[root@archiso~] mount /dev/sdx2 /mnt</span><br><span class="line"><span class="comment"># 在根分区下新建boot文件夹</span></span><br><span class="line">[root@archiso~] mkdir /mnt/boot</span><br><span class="line"><span class="comment"># 挂载boot分区</span></span><br><span class="line">[root@archiso~] mount /dev/sdxn /mnt/boot</span><br></pre></td></tr></table></figure>
+<h4 id="更换软件源"><a href="#更换软件源" class="headerlink" title="更换软件源"></a>更换软件源</h4><p>使用reflector来获取速度最快的6个镜像，并将地址保存至/etc/pacman.d/mirrorlist</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@archiso~] reflector -c China -a 6 --sort rate --save /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure>
+<h3 id="3-安装系统"><a href="#3-安装系统" class="headerlink" title="3.安装系统"></a>3.安装系统</h3><p>执行:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@archiso~] pacstrap -i /mnt base base-devel linux linux-firmware</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>安装完系统后会在/mnt/boot下生成几个文件。这对下面配置grub引导文件至关重要，下面生成grub配置文件时会扫描这几个文件</p>
+</blockquote>
+<h3 id="4-配置系统"><a href="#4-配置系统" class="headerlink" title="4.配置系统"></a>4.配置系统</h3><h4 id="1-配置fstab"><a href="#1-配置fstab" class="headerlink" title="(1)配置fstab"></a>(1)配置fstab</h4><p>执行:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@archiso~] genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</span><br></pre></td></tr></table></figure>
+<h4 id="2-切换到新系统"><a href="#2-切换到新系统" class="headerlink" title="(2)切换到新系统"></a>(2)切换到新系统</h4><p>执行:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@archiso~] arch-chroot /mnt</span><br><span class="line">[root@archiso~] pacman -S vim <span class="comment">#安装vim</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-进行本地语言设置"><a href="#3-进行本地语言设置" class="headerlink" title="(3)进行本地语言设置"></a>(3)进行本地语言设置</h4><p>执行:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@archiso~] vim /etc/locale.gen</span><br></pre></td></tr></table></figure>
+<p>反注释（删掉前面的#）<br>en_US.UTF-8 UTF-8<br>zh_CN.UTF-8 UTF-8<br>这两个，退出保存<br>执行：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@archiso~] locale-gen</span><br></pre></td></tr></table></figure>
+<p>执行：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@archiso~] <span class="built_in">echo</span> LANG=en_US.UTF-8 &gt; /etc/locale.conf</span><br></pre></td></tr></table></figure>
+<h4 id="4-设置时区"><a href="#4-设置时区" class="headerlink" title="(4)设置时区"></a>(4)设置时区</h4><p>执行:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@archiso~] ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure>
+<p>设置时区。<br>执行:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@archiso~] hwclock --systohc --utc</span><br></pre></td></tr></table></figure>
+<h4 id="5-设置主机名和网络"><a href="#5-设置主机名和网络" class="headerlink" title="(5)设置主机名和网络"></a>(5)设置主机名和网络</h4><p>设置主机名：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@archiso~] vim /etc/hostname</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>主机名<br>~<br>~<br>~</p>
+</blockquote>
+<p>设置网络：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@archiso~] vim /etc/hosts</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>127.0.0.1&emsp;&emsp;localhost<br>::1&emsp;&emsp;&emsp;&emsp;&emsp;localhost<br>127.0.0.1&emsp;&emsp;主机名.localdomain&emsp;&emsp;主机名</p>
+</blockquote>
+<p>设置网络DNS</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@archiso~] vim /etc/resolv.conf.head</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>nameserver&emsp;&emsp;218.2.2.2&emsp;—江苏电信<br>nameserver&emsp;&emsp;223.5.5.5&emsp;—阿里</p>
+</blockquote>
+<h4 id="6-安装网络工具"><a href="#6-安装网络工具" class="headerlink" title="(6)安装网络工具"></a>(6)安装网络工具</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@archiso~] pacman -S dhcpcd</span><br><span class="line">[root@archiso~] systemctl start dhcpcd</span><br><span class="line">[root@archiso~] systemctl <span class="built_in">enable</span> dhcpcd</span><br></pre></td></tr></table></figure>
+<h3 id="5-引导系统"><a href="#5-引导系统" class="headerlink" title="5.引导系统"></a>5.引导系统</h3><p>GRUB进行UEFI引导<br>执行：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@archiso~] pacman -S dosfstools grub efibootmgr</span><br></pre></td></tr></table></figure>
+<p>安装引导工具</p>
+<p>执行:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@archiso~] grub-install --target=x86_64-efi --efi-directory=/boot   --bootloader-id=Arch</span><br></pre></td></tr></table></figure>
+<p>进行安装grub</p>
+<p>执行：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@archiso~] grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
+<p>进行配置grub</p>
+<h3 id="6-用户管理"><a href="#6-用户管理" class="headerlink" title="6.用户管理"></a>6.用户管理</h3><h4 id="（1）设置root密码"><a href="#（1）设置root密码" class="headerlink" title="（1）设置root密码"></a>（1）设置root密码</h4><p>执行:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@archiso~] passwd</span><br></pre></td></tr></table></figure>
+<h4 id="（2）添加用户"><a href="#（2）添加用户" class="headerlink" title="（2）添加用户"></a>（2）添加用户</h4><p>执行：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@archiso~] useradd -m -G wheel 用户名</span><br></pre></td></tr></table></figure>
+<p>（务必添加一个 用户 ，否则后面sddm显示管理器登录的时候无法登录，sddm不会列出root用户）<br>执行：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@archiso~] passwd 用户名</span><br></pre></td></tr></table></figure>
+<p>为刚才添加的用户设置密码</p>
+<h4 id="3-给用户添加权限"><a href="#3-给用户添加权限" class="headerlink" title="(3) 给用户添加权限"></a>(3) 给用户添加权限</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@archiso~] ln -S /usr/bin/vim /usr/bin/vi </span><br><span class="line">[root@archiso~] visudo</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>%wheel All=(All)All “去掉这句话前的‘#’符号”</p>
+</blockquote>
+<h3 id="7-退出chroot重启"><a href="#7-退出chroot重启" class="headerlink" title="7.退出chroot重启"></a>7.退出chroot重启</h3><p>执行：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@archiso~] <span class="built_in">exit</span></span><br><span class="line">[root@archiso~] reboot</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>Linux学习</tag>
+        <tag>ArchLinux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Arch双系统安装</title>
+    <url>/2020/12/15/Arch%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Git+Nginx搭建远程Web服务器</title>
+    <url>/2021/01/02/Git+Nginx%E6%90%AD%E5%BB%BA%E8%BF%9C%E7%A8%8BWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
+    <content><![CDATA[<h2 id="Git-Nginx搭建远程Web服务器"><a href="#Git-Nginx搭建远程Web服务器" class="headerlink" title="Git+Nginx搭建远程Web服务器"></a>Git+Nginx搭建远程Web服务器</h2><h3 id="一、服务器端配置"><a href="#一、服务器端配置" class="headerlink" title="一、服务器端配置"></a>一、服务器端配置</h3><h4 id="1-创建git文件夹用于存放网站文件"><a href="#1-创建git文件夹用于存放网站文件" class="headerlink" title="1. 创建git文件夹用于存放网站文件"></a>1. 创建git文件夹用于存放网站文件</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span></span><br><span class="line">$ mkdir .myblog</span><br><span class="line">$ <span class="built_in">cd</span> .myblog/</span><br><span class="line">$ git init --bare</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/01/02/Git+Nginx%E6%90%AD%E5%BB%BA%E8%BF%9C%E7%A8%8BWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/01.png"></p>
+<h4 id="2-在服务器选择一个放置网站的目录，假设这个目录为-var-www-myblog"><a href="#2-在服务器选择一个放置网站的目录，假设这个目录为-var-www-myblog" class="headerlink" title="2. 在服务器选择一个放置网站的目录，假设这个目录为/var/www/myblog"></a>2. 在服务器选择一个放置网站的目录，假设这个目录为/var/www/myblog</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ mkdir -p /var/www/myblog</span><br><span class="line">$ <span class="built_in">cd</span> /var/www/</span><br><span class="line">$ git <span class="built_in">clone</span> ~/.myblog myblog</span><br></pre></td></tr></table></figure>
+<h4 id="3-自动部署"><a href="#3-自动部署" class="headerlink" title="3. 自动部署"></a>3. 自动部署</h4><p>git 有个功能叫做hook，也就是说在我们提交代码的时候会触发一些操作，这就是hook Git的挂钩（Hook）主要包含：</p>
+<p>applypatch-msg post-update pre-rebase commit-msg pre-applypatch update post-commit pre-commit post-receive prepare-commit-msg</p>
+<p>我们要用到的是post-update这个hook 进入到我们的git服务器的文件夹~/.myblog/hooks 进入到hook文件夹 使用ls命令可以看到许多hook脚本的sample<br><img src="/2021/01/02/Git+Nginx%E6%90%AD%E5%BB%BA%E8%BF%9C%E7%A8%8BWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-02%20%E4%B8%8B%E5%8D%884.33.40.png"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/.myblog/hooks</span><br><span class="line">$ vim post-update</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/01/02/Git+Nginx%E6%90%AD%E5%BB%BA%E8%BF%9C%E7%A8%8BWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-02%20%E4%B8%8B%E5%8D%884.35.39.png"><br>新建一个post-update脚本 输入以下命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="built_in">cd</span> /var/www/myblog</span><br><span class="line">env -i git pull</span><br></pre></td></tr></table></figure>
+<p>给新建的post-update赋予权限</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ chmod +x post-update</span><br></pre></td></tr></table></figure>
+<h4 id="4-配置nginx"><a href="#4-配置nginx" class="headerlink" title="4..配置nginx"></a>4..配置nginx</h4><p>编辑nginx的配置文件/etc/nginx/sites-available</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo vim /etc/nginx/sites-available/default</span><br><span class="line"></span><br><span class="line"><span class="comment">###### 编辑以下内容:</span></span><br><span class="line">server &#123;</span><br><span class="line">	listen 80 default_server;</span><br><span class="line">	listen [::]:80 default_server;</span><br><span class="line"></span><br><span class="line">	<span class="comment"># SSL configuration</span></span><br><span class="line">	<span class="comment">#</span></span><br><span class="line">	<span class="comment"># listen 443 ssl default_server;</span></span><br><span class="line">	<span class="comment"># listen [::]:443 ssl default_server;</span></span><br><span class="line">	<span class="comment">#</span></span><br><span class="line">	<span class="comment"># Note: You should disable gzip for SSL traffic.</span></span><br><span class="line">	<span class="comment"># See: https://bugs.debian.org/773332</span></span><br><span class="line">	<span class="comment">#</span></span><br><span class="line">	<span class="comment"># Read up on ssl_ciphers to ensure a secure configuration.</span></span><br><span class="line">	<span class="comment"># See: https://bugs.debian.org/765782</span></span><br><span class="line">	<span class="comment">#</span></span><br><span class="line">	<span class="comment"># Self signed certs generated by the ssl-cert package</span></span><br><span class="line">	<span class="comment"># Don&#x27;t use them in a production server!</span></span><br><span class="line">	<span class="comment">#</span></span><br><span class="line">	<span class="comment"># include snippets/snakeoil.conf;</span></span><br><span class="line"></span><br><span class="line">	root /var/www/myblog;</span><br><span class="line"></span><br><span class="line">	<span class="comment"># Add index.php to the list if you are using PHP</span></span><br><span class="line">	index index.html index.htm index.nginx-debian.html;</span><br><span class="line"></span><br><span class="line">	server_name _;</span><br><span class="line"></span><br><span class="line">	location / &#123;</span><br><span class="line">		<span class="comment"># First attempt to serve request as file, then</span></span><br><span class="line">		<span class="comment"># as directory, then fall back to displaying a 404.</span></span><br><span class="line">		try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ =404;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/01/02/Git+Nginx%E6%90%AD%E5%BB%BA%E8%BF%9C%E7%A8%8BWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-02%20%E4%B8%8B%E5%8D%884.42.11.png"><br>这里主要修改server_name为你的域名 修改root目录为hexo静态文件的目录,以上面目录举例/var/www/myblog要注意nginx需要有该目录的文件读取权限</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo chown -R pi:pi /var/www</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/01/02/Git+Nginx%E6%90%AD%E5%BB%BA%E8%BF%9C%E7%A8%8BWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-02%20%E4%B8%8B%E5%8D%884.48.56.png"><br>重启nginx:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo nginx -s reload</span><br></pre></td></tr></table></figure>
+<h4 id="服务端配置完成！！！"><a href="#服务端配置完成！！！" class="headerlink" title="服务端配置完成！！！"></a>服务端配置完成！！！</h4><h3 id="二、客户端配置"><a href="#二、客户端配置" class="headerlink" title="二、客户端配置"></a>二、客户端配置</h3><h4 id="1-通过ssh秘钥和树莓派建立连接"><a href="#1-通过ssh秘钥和树莓派建立连接" class="headerlink" title="1. 通过ssh秘钥和树莓派建立连接"></a>1. 通过ssh秘钥和树莓派建立连接</h4><p><a href="./2020/12/31/SSH%E7%A7%98%E9%92%A5%E5%AE%89%E8%A3%85%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/index.html">SSH秘钥连接到服务器</a></p>
+<h4 id="2-配置public推送"><a href="#2-配置public推送" class="headerlink" title="2. 配置public推送"></a>2. 配置public推送</h4><p>由于树莓派性能不强劲，所以采用在本机用hexo生成public文件夹。用git提交生成好的public文件夹到树莓派。具体提交方法采用hexo的hexo-deployer-git插件。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> myblog</span><br><span class="line">$ vim _config.yml</span><br></pre></td></tr></table></figure>
+<p>将deploy配置下的repo参数改为刚刚在树莓派上新建的.myblog路径。<br><img src="/2021/01/02/Git+Nginx%E6%90%AD%E5%BB%BA%E8%BF%9C%E7%A8%8BWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-02%20%E4%B8%8B%E5%8D%884.22.15.png"><br>每次维护完项目后输入: hexo d 即可完成推送。<br><img src="/2021/01/02/Git+Nginx%E6%90%AD%E5%BB%BA%E8%BF%9C%E7%A8%8BWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-02%20%E4%B8%8B%E5%8D%884.52.59.png"></p>
+<h5 id="大功告成！！！"><a href="#大功告成！！！" class="headerlink" title="大功告成！！！"></a>大功告成！！！</h5><p>最后附上成果图:<br><img src="/2021/01/02/Git+Nginx%E6%90%AD%E5%BB%BA%E8%BF%9C%E7%A8%8BWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-02%20%E4%B8%8B%E5%8D%884.55.51.png"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Hexo框架搭建个人博客</title>
+    <url>/2021/01/02/Hexo%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h2 id="Hexo框架搭建个人博客"><a href="#Hexo框架搭建个人博客" class="headerlink" title="Hexo框架搭建个人博客"></a>Hexo框架搭建个人博客</h2><h3 id="一、安装Hexo"><a href="#一、安装Hexo" class="headerlink" title="一、安装Hexo"></a>一、安装Hexo</h3><h4 id="使用cnpm切换到淘宝源安装"><a href="#使用cnpm切换到淘宝源安装" class="headerlink" title="使用cnpm切换到淘宝源安装"></a>使用cnpm切换到淘宝源安装</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">安装cnpm并切换到淘宝源:</span><br><span class="line">sudo npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/01/02/Hexo%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-12-31%20%E4%B8%8A%E5%8D%8811.11.14.png"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">用cnpm安装hexo:</span><br><span class="line">sudo cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/01/02/Hexo%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-12-31%20%E4%B8%8A%E5%8D%8811.15.26.png"></p>
+<h6 id="至此hexo安装完成"><a href="#至此hexo安装完成" class="headerlink" title="至此hexo安装完成"></a>至此hexo安装完成</h6><h3 id="二、Hexo框架的基本使用"><a href="#二、Hexo框架的基本使用" class="headerlink" title="二、Hexo框架的基本使用"></a>二、Hexo框架的基本使用</h3><h5 id="1-新建或打开项目文件夹"><a href="#1-新建或打开项目文件夹" class="headerlink" title="1. 新建或打开项目文件夹"></a>1. 新建或打开项目文件夹</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span></span><br><span class="line">$ mkdir blog</span><br><span class="line">$ <span class="built_in">cd</span> blog</span><br></pre></td></tr></table></figure>
+<h5 id="2-初始化项目"><a href="#2-初始化项目" class="headerlink" title="2. 初始化项目"></a>2. 初始化项目</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo hexo init</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/01/02/Hexo%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-12-31%20%E4%B8%8A%E5%8D%8811.41.10.png"></p>
+<h5 id="3-创建文章"><a href="#3-创建文章" class="headerlink" title="3. 创建文章"></a>3. 创建文章</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo hexo n <span class="string">&quot;文章名称&quot;</span>  <span class="comment">#其中的n表示new</span></span><br></pre></td></tr></table></figure>
+<p><img src="/2021/01/02/Hexo%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-12-31%20%E4%B8%8A%E5%8D%8811.43.49.png"></p>
+<h5 id="4-启动博客-本地展示预览"><a href="#4-启动博客-本地展示预览" class="headerlink" title="4. 启动博客(本地展示预览)"></a>4. 启动博客(本地展示预览)</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo s            <span class="comment">#其中的s表示server</span></span><br></pre></td></tr></table></figure>
+<p><img src="/2021/01/02/Hexo%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-12-31%20%E4%B8%8A%E5%8D%8811.44.36.png"></p>
+<h6 id="可以打开浏览器进入-http-localhost-4000-进行预览"><a href="#可以打开浏览器进入-http-localhost-4000-进行预览" class="headerlink" title="可以打开浏览器进入 http://localhost:4000 进行预览"></a>可以打开浏览器进入 <a href="http://localhost:4000/">http://localhost:4000</a> 进行预览</h6><p><img src="/2021/01/02/Hexo%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-12-31%20%E4%B8%8A%E5%8D%8811.46.17.png"></p>
+<h5 id="5-文章路径（位置）"><a href="#5-文章路径（位置）" class="headerlink" title="5. 文章路径（位置）"></a>5. 文章路径（位置）</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ls ~/blog/<span class="built_in">source</span>/_posts/</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/01/02/Hexo%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-12-31%20%E4%B8%8A%E5%8D%8811.49.54.png"></p>
+<h5 id="6-生成文章（generate）"><a href="#6-生成文章（generate）" class="headerlink" title="6. 生成文章（generate）"></a>6. 生成文章（generate）</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/01/02/Hexo%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-12-31%20%E4%B8%8A%E5%8D%8811.48.11.png"></p>
+<h5 id="7-清理缓存"><a href="#7-清理缓存" class="headerlink" title="7. 清理缓存"></a>7. 清理缓存</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/blog</span><br><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/01/02/Hexo%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-12-31%20%E4%B8%8A%E5%8D%8811.51.10.png"></p>
+<h3 id="三、Hexo的一些插件"><a href="#三、Hexo的一些插件" class="headerlink" title="三、Hexo的一些插件"></a>三、Hexo的一些插件</h3><h4 id="插入图片插件"><a href="#插入图片插件" class="headerlink" title="插入图片插件"></a>插入图片插件</h4><h5 id="1-安装插件，在hexo根目录打开Git-Bash-执行"><a href="#1-安装插件，在hexo根目录打开Git-Bash-执行" class="headerlink" title="1.安装插件，在hexo根目录打开Git Bash,执行"></a>1.安装插件，在hexo根目录打开Git Bash,执行</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+<h5 id="2-打开hexo的配置文件-config-yml找到-post-asset-folder，把这个选项从false改成true"><a href="#2-打开hexo的配置文件-config-yml找到-post-asset-folder，把这个选项从false改成true" class="headerlink" title="2. 打开hexo的配置文件_config.yml找到 post_asset_folder，把这个选项从false改成true"></a>2. 打开hexo的配置文件_config.yml找到 post_asset_folder，把这个选项从false改成true</h5><h5 id="3-打开"><a href="#3-打开" class="headerlink" title="3.打开"></a>3.打开</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/node_modules/hexo-asset-image/index.js</span><br></pre></td></tr></table></figure>
+<p>将内容更换为下面的代码</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="string">&#x27;use strict&#x27;</span>;</span><br><span class="line">var cheerio = require(<span class="string">&#x27;cheerio&#x27;</span>);</span><br><span class="line"></span><br><span class="line">// http://stackoverflow.com/questions/14480345/how-to-get-the-nth-occurrence-in-a-string</span><br><span class="line"><span class="keyword">function</span> getPosition(str, m, i) &#123;</span><br><span class="line">  <span class="built_in">return</span> str.split(m, i).join(m).length;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var version = String(hexo.version).split(<span class="string">&#x27;.&#x27;</span>);</span><br><span class="line">hexo.extend.filter.register(<span class="string">&#x27;after_post_render&#x27;</span>, <span class="keyword">function</span>(data)&#123;</span><br><span class="line">  var config = hexo.config;</span><br><span class="line">  <span class="keyword">if</span>(config.post_asset_folder)&#123;</span><br><span class="line">        var link = data.permalink;</span><br><span class="line">    <span class="keyword">if</span>(version.length &gt; 0 &amp;&amp; Number(version[0]) == 3)</span><br><span class="line">       var beginPos = getPosition(link, <span class="string">&#x27;/&#x27;</span>, 1) + 1;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">       var beginPos = getPosition(link, <span class="string">&#x27;/&#x27;</span>, 3) + 1;</span><br><span class="line">    // In hexo 3.1.1, the permalink of <span class="string">&quot;about&quot;</span> page is like <span class="string">&quot;.../about/index.html&quot;</span>.</span><br><span class="line">    var endPos = link.lastIndexOf(<span class="string">&#x27;/&#x27;</span>) + 1;</span><br><span class="line">    link = link.substring(beginPos, endPos);</span><br><span class="line"></span><br><span class="line">    var toprocess = [<span class="string">&#x27;excerpt&#x27;</span>, <span class="string">&#x27;more&#x27;</span>, <span class="string">&#x27;content&#x27;</span>];</span><br><span class="line">    <span class="keyword">for</span>(var i = 0; i &lt; toprocess.length; i++)&#123;</span><br><span class="line">      var key = toprocess[i];</span><br><span class="line"> </span><br><span class="line">      var $ = cheerio.load(data[key], &#123;</span><br><span class="line">        ignoreWhitespace: <span class="literal">false</span>,</span><br><span class="line">        xmlMode: <span class="literal">false</span>,</span><br><span class="line">        lowerCaseTags: <span class="literal">false</span>,</span><br><span class="line">        decodeEntities: <span class="literal">false</span></span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">      $(<span class="string">&#x27;img&#x27;</span>).each(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        <span class="keyword">if</span> ($(this).attr(<span class="string">&#x27;src&#x27;</span>))&#123;</span><br><span class="line">            // For windows style path, we replace <span class="string">&#x27;\&#x27;</span> to <span class="string">&#x27;/&#x27;</span>.</span><br><span class="line">            var src = $(this).attr(<span class="string">&#x27;src&#x27;</span>).replace(<span class="string">&#x27;\\&#x27;</span>, <span class="string">&#x27;/&#x27;</span>);</span><br><span class="line">            <span class="keyword">if</span>(!/http[s]*.*|\/\/.*/.<span class="built_in">test</span>(src) &amp;&amp;</span><br><span class="line">               !/^\s*\//.<span class="built_in">test</span>(src)) &#123;</span><br><span class="line">              // For <span class="string">&quot;about&quot;</span> page, the first part of <span class="string">&quot;src&quot;</span> can<span class="string">&#x27;t be removed.</span></span><br><span class="line"><span class="string">              // In addition, to support multi-level local directory.</span></span><br><span class="line"><span class="string">              var linkArray = link.split(&#x27;</span>/<span class="string">&#x27;).filter(function(elem)&#123;</span></span><br><span class="line"><span class="string">                return elem != &#x27;</span><span class="string">&#x27;;</span></span><br><span class="line"><span class="string">              &#125;);</span></span><br><span class="line"><span class="string">              var srcArray = src.split(&#x27;</span>/<span class="string">&#x27;).filter(function(elem)&#123;</span></span><br><span class="line"><span class="string">                return elem != &#x27;</span><span class="string">&#x27; &amp;&amp; elem != &#x27;</span>.<span class="string">&#x27;;</span></span><br><span class="line"><span class="string">              &#125;);</span></span><br><span class="line"><span class="string">              if(srcArray.length &gt; 1)</span></span><br><span class="line"><span class="string">                srcArray.shift();</span></span><br><span class="line"><span class="string">              src = srcArray.join(&#x27;</span>/<span class="string">&#x27;);</span></span><br><span class="line"><span class="string">              $(this).attr(&#x27;</span>src<span class="string">&#x27;, config.root + link + src);</span></span><br><span class="line"><span class="string">              console.info&amp;&amp;console.info(&quot;update link as:--&gt;&quot;+config.root + link + src);</span></span><br><span class="line"><span class="string">            &#125;</span></span><br><span class="line"><span class="string">        &#125;else&#123;</span></span><br><span class="line"><span class="string">            console.info&amp;&amp;console.info(&quot;no src attr, skipped...&quot;);</span></span><br><span class="line"><span class="string">            console.info&amp;&amp;console.info($(this));</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">      &#125;);</span></span><br><span class="line"><span class="string">      data[key] = $.html();</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">&#125;);</span></span><br></pre></td></tr></table></figure>
+<h5 id="4-现在就可以插入图片了，比如hexo-new-post-photo之后就在source-posts生成photo-md文件和photo文件夹，我们把要插入的图片复制到photo文件夹内就好了。"><a href="#4-现在就可以插入图片了，比如hexo-new-post-photo之后就在source-posts生成photo-md文件和photo文件夹，我们把要插入的图片复制到photo文件夹内就好了。" class="headerlink" title="4.现在就可以插入图片了，比如hexo new post photo之后就在source/_posts生成photo.md文件和photo文件夹，我们把要插入的图片复制到photo文件夹内就好了。"></a>4.现在就可以插入图片了，比如hexo new post photo之后就在source/_posts生成photo.md文件和photo文件夹，我们把要插入的图片复制到photo文件夹内就好了。</h5><h4 id="Hexo下Git代码提交插件-–-hexo-deployer-git"><a href="#Hexo下Git代码提交插件-–-hexo-deployer-git" class="headerlink" title="Hexo下Git代码提交插件 – hexo-deployer-git"></a>Hexo下Git代码提交插件 – hexo-deployer-git</h4><ol>
+<li>输入以下命令安装插件<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></li>
+<li>修改配置：_config.yml<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: &lt;repository url&gt; <span class="comment">#仓库地址</span></span><br><span class="line">  branch: [branch]       <span class="comment">#分支</span></span><br><span class="line">  message: [message]     <span class="comment">#描述</span></span><br></pre></td></tr></table></figure>
+<img src="/2021/01/02/Hexo%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-02%20%E4%B8%8A%E5%8D%8810.00.51.png"></li>
+<li>生成站点文件并推送至远程库。执行 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo deploy</span><br></pre></td></tr></table></figure></li>
+<li>登入 Github/BitBucket/Gitlab，请在库设置（Repository Settings）中将默认分支设置为_config.yml配置中的分支名称。稍等片刻，您的站点就会显示在您的Github Pages中。<h5 id="这一切是如何发生的？"><a href="#这一切是如何发生的？" class="headerlink" title="这一切是如何发生的？"></a>这一切是如何发生的？</h5>当执行 hexo deploy 时，Hexo 会将 public 目录中的文件和目录推送至 _config.yml 中指定的远端仓库和分支中，并且完全覆盖该分支下的已有内容。<h4 id="Hexo主题安装"><a href="#Hexo主题安装" class="headerlink" title="Hexo主题安装"></a>Hexo主题安装</h4></li>
+<li>进入博客所在的文件夹<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> myblog  <span class="comment">#我的博客项目名称为myblog</span></span><br></pre></td></tr></table></figure></li>
+<li>从我的gitee仓库中下载主题(gitee快)<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://gitee.com/Haikez/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+<img src="/2021/01/02/Hexo%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-02%20%E4%B8%8A%E5%8D%889.39.06.png"></li>
+<li>将blog目录下_config.yml里theme的名称由landscape修改为next<br><img src="/2021/01/02/Hexo%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-02%20%E4%B8%8A%E5%8D%889.41.49.png"></li>
+<li>清除hexo缓存使用命令：hexo clear，生成项目文件命令:hexo g,验证主题是否正确启用，命令为：hexo s –debug<br><img src="/2021/01/02/Hexo%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-02%20%E4%B8%8A%E5%8D%889.54.11.png"><h5 id="大功告成！！！"><a href="#大功告成！！！" class="headerlink" title="大功告成！！！"></a>大功告成！！！</h5></li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>SSH秘钥安装到服务器</title>
+    <url>/2020/12/31/SSH%E7%A7%98%E9%92%A5%E5%AE%89%E8%A3%85%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
+    <content><![CDATA[<h2 id="SSH秘钥安装到服务器"><a href="#SSH秘钥安装到服务器" class="headerlink" title="SSH秘钥安装到服务器"></a>SSH秘钥安装到服务器</h2><h3 id="一、本机秘钥生成"><a href="#一、本机秘钥生成" class="headerlink" title="一、本机秘钥生成"></a>一、本机秘钥生成</h3><p>终端输入:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh-keygen </span><br></pre></td></tr></table></figure>
+<p>执行这条命令后会在宿主目录内生成.ssh文件夹里面包含公钥和私钥<br><img src="/2020/12/31/SSH%E7%A7%98%E9%92%A5%E5%AE%89%E8%A3%85%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-12-31%20%E4%B8%8B%E5%8D%883.33.43.png"></p>
+<p>输入:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ cat id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>将显示的结果拷贝下来<br><img src="/2020/12/31/SSH%E7%A7%98%E9%92%A5%E5%AE%89%E8%A3%85%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-12-31%20%E4%B8%8B%E5%8D%883.36.29.png"></p>
+<h3 id="二、在服务器上安装秘钥"><a href="#二、在服务器上安装秘钥" class="headerlink" title="二、在服务器上安装秘钥"></a>二、在服务器上安装秘钥</h3><p>键入以下命令，在服务器上安装公钥：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> .ssh <span class="comment">#如没有.ssh文件夹请新建</span></span><br><span class="line">$ vim authorized_keys <span class="comment">#把刚刚拷贝的公钥粘贴到里面</span></span><br></pre></td></tr></table></figure>
+<p>如此便完成了公钥的安装。为了确保连接成功，请保证以下文件权限正确：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ chmod 600 authorized_keys</span><br><span class="line">$ chmod 700 ~/.ssh</span><br></pre></td></tr></table></figure>
+<h3 id="三、设置-SSH，打开密钥登录功能"><a href="#三、设置-SSH，打开密钥登录功能" class="headerlink" title="三、设置 SSH，打开密钥登录功能"></a>三、设置 SSH，打开密钥登录功能</h3><p>编辑 /etc/ssh/sshd_config 文件，进行如下设置：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">RSAAuthentication yes</span><br><span class="line">PubkeyAuthentication yes</span><br></pre></td></tr></table></figure>
+<p>另外，请留意 root 用户能否通过 SSH 登录：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PermitRootLogin yes</span><br></pre></td></tr></table></figure>
+<p>当你完成全部设置，并以密钥方式登录成功后，再禁用密码登录：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PasswordAuthentication no <span class="comment">#可不设置</span></span><br></pre></td></tr></table></figure>
+<p>最后，重启 SSH 服务：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ service sshd restart</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
+    <title>故事起源</title>
+    <url>/2020/12/14/%E6%95%85%E4%BA%8B%E8%B5%B7%E6%BA%90/</url>
+    <content><![CDATA[<h3 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;怀揣着对电脑的热爱以及喜欢折腾的癖好，省吃俭用几个月，于2020年11月15日剁手购入了一台咸鱼二手HP4540s笔记本电脑。从此开启了一段新的折腾旅程。</p>
+<h3 id="本次折腾的内容如下："><a href="#本次折腾的内容如下：" class="headerlink" title="本次折腾的内容如下："></a>本次折腾的内容如下：</h3><ul>
+<li>给电脑安装ArchLinux系统</li>
+<li>在原有的win7系统上配置Arch双系统</li>
+<li>给ArchLinux配置dwm窗口管理器</li>
+<li>动态窗口管理器和桌面环境的之间的切换</li>
+<li>配置美化一下你的dwm</li>
+<li>给电脑安装配置vim编辑器</li>
+<li>Oh-my-zsh一个比bash好用的Shell</li>
+</ul>
+<p>以上是一台电脑这太电脑刚入手时的基本配置，但并不是终极配置。终极配置是什么样子的？我的回答是我也不知道。生命不息，折腾不止！！！这套配置会持续地更新下去。每一步都是当前的最新配置。曾有人问我，折腾这个东西有什么🐦 用？一时间我也给不出答案，但当我的以一台黑苹果成功登入时。我想答案已经不言而喻了。我不求我折腾的这些东西会给我日常的学习生活带来哪些辉煌的成就。我只会去想折腾的最后彼岸依然花开。这是成长和学习的过程，在经历了一番风雨的洗礼之后会当凌绝顶！！！</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>树莓派系统安装和基本配置</title>
+    <url>/2020/12/30/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%92%8C%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h2 id="树莓派系统安装"><a href="#树莓派系统安装" class="headerlink" title="树莓派系统安装"></a>树莓派系统安装</h2><h3 id="需要的工具："><a href="#需要的工具：" class="headerlink" title="需要的工具："></a>需要的工具：</h3><ol>
+<li>树莓派一个</li>
+<li>8G以上SD卡一张</li>
+<li>读卡器</li>
+<li>电脑<h3 id="1-树莓派系统下载"><a href="#1-树莓派系统下载" class="headerlink" title="1. 树莓派系统下载:"></a>1. 树莓派系统下载:</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">系统下载地址:https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;raspberry-pi-os-images&#x2F;raspios_armhf&#x2F;images&#x2F;raspios_armhf-2020-12-04&#x2F;2020-12-02-raspios-buster-armhf.zip</span><br></pre></td></tr></table></figure>
+<h3 id="2-烧录树莓派系统"><a href="#2-烧录树莓派系统" class="headerlink" title="2. 烧录树莓派系统"></a>2. 烧录树莓派系统</h3><h4 id="需要的软件"><a href="#需要的软件" class="headerlink" title="需要的软件:"></a>需要的软件:</h4><img src="/2020/12/30/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%92%8C%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-12-30%20%E4%B8%8B%E5%8D%883.17.49.png"><h4 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址:"></a>下载地址:</h4><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">https:<span class="regexp">//</span>www.balena.io<span class="regexp">/etcher/</span></span><br></pre></td></tr></table></figure>
+<h4 id="烧录镜像"><a href="#烧录镜像" class="headerlink" title="烧录镜像:"></a>烧录镜像:</h4><img src="/2020/12/30/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%92%8C%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-12-30%20%E4%B8%8B%E5%8D%883.26.38.png"><h4 id="烧录完成后重新插拔读卡器"><a href="#烧录完成后重新插拔读卡器" class="headerlink" title="烧录完成后重新插拔读卡器"></a>烧录完成后重新插拔读卡器</h4><h3 id="3-开启ssh服务"><a href="#3-开启ssh服务" class="headerlink" title="3. 开启ssh服务"></a>3. 开启ssh服务</h3><h4 id="新建文件名为ssh的文件。"><a href="#新建文件名为ssh的文件。" class="headerlink" title="新建文件名为ssh的文件。"></a>新建文件名为ssh的文件。</h4><h4 id="将ssh文件拖入SD卡的boot分区。"><a href="#将ssh文件拖入SD卡的boot分区。" class="headerlink" title="将ssh文件拖入SD卡的boot分区。"></a>将ssh文件拖入SD卡的boot分区。</h4><h3 id="4-使树莓派开机自动连接Wi-Fi"><a href="#4-使树莓派开机自动连接Wi-Fi" class="headerlink" title="4. 使树莓派开机自动连接Wi-Fi"></a>4. 使树莓派开机自动连接Wi-Fi</h3><h4 id="新建名为wpa-supplicant-conf的文件。"><a href="#新建名为wpa-supplicant-conf的文件。" class="headerlink" title="新建名为wpa_supplicant.conf的文件。"></a>新建名为wpa_supplicant.conf的文件。</h4><h4 id="编辑文件内容为"><a href="#编辑文件内容为" class="headerlink" title="编辑文件内容为"></a>编辑文件内容为</h4><img src="/2020/12/30/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%92%8C%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-12-30%20%E4%B8%8B%E5%8D%883.37.27.png"><h4 id="将文件wpa-supplicant-conf拖入SD卡的boot分区。"><a href="#将文件wpa-supplicant-conf拖入SD卡的boot分区。" class="headerlink" title="将文件wpa_supplicant.conf拖入SD卡的boot分区。"></a>将文件wpa_supplicant.conf拖入SD卡的boot分区。</h4><h3 id="5-将SD卡插入树莓派开机即可"><a href="#5-将SD卡插入树莓派开机即可" class="headerlink" title="5. 将SD卡插入树莓派开机即可"></a>5. 将SD卡插入树莓派开机即可</h3></li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>树莓派配置花生壳内网穿透</title>
+    <url>/2020/12/31/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%85%8D%E7%BD%AE%E8%8A%B1%E7%94%9F%E5%A3%B3%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</url>
+    <content><![CDATA[<h2 id="树莓派配置花生壳内网穿透"><a href="#树莓派配置花生壳内网穿透" class="headerlink" title="树莓派配置花生壳内网穿透"></a>树莓派配置花生壳内网穿透</h2><h3 id="一、工具包下载"><a href="#一、工具包下载" class="headerlink" title="一、工具包下载"></a>一、工具包下载</h3><h4 id="下载工具包到树莓派"><a href="#下载工具包到树莓派" class="headerlink" title="下载工具包到树莓派:"></a>下载工具包到树莓派:</h4><figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line">下载地址<span class="symbol">:https</span><span class="symbol">://dl-cdn</span>.oray.com/hsk/linux/phtunnel_5_0_rapi_aarch64.deb</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/12/31/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%85%8D%E7%BD%AE%E8%8A%B1%E7%94%9F%E5%A3%B3%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-12-30%20%E4%B8%8B%E5%8D%883.53.29.png"><br><img src="/2020/12/31/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%85%8D%E7%BD%AE%E8%8A%B1%E7%94%9F%E5%A3%B3%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-12-30%20%E4%B8%8B%E5%8D%883.55.43.png"></p>
+<h3 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h3><p>注意：安装花生壳前，需输入命令：sudo -s 切换到管理员权限。<br><img src="/2020/12/31/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%85%8D%E7%BD%AE%E8%8A%B1%E7%94%9F%E5%A3%B3%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/2020-12-30-16-10-17.png"></p>
+<h4 id="1、使用cd命令进入安装包所在的文件路径，输入安装命令：dpkg-i-安装包名称。回车，等待安装完成。"><a href="#1、使用cd命令进入安装包所在的文件路径，输入安装命令：dpkg-i-安装包名称。回车，等待安装完成。" class="headerlink" title="1、使用cd命令进入安装包所在的文件路径，输入安装命令：dpkg -i 安装包名称。回车，等待安装完成。"></a>1、使用cd命令进入安装包所在的文件路径，输入安装命令：dpkg -i 安装包名称。回车，等待安装完成。</h4><p>如:dpkg -i phtunnel_5_0_rapi_aarch64.deb<br>安装成功后，将显示花生壳的SN码、默认密码（admin）及远程管理地址<a href="http://b.oray.com./">http://b.oray.com。</a><br><img src="/2020/12/31/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%85%8D%E7%BD%AE%E8%8A%B1%E7%94%9F%E5%A3%B3%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/2020-12-30-16-16-07.png"></p>
+<h3 id="三、操作功能"><a href="#三、操作功能" class="headerlink" title="三、操作功能"></a>三、操作功能</h3><h4 id="1、输入命令：phddns回车，可以看到扩展功能。phddns-start（启动）-status（状态）-stop（停止）-restart（重启）-reset（重置）-enable（开机自启动）-disable（关闭开机自启动）-version（版本）"><a href="#1、输入命令：phddns回车，可以看到扩展功能。phddns-start（启动）-status（状态）-stop（停止）-restart（重启）-reset（重置）-enable（开机自启动）-disable（关闭开机自启动）-version（版本）" class="headerlink" title="1、输入命令：phddns回车，可以看到扩展功能。phddns start（启动）| status（状态）| stop（停止）|restart（重启）| reset（重置）|enable（开机自启动）|disable（关闭开机自启动）|version（版本）"></a>1、输入命令：phddns回车，可以看到扩展功能。phddns start（启动）| status（状态）| stop（停止）|restart（重启）| reset（重置）|enable（开机自启动）|disable（关闭开机自启动）|version（版本）</h4><p><img src="/2020/12/31/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%85%8D%E7%BD%AE%E8%8A%B1%E7%94%9F%E5%A3%B3%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/2020-12-30-16-12-17.png"></p>
+<h4 id="2、具体命令操作如下："><a href="#2、具体命令操作如下：" class="headerlink" title="2、具体命令操作如下："></a>2、具体命令操作如下：</h4><p><img src="/2020/12/31/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%85%8D%E7%BD%AE%E8%8A%B1%E7%94%9F%E5%A3%B3%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/2020-12-30-16-12-23.png"></p>
+<h4 id="3、日志文件存放路径：-var-log-phddns"><a href="#3、日志文件存放路径：-var-log-phddns" class="headerlink" title="3、日志文件存放路径：/var/log/phddns"></a>3、日志文件存放路径：/var/log/phddns</h4><p><img src="/2020/12/31/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%85%8D%E7%BD%AE%E8%8A%B1%E7%94%9F%E5%A3%B3%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/2020-12-30-16-12-28.png"></p>
+<h4 id="4、卸载命令：dpkg-r-phddns"><a href="#4、卸载命令：dpkg-r-phddns" class="headerlink" title="4、卸载命令：dpkg -r phddns"></a>4、卸载命令：dpkg -r phddns</h4><p><img src="/2020/12/31/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%85%8D%E7%BD%AE%E8%8A%B1%E7%94%9F%E5%A3%B3%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/2020-12-30-16-12-35.png"></p>
+<h3 id="四、添加内网穿透映射"><a href="#四、添加内网穿透映射" class="headerlink" title="四、添加内网穿透映射"></a>四、添加内网穿透映射</h3><h4 id="1、树莓派中的花生壳安装完成后，先复制生成的SN码。然后在浏览器中访问远程管理地址http-b-oray-com-，在登录页面中输入SN码与默认密码（admin）登录。"><a href="#1、树莓派中的花生壳安装完成后，先复制生成的SN码。然后在浏览器中访问远程管理地址http-b-oray-com-，在登录页面中输入SN码与默认密码（admin）登录。" class="headerlink" title="1、树莓派中的花生壳安装完成后，先复制生成的SN码。然后在浏览器中访问远程管理地址http://b.oray.com ，在登录页面中输入SN码与默认密码（admin）登录。"></a>1、树莓派中的花生壳安装完成后，先复制生成的SN码。然后在浏览器中访问远程管理地址<a href="http://b.oray.com/">http://b.oray.com</a> ，在登录页面中输入SN码与默认密码（admin）登录。</h4><p><img src="/2020/12/31/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%85%8D%E7%BD%AE%E8%8A%B1%E7%94%9F%E5%A3%B3%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/2020-12-30-16-12-42.png"></p>
+<h4 id="2、首次登录，需先激活。提供扫码激活和密码激活两种方式，可灵活选择。"><a href="#2、首次登录，需先激活。提供扫码激活和密码激活两种方式，可灵活选择。" class="headerlink" title="2、首次登录，需先激活。提供扫码激活和密码激活两种方式，可灵活选择。"></a>2、首次登录，需先激活。提供扫码激活和密码激活两种方式，可灵活选择。</h4><p>①扫码激活：需使用花生壳管理APP或微信进行扫码激活；<br>②密码激活：输入已注册的Oray帐号密码激活。<br><img src="/2020/12/31/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%85%8D%E7%BD%AE%E8%8A%B1%E7%94%9F%E5%A3%B3%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/2020-12-30-16-12-51.png"><br><img src="/2020/12/31/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%85%8D%E7%BD%AE%E8%8A%B1%E7%94%9F%E5%A3%B3%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/2020-12-30-16-12-56.png"></p>
+<h4 id="3、激活成功后，进入花生壳管理平台。若绑定SN码的帐号只有动态域名解析功能，需使用内网穿透功能时，可点击“免费开通”，或直接将帐号升级到带内网穿透功能的服务版本。"><a href="#3、激活成功后，进入花生壳管理平台。若绑定SN码的帐号只有动态域名解析功能，需使用内网穿透功能时，可点击“免费开通”，或直接将帐号升级到带内网穿透功能的服务版本。" class="headerlink" title="3、激活成功后，进入花生壳管理平台。若绑定SN码的帐号只有动态域名解析功能，需使用内网穿透功能时，可点击“免费开通”，或直接将帐号升级到带内网穿透功能的服务版本。"></a>3、激活成功后，进入花生壳管理平台。若绑定SN码的帐号只有动态域名解析功能，需使用内网穿透功能时，可点击“免费开通”，或直接将帐号升级到带内网穿透功能的服务版本。</h4><p><img src="/2020/12/31/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%85%8D%E7%BD%AE%E8%8A%B1%E7%94%9F%E5%A3%B3%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/2020-12-30-16-13-01.png"></p>
+<h4 id="4、还可把鼠标移动到页面右上角帐号处，点击“切换帐号”更换带内网穿透功能的帐号登录使用。"><a href="#4、还可把鼠标移动到页面右上角帐号处，点击“切换帐号”更换带内网穿透功能的帐号登录使用。" class="headerlink" title="4、还可把鼠标移动到页面右上角帐号处，点击“切换帐号”更换带内网穿透功能的帐号登录使用。"></a>4、还可把鼠标移动到页面右上角帐号处，点击“切换帐号”更换带内网穿透功能的帐号登录使用。</h4><p><img src="/2020/12/31/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%85%8D%E7%BD%AE%E8%8A%B1%E7%94%9F%E5%A3%B3%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/2020-12-30-16-13-05.png"></p>
+<h4 id="5、添加内网穿透映射时，点击页面上的“增加映射”按钮。"><a href="#5、添加内网穿透映射时，点击页面上的“增加映射”按钮。" class="headerlink" title="5、添加内网穿透映射时，点击页面上的“增加映射”按钮。"></a>5、添加内网穿透映射时，点击页面上的“增加映射”按钮。</h4><p><img src="/2020/12/31/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%85%8D%E7%BD%AE%E8%8A%B1%E7%94%9F%E5%A3%B3%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/2020-12-30-16-13-11.png"></p>
+<h4 id="6、根据页面提示填写映射所需的信息，这里以映射树莓派的SSH服务"><a href="#6、根据页面提示填写映射所需的信息，这里以映射树莓派的SSH服务" class="headerlink" title="6、根据页面提示填写映射所需的信息，这里以映射树莓派的SSH服务"></a>6、根据页面提示填写映射所需的信息，这里以映射树莓派的SSH服务</h4><p>（10022端口）为例：<br>①应用名称：自定义<br>②应用图标：自行选择<br>③映射类型：选择TCP<br>④映射模板：暂不选择模板<br>⑤外网域名：选择用作外网访问的域名<br>⑥外网端口：选择动态端口<br>⑦内网主机：树莓派设备的内网IP地址<br>⑧内网端口：映射的服务类型对应端口10022<br>⑨带宽：购买映射带宽后，可支持给映射分配额外带宽，这里保存默认。<br>确认映射内容无误后，点击“确定”。<br><img src="/2020/12/31/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%85%8D%E7%BD%AE%E8%8A%B1%E7%94%9F%E5%A3%B3%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/2020-12-30-16-13-27.png"></p>
+<h4 id="7、映射添加完成，生成格式为：域名-5位数端口号的外网访问地址。"><a href="#7、映射添加完成，生成格式为：域名-5位数端口号的外网访问地址。" class="headerlink" title="7、映射添加完成，生成格式为：域名+5位数端口号的外网访问地址。"></a>7、映射添加完成，生成格式为：域名+5位数端口号的外网访问地址。</h4><p><img src="/2020/12/31/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%85%8D%E7%BD%AE%E8%8A%B1%E7%94%9F%E5%A3%B3%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/2020-12-30-16-13-31.png"></p>
+<h4 id="8、在外网的电脑上，打开连接SSH服务的工具程序，输入域名与5位数端口号。"><a href="#8、在外网的电脑上，打开连接SSH服务的工具程序，输入域名与5位数端口号。" class="headerlink" title="8、在外网的电脑上，打开连接SSH服务的工具程序，输入域名与5位数端口号。"></a>8、在外网的电脑上，打开连接SSH服务的工具程序，输入域名与5位数端口号。</h4><p><img src="/2020/12/31/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%85%8D%E7%BD%AE%E8%8A%B1%E7%94%9F%E5%A3%B3%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/2020-12-30-16-13-36.png"></p>
+<h4 id="9、远程访问树莓派的SSH服务成功，此时只要保持树莓派上安装的花生壳程序在线即可。"><a href="#9、远程访问树莓派的SSH服务成功，此时只要保持树莓派上安装的花生壳程序在线即可。" class="headerlink" title="9、远程访问树莓派的SSH服务成功，此时只要保持树莓派上安装的花生壳程序在线即可。"></a>9、远程访问树莓派的SSH服务成功，此时只要保持树莓派上安装的花生壳程序在线即可。</h4><p><img src="/2020/12/31/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%85%8D%E7%BD%AE%E8%8A%B1%E7%94%9F%E5%A3%B3%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/2020-12-30-16-13-41.png"></p>
+<h4 id="五、如果重装了系统"><a href="#五、如果重装了系统" class="headerlink" title="五、如果重装了系统"></a>五、如果重装了系统</h4><h4 id="用树莓派的SN码登陆花生壳，绑定原有的账号。然后删除原来账号的端口，新建新端口。即可生效。"><a href="#用树莓派的SN码登陆花生壳，绑定原有的账号。然后删除原来账号的端口，新建新端口。即可生效。" class="headerlink" title="用树莓派的SN码登陆花生壳，绑定原有的账号。然后删除原来账号的端口，新建新端口。即可生效。"></a>用树莓派的SN码登陆花生壳，绑定原有的账号。然后删除原来账号的端口，新建新端口。即可生效。</h4>]]></content>
+  </entry>
+  <entry>
+    <title>链表</title>
+    <url>/2020/12/15/%E9%93%BE%E8%A1%A8/</url>
+    <content><![CDATA[<h1 id="离散存储–链表"><a href="#离散存储–链表" class="headerlink" title="离散存储–链表"></a>离散存储–链表</h1><p>[Toc]</p>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义:"></a>定义:</h3><ol>
+<li>n 个结点离散分配</li>
+<li> 彼此通过指针相连</li>
+<li>   每个结点只有一个前驱结点，每个结点只有一个后继结点。</li>
+<li>   首结点没有前驱结点，尾结点没有后继结点<h3 id="专业术语"><a href="#专业术语" class="headerlink" title="专业术语:"></a>专业术语:</h3></li>
+<li>首结点<blockquote>
+<p>第一个有效结点</p>
+</blockquote>
+</li>
+<li>尾结点<blockquote>
+<p>最后一个有效结点</p>
+</blockquote>
+</li>
+<li>头结点<blockquote>
+<p>第一个有效结点前的那个结点<br> 头结点不存放有效数据<br> 加头结点的目的主要是为了方便对链表的操作</p>
+</blockquote>
+</li>
+<li>头指针<blockquote>
+<p>指向头结点的指针变量</p>
+</blockquote>
+</li>
+<li>尾指针<blockquote>
+<p>指向尾结点的指针变量</p>
+</blockquote>
+<h4 id="如果希望通过一个函数来对链表进行处理，我们至少需要接收链表的哪些参数"><a href="#如果希望通过一个函数来对链表进行处理，我们至少需要接收链表的哪些参数" class="headerlink" title="如果希望通过一个函数来对链表进行处理，我们至少需要接收链表的哪些参数:"></a>如果希望通过一个函数来对链表进行处理，我们至少需要接收链表的哪些参数:</h4> 只需要一个参数：头指针<br> 因为我们通过头指针可以推算出链表的其他所有信息。<h4 id="构建一个结点"><a href="#构建一个结点" class="headerlink" title="构建一个结点:"></a>构建一个结点:</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> data; <span class="comment">//数据域</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> * <span class="title">pNext</span>;</span> <span class="comment">//指针域</span></span><br><span class="line">&#125;* PNODE,NODE; <span class="comment">//NODE等价于struct Node,  </span></span><br><span class="line"><span class="comment">//PNODE等价于struct Node *</span></span><br></pre></td></tr></table></figure>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类:"></a>分类:</h3></li>
+<li>单链表</li>
+<li>双链表:<blockquote>
+<p>每个结点有两个指针域</p>
+</blockquote>
+</li>
+<li>循环链表:<blockquote>
+<p> 能通过任何一个结点找到其他所有结点</p>
+</blockquote>
+</li>
+<li>非循环链表  <h3 id="单链表算法"><a href="#单链表算法" class="headerlink" title="单链表算法:"></a>单链表算法:</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">定义链表结点:</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> ElemType <span class="comment">//不一定是int型,ElemType是需求类型</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    ElemType data;       <span class="comment">//存放元素值</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">LNose</span> * <span class="title">next</span>;</span> <span class="comment">//指向后继结点</span></span><br><span class="line">&#125;LinkNode;               <span class="comment">//单链表结点类型</span></span><br></pre></td></tr></table></figure>
+<details> <summary>初始化 InitList(&L)</summary>
+<pre><code>
+void InitList(LinkNode *&L)
+&#123;
+ L=(LinkNode *)malloc(sizeof(LinkNode));
+ L->next=NULL;
+&#125;
+</code></pre>
+</details>
+<details> <summary>销毁 DestroyList(&L)</summary>
+<pre><code>
+void DestoryList(LinkNode *&L)
+&#123;
+ LinkNode * pre=L,*p=L->next;
+ while(p!=NULL)
+ &#123;
+     free(pre);
+     pre=p;
+     p=pre->next;
+ &#125;
+ free(pre);
+&#125;
+</code></pre>
+</details>
+<details> <summary>判空 ListEmpty(L)</summary>
+<pre><code>
+bool ListEmpty(LinkNode * L)
+&#123;
+ return(L->next=NULL);
+&#125;
+</code></pre>
+</details>
+<details> <summary>求长度 ListLength(L)</summary>
+<pre><code>
+int ListLength(LinkNode * L)
+&#123;
+ LinkNode * p =L;
+ int n=0;
+ while(p->next!=NULL)
+ &#123;
+     n++;
+     p=p->next;
+ &#125;
+ return(n);
+&#125;
+</code></pre>
+</details>
+<details> <summary>输出 DispList(L)</summary>
+<pre><code>
+void DispList(LinkNode * L)
+&#123;
+ LinkNode *p=L->next;
+ while(p!=NULL)
+ &#123;
+     printf("%d\n",p->data);
+     p=p->next;
+ &#125;
+ printf("\n");
+&#125;
+</code></pre>
+</details>
+<details> <summary>按位求值 GetElem(L,i,&e)</summary>
+<pre><code>
+
+</code></pre></details></li>
+</ol>
+<p></p>
+
+<details> <summary>按值查找 LocateElem(L,e)</summary>
+<pre><code>
+
+<p></p></code></pre><p></p>
+</details>
+<details> <summary>插入数据 ListInsert(&L,i,e)</summary>
+<pre><code>
+
+<p></p></code></pre><p></p>
+</details>
+<details> <summary>删除数据 ListDelete(&L,i,&e)</summary>
+<pre><code>
+
+<p></p></code></pre><p></p>
+</details>
+]]></content>
+  </entry>
+</search>
