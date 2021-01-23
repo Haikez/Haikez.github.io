@@ -187,6 +187,17 @@
       </tags>
   </entry>
   <entry>
+    <title>Lazygit基操</title>
+    <url>/2021/01/04/Lazygit%E5%9F%BA%E6%93%8D/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Linux学习</category>
+      </categories>
+      <tags>
+        <tag>Lazygit</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SSH秘钥安装到服务器</title>
     <url>/2020/12/31/SSH%E7%A7%98%E9%92%A5%E5%AE%89%E8%A3%85%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
     <content><![CDATA[<h2 id="SSH秘钥安装到服务器"><a href="#SSH秘钥安装到服务器" class="headerlink" title="SSH秘钥安装到服务器"></a>SSH秘钥安装到服务器</h2><h3 id="一、本机秘钥生成"><a href="#一、本机秘钥生成" class="headerlink" title="一、本机秘钥生成"></a>一、本机秘钥生成</h3><p>终端输入:</p>
@@ -314,8 +325,8 @@
 <pre><code>
 void InitList(LinkNode *&L)
 &#123;
- L=(LinkNode *)malloc(sizeof(LinkNode));
- L->next=NULL;
+ L = (LinkNode *)malloc(sizeof(LinkNode));
+ L->next s= NULL;
 &#125;
 </code></pre>
 </details>
@@ -323,12 +334,12 @@ void InitList(LinkNode *&L)
 <pre><code>
 void DestoryList(LinkNode *&L)
 &#123;
- LinkNode * pre=L,*p=L->next;
- while(p!=NULL)
+ LinkNode * pre = L,*p = L->next;
+ while(p != NULL)
  &#123;
      free(pre);
-     pre=p;
-     p=pre->next;
+     pre = p;
+     p = pre->next;
  &#125;
  free(pre);
 &#125;
@@ -338,7 +349,7 @@ void DestoryList(LinkNode *&L)
 <pre><code>
 bool ListEmpty(LinkNode * L)
 &#123;
- return(L->next=NULL);
+ return(L->next = NULL);
 &#125;
 </code></pre>
 </details>
@@ -346,12 +357,12 @@ bool ListEmpty(LinkNode * L)
 <pre><code>
 int ListLength(LinkNode * L)
 &#123;
- LinkNode * p =L;
+ LinkNode * p = L;
  int n=0;
- while(p->next!=NULL)
+ while(p->next != NULL)
  &#123;
      n++;
-     p=p->next;
+     p = p->next;
  &#125;
  return(n);
 &#125;
@@ -361,11 +372,11 @@ int ListLength(LinkNode * L)
 <pre><code>
 void DispList(LinkNode * L)
 &#123;
- LinkNode *p=L->next;
- while(p!=NULL)
+ LinkNode *p = L->next;
+ while(p != NULL)
  &#123;
      printf("%d\n",p->data);
-     p=p->next;
+     p = p->next;
  &#125;
  printf("\n");
 &#125;
@@ -373,26 +384,86 @@ void DispList(LinkNode * L)
 </details>
 <details> <summary>按位求值 GetElem(L,i,&e)</summary>
 <pre><code>
-
-</code></pre></details></li>
-</ol>
-<p></p>
-
+bool GetElem(LinkNode *L,int i, ElemType &e)
+&#123;
+ int j = 0;
+ LinkNode *p = L;
+ if (i <= 0) return false; while(j < i && p !="NULL)" &#123; j++;>next;
+ &#125;
+ if(p == NULL)
+     return false;
+ else
+ &#123;   
+     e = p->data;
+     return true;
+ &#125;
+&#125;
+</=></code></pre>
+</details>
 <details> <summary>按值查找 LocateElem(L,e)</summary>
 <pre><code>
-
-<p></p></code></pre><p></p>
+int LocateElem(LinkNode *L,ElemType e)
+&#123;
+ int i = 1;
+ LinkNode *p = L-> next;
+ while(p != NULL && p->data != e)
+ &#123;
+     p = p-> next;
+     i++;
+ &#125;
+ if(p == NULL)
+     return 0;
+ else
+     return (i);
+&#125;
+</code></pre>
 </details>
 <details> <summary>插入数据 ListInsert(&L,i,e)</summary>
 <pre><code>
-
-<p></p></code></pre><p></p>
+bool ListInsert(LinkNode *&L,int i,ElemType e)
+&#123;
+ int j = 0;
+ LinkNode *p = L,*s;
+ if(i <= 0) return false; while(j < i-1 && p !="NULL)" &#123; j++;>next;
+ &#125;
+ if(p == NULL)
+     return false;
+ else
+ &#123;
+     s = (LinkNode *)malloc(sizeof(LinkNode));
+     s->data =e ;
+     s->next = p->next;
+     p->next = s;
+     return true;
+ &#125;
+&#125;
+</=></code></pre>
 </details>
 <details> <summary>删除数据 ListDelete(&L,i,&e)</summary>
 <pre><code>
-
-<p></p></code></pre><p></p>
+bool ListDelete(LinkNode *&L,int i,ElemType &e)
+&#123;
+ int j = 0;
+ LinkNode *p = L,*q;
+ if (i <= 0) return false; while (j < i-1 && p !="NULL" ) &#123; j++;>next;
+ &#125;
+ if (p == NULL)
+     return false;
+ else
+ &#123;
+     q = p->next;
+     if(q == NULL)
+         return false;
+     e = q->data;
+     p->next = q->next;
+     free(q);
+     return true;
+ &#125;
+&#125;
+</=></code></pre>
 </details>
+</li>
+</ol>
 ]]></content>
       <categories>
         <category>数据结构学习</category>
