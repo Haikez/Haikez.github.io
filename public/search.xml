@@ -188,10 +188,10 @@
   </entry>
   <entry>
     <title>Lazygit基操</title>
-    <url>/2021/01/04/Lazygit%E5%9F%BA%E6%93%8D/</url>
-    <content><![CDATA[]]></content>
+    <url>/2021/01/23/Lazygit%E5%9F%BA%E6%93%8D/</url>
+    <content><![CDATA[<h2 id="Lazygit-–-懒人必备的Git客户端"><a href="#Lazygit-–-懒人必备的Git客户端" class="headerlink" title="Lazygit – 懒人必备的Git客户端"></a>Lazygit – 懒人必备的Git客户端</h2>]]></content>
       <categories>
-        <category>Linux学习</category>
+        <category>是基操啦</category>
       </categories>
       <tags>
         <tag>Lazygit</tag>
@@ -470,6 +470,40 @@ bool ListDelete(LinkNode *&L,int i,ElemType &e)
       </categories>
       <tags>
         <tag>链表</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git基操</title>
+    <url>/2021/01/23/Git%E5%9F%BA%E6%93%8D/</url>
+    <content><![CDATA[<h2 id="Git-—-必须得懂的版本管理工具"><a href="#Git-—-必须得懂的版本管理工具" class="headerlink" title="Git — 必须得懂的版本管理工具"></a>Git — 必须得懂的版本管理工具</h2><h3 id="一、-Git最基本操作"><a href="#一、-Git最基本操作" class="headerlink" title="一、 Git最基本操作"></a>一、 Git最基本操作</h3><h4 id="1-初始化git文件夹-—-git-init"><a href="#1-初始化git文件夹-—-git-init" class="headerlink" title="1. 初始化git文件夹 — git init"></a>1. 初始化git文件夹 — git init</h4><p>设项目文件夹为gittest</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> gittest        <span class="comment">#cd到项目文件夹</span></span><br><span class="line">$ git init          <span class="comment">#初始化git文件夹</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-查看当前仓库状态-—-git-status"><a href="#2-查看当前仓库状态-—-git-status" class="headerlink" title="2. 查看当前仓库状态 — git status"></a>2. 查看当前仓库状态 — git status</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git status</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.21.18.png"></p>
+<h4 id="3-添加更改（追踪）-—-git-add"><a href="#3-添加更改（追踪）-—-git-add" class="headerlink" title="3. 添加更改（追踪） — git add ."></a>3. 添加更改（追踪） — git add .</h4><a id="more"></a>
+<p><img src="/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.26.31.png"></p>
+<h4 id="4-查看更改内容-—-git-diff"><a href="#4-查看更改内容-—-git-diff" class="headerlink" title="4. 查看更改内容 — git diff"></a>4. 查看更改内容 — git diff</h4><p><img src="/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.29.27.png"><br>按q退出</p>
+<h4 id="5-撤回追踪-—-git-reset"><a href="#5-撤回追踪-—-git-reset" class="headerlink" title="5. 撤回追踪 — git reset"></a>5. 撤回追踪 — git reset</h4><p><img src="/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.32.58.png"></p>
+<h4 id="6-提交更改-—-git-commit"><a href="#6-提交更改-—-git-commit" class="headerlink" title="6. 提交更改 — git commit"></a>6. 提交更改 — git commit</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git commit -m <span class="string">&quot;本次提交的描述&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git commit -a     <span class="comment">#自动添加并提交已追踪的修改</span></span><br></pre></td></tr></table></figure>
+<h4 id="7-设置一些不提交的文件-—-创建-gitignore"><a href="#7-设置一些不提交的文件-—-创建-gitignore" class="headerlink" title="7. 设置一些不提交的文件 — 创建.gitignore"></a>7. 设置一些不提交的文件 — 创建.gitignore</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git rm --cached 文件名        <span class="comment">#删除已经存在的追踪</span></span><br><span class="line">$ vim .gitignore        <span class="comment">#在该文件下写入不想提交的文件名称</span></span><br></pre></td></tr></table></figure>
+<p><img src="/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.43.25.png"><br>在.gitignore文件中写入不想提交的文件名<br><img src="/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.43.42.png"><br>git status 查看追踪列表中少了 “nocommit.md”<br><img src="/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.44.19.png"></p>
+<h4 id="8-删除已经存在的追踪"><a href="#8-删除已经存在的追踪" class="headerlink" title="8. 删除已经存在的追踪"></a>8. 删除已经存在的追踪</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git rm --cached 文件名        <span class="comment">#删除已经存在的追踪</span></span><br></pre></td></tr></table></figure>
+<p>从git系统中删除该文件，但依旧存在项目文件夹中，只是停止追踪而已。</p>
+<h3 id="二、Git分支-—-不同的时间线"><a href="#二、Git分支-—-不同的时间线" class="headerlink" title="二、Git分支 — 不同的时间线"></a>二、Git分支 — 不同的时间线</h3><p>设新分支名为: newbranch</p>
+<h4 id="1-添加新的分支"><a href="#1-添加新的分支" class="headerlink" title="1. 添加新的分支"></a>1. 添加新的分支</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git branch newbranch</span><br></pre></td></tr></table></figure>
+<h4 id="2-查看分支"><a href="#2-查看分支" class="headerlink" title="2. 查看分支"></a>2. 查看分支</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git branch        <span class="comment">#查看当前项目分支有哪些</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-切换分支"><a href="#3-切换分支" class="headerlink" title="3. 切换分支"></a>3. 切换分支</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git checkout newbranch</span><br></pre></td></tr></table></figure>
+<h4 id="4-合并分支"><a href="#4-合并分支" class="headerlink" title="4. 合并分支"></a>4. 合并分支</h4><p>在当前分支执行:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git merge 另一个分支名称</span><br></pre></td></tr></table></figure>
+<h4 id="5-删除分支"><a href="#5-删除分支" class="headerlink" title="5. 删除分支"></a>5. 删除分支</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git branch -d newbranch       <span class="comment">#删除已经合并或提交的分支</span></span><br><span class="line">$ git branch -D newbranch2      <span class="comment">#强制删除分支</span></span><br></pre></td></tr></table></figure>
+<h3 id="三、Git的提交"><a href="#三、Git的提交" class="headerlink" title="三、Git的提交"></a>三、Git的提交</h3><h4 id="1-指定远程仓库"><a href="#1-指定远程仓库" class="headerlink" title="1. 指定远程仓库"></a>1. 指定远程仓库</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git remote add origin https://github......       </span><br></pre></td></tr></table></figure>
+<h4 id="2-推送到远程端"><a href="#2-推送到远程端" class="headerlink" title="2. 推送到远程端"></a>2. 推送到远程端</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git push --set-upstream origin master</span><br></pre></td></tr></table></figure>
+<h4 id="3-下载更新远程端的项目"><a href="#3-下载更新远程端的项目" class="headerlink" title="3. 下载更新远程端的项目"></a>3. 下载更新远程端的项目</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git pull</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>是基操啦</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
       </tags>
   </entry>
 </search>

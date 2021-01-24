@@ -20,20 +20,28 @@
     var CONFIG = {"hostname":"haikezi.vicp.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="每一个不曾起舞的日子，都是对生命的辜负。">
+  <meta name="description" content="Git — 必须得懂的版本管理工具一、 Git最基本操作1. 初始化git文件夹 — git init设项目文件夹为gittest 12$ cd gittest        #cd到项目文件夹$ git init          #初始化git文件夹 2. 查看当前仓库状态 — git status1$ git status  3. 添加更改（追踪） — git add .">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Arch双系统安装">
-<meta property="og:url" content="http://haikezi.vicp.io/2020/12/15/Arch%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/index.html">
+<meta property="og:title" content="Git基操">
+<meta property="og:url" content="http://haikezi.vicp.io/2021/01/23/Git%E5%9F%BA%E6%93%8D/index.html">
 <meta property="og:site_name" content="嗨客伊甸园">
-<meta property="og:description" content="每一个不曾起舞的日子，都是对生命的辜负。">
+<meta property="og:description" content="Git — 必须得懂的版本管理工具一、 Git最基本操作1. 初始化git文件夹 — git init设项目文件夹为gittest 12$ cd gittest        #cd到项目文件夹$ git init          #初始化git文件夹 2. 查看当前仓库状态 — git status1$ git status  3. 添加更改（追踪） — git add .">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-12-15T07:50:20.000Z">
-<meta property="article:modified_time" content="2021-01-04T04:33:30.885Z">
+<meta property="og:image" content="http://haikezi.vicp.io/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.21.18.png">
+<meta property="og:image" content="http://haikezi.vicp.io/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.26.31.png">
+<meta property="og:image" content="http://haikezi.vicp.io/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.29.27.png">
+<meta property="og:image" content="http://haikezi.vicp.io/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.32.58.png">
+<meta property="og:image" content="http://haikezi.vicp.io/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.43.25.png">
+<meta property="og:image" content="http://haikezi.vicp.io/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.43.42.png">
+<meta property="og:image" content="http://haikezi.vicp.io/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.44.19.png">
+<meta property="article:published_time" content="2021-01-23T06:59:56.000Z">
+<meta property="article:modified_time" content="2021-01-24T01:26:07.374Z">
 <meta property="article:author" content="倪矗">
-<meta property="article:tag" content="ArchLinux">
+<meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://haikezi.vicp.io/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.21.18.png">
 
-<link rel="canonical" href="http://haikezi.vicp.io/2020/12/15/Arch%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/">
+<link rel="canonical" href="http://haikezi.vicp.io/2021/01/23/Git%E5%9F%BA%E6%93%8D/">
 
 
 <script id="page-configurations">
@@ -46,7 +54,7 @@
   };
 </script>
 
-  <title>Arch双系统安装 | 嗨客伊甸园</title>
+  <title>Git基操 | 嗨客伊甸园</title>
   
 
 
@@ -193,7 +201,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://haikezi.vicp.io/2020/12/15/Arch%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/">
+    <link itemprop="mainEntityOfPage" href="http://haikezi.vicp.io/2021/01/23/Git%E5%9F%BA%E6%93%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -206,7 +214,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Arch双系统安装
+          Git基操
         </h1>
 
         <div class="post-meta">
@@ -216,14 +224,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-12-15 15:50:20" itemprop="dateCreated datePublished" datetime="2020-12-15T15:50:20+08:00">2020-12-15</time>
+              <time title="创建时间：2021-01-23 14:59:56" itemprop="dateCreated datePublished" datetime="2021-01-23T14:59:56+08:00">2021-01-23</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-04 12:33:30" itemprop="dateModified" datetime="2021-01-04T12:33:30+08:00">2021-01-04</time>
+                <time title="修改时间：2021-01-24 09:26:07" itemprop="dateModified" datetime="2021-01-24T09:26:07+08:00">2021-01-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -231,7 +239,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">Linux学习</span></a>
+                  <a href="/categories/%E6%98%AF%E5%9F%BA%E6%93%8D%E5%95%A6/" itemprop="url" rel="index"><span itemprop="name">是基操啦</span></a>
                 </span>
             </span>
 
@@ -248,7 +256,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>0</span>
+              <span>806</span>
             </span>
         </div>
       </header>
@@ -259,7 +267,30 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h2 id="Git-—-必须得懂的版本管理工具"><a href="#Git-—-必须得懂的版本管理工具" class="headerlink" title="Git — 必须得懂的版本管理工具"></a>Git — 必须得懂的版本管理工具</h2><h3 id="一、-Git最基本操作"><a href="#一、-Git最基本操作" class="headerlink" title="一、 Git最基本操作"></a>一、 Git最基本操作</h3><h4 id="1-初始化git文件夹-—-git-init"><a href="#1-初始化git文件夹-—-git-init" class="headerlink" title="1. 初始化git文件夹 — git init"></a>1. 初始化git文件夹 — git init</h4><p>设项目文件夹为gittest</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> gittest        <span class="comment">#cd到项目文件夹</span></span><br><span class="line">$ git init          <span class="comment">#初始化git文件夹</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-查看当前仓库状态-—-git-status"><a href="#2-查看当前仓库状态-—-git-status" class="headerlink" title="2. 查看当前仓库状态 — git status"></a>2. 查看当前仓库状态 — git status</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.21.18.png"></p>
+<h4 id="3-添加更改（追踪）-—-git-add"><a href="#3-添加更改（追踪）-—-git-add" class="headerlink" title="3. 添加更改（追踪） — git add ."></a>3. 添加更改（追踪） — git add .</h4><a id="more"></a>
+<p><img src="/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.26.31.png"></p>
+<h4 id="4-查看更改内容-—-git-diff"><a href="#4-查看更改内容-—-git-diff" class="headerlink" title="4. 查看更改内容 — git diff"></a>4. 查看更改内容 — git diff</h4><p><img src="/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.29.27.png"><br>按q退出</p>
+<h4 id="5-撤回追踪-—-git-reset"><a href="#5-撤回追踪-—-git-reset" class="headerlink" title="5. 撤回追踪 — git reset"></a>5. 撤回追踪 — git reset</h4><p><img src="/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.32.58.png"></p>
+<h4 id="6-提交更改-—-git-commit"><a href="#6-提交更改-—-git-commit" class="headerlink" title="6. 提交更改 — git commit"></a>6. 提交更改 — git commit</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m <span class="string">&quot;本次提交的描述&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -a     <span class="comment">#自动添加并提交已追踪的修改</span></span><br></pre></td></tr></table></figure>
+<h4 id="7-设置一些不提交的文件-—-创建-gitignore"><a href="#7-设置一些不提交的文件-—-创建-gitignore" class="headerlink" title="7. 设置一些不提交的文件 — 创建.gitignore"></a>7. 设置一些不提交的文件 — 创建.gitignore</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git rm --cached 文件名        <span class="comment">#删除已经存在的追踪</span></span><br><span class="line">$ vim .gitignore        <span class="comment">#在该文件下写入不想提交的文件名称</span></span><br></pre></td></tr></table></figure>
+<p><img src="/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.43.25.png"><br>在.gitignore文件中写入不想提交的文件名<br><img src="/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.43.42.png"><br>git status 查看追踪列表中少了 “nocommit.md”<br><img src="/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.44.19.png"></p>
+<h4 id="8-删除已经存在的追踪"><a href="#8-删除已经存在的追踪" class="headerlink" title="8. 删除已经存在的追踪"></a>8. 删除已经存在的追踪</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git rm --cached 文件名        <span class="comment">#删除已经存在的追踪</span></span><br></pre></td></tr></table></figure>
+<p>从git系统中删除该文件，但依旧存在项目文件夹中，只是停止追踪而已。</p>
+<h3 id="二、Git分支-—-不同的时间线"><a href="#二、Git分支-—-不同的时间线" class="headerlink" title="二、Git分支 — 不同的时间线"></a>二、Git分支 — 不同的时间线</h3><p>设新分支名为: newbranch</p>
+<h4 id="1-添加新的分支"><a href="#1-添加新的分支" class="headerlink" title="1. 添加新的分支"></a>1. 添加新的分支</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch newbranch</span><br></pre></td></tr></table></figure>
+<h4 id="2-查看分支"><a href="#2-查看分支" class="headerlink" title="2. 查看分支"></a>2. 查看分支</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch        <span class="comment">#查看当前项目分支有哪些</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-切换分支"><a href="#3-切换分支" class="headerlink" title="3. 切换分支"></a>3. 切换分支</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout newbranch</span><br></pre></td></tr></table></figure>
+<h4 id="4-合并分支"><a href="#4-合并分支" class="headerlink" title="4. 合并分支"></a>4. 合并分支</h4><p>在当前分支执行:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git merge 另一个分支名称</span><br></pre></td></tr></table></figure>
+<h4 id="5-删除分支"><a href="#5-删除分支" class="headerlink" title="5. 删除分支"></a>5. 删除分支</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -d newbranch       <span class="comment">#删除已经合并或提交的分支</span></span><br><span class="line">$ git branch -D newbranch2      <span class="comment">#强制删除分支</span></span><br></pre></td></tr></table></figure>
+<h3 id="三、Git的提交"><a href="#三、Git的提交" class="headerlink" title="三、Git的提交"></a>三、Git的提交</h3><h4 id="1-指定远程仓库"><a href="#1-指定远程仓库" class="headerlink" title="1. 指定远程仓库"></a>1. 指定远程仓库</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin https://github......       </span><br></pre></td></tr></table></figure>
+<h4 id="2-推送到远程端"><a href="#2-推送到远程端" class="headerlink" title="2. 推送到远程端"></a>2. 推送到远程端</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push --set-upstream origin master</span><br></pre></td></tr></table></figure>
+<h4 id="3-下载更新远程端的项目"><a href="#3-下载更新远程端的项目" class="headerlink" title="3. 下载更新远程端的项目"></a>3. 下载更新远程端的项目</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull</span><br></pre></td></tr></table></figure>
     </div>
     <div>
       
@@ -284,7 +315,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://haikezi.vicp.io/2020/12/15/Arch%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/" title="Arch双系统安装">http://haikezi.vicp.io/2020/12/15/Arch双系统安装/</a>
+    <a href="http://haikezi.vicp.io/2021/01/23/Git%E5%9F%BA%E6%93%8D/" title="Git基操">http://haikezi.vicp.io/2021/01/23/Git基操/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -295,7 +326,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/ArchLinux/" rel="tag"># ArchLinux</a>
+              <a href="/tags/Git/" rel="tag"># Git</a>
           </div>
 
         
@@ -304,12 +335,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/12/15/ArchLinux%E5%AE%89%E8%A3%85/" rel="prev" title="ArchLinux安装">
-      <i class="fa fa-chevron-left"></i> ArchLinux安装
+    <a href="/2021/01/02/Git+Nginx%E6%90%AD%E5%BB%BA%E8%BF%9C%E7%A8%8BWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="prev" title="Git+Nginx搭建远程Web服务器">
+      <i class="fa fa-chevron-left"></i> Git+Nginx搭建远程Web服务器
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/12/30/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%92%8C%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/" rel="next" title="树莓派系统安装和基本配置">
-      树莓派系统安装和基本配置 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/01/23/Lazygit%E5%9F%BA%E6%93%8D/" rel="next" title="Lazygit基操">
+      Lazygit基操 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -369,6 +400,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-%E2%80%94-%E5%BF%85%E9%A1%BB%E5%BE%97%E6%87%82%E7%9A%84%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7"><span class="nav-number">1.</span> <span class="nav-text">Git — 必须得懂的版本管理工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81-Git%E6%9C%80%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-number">1.1.</span> <span class="nav-text">一、 Git最基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%88%9D%E5%A7%8B%E5%8C%96git%E6%96%87%E4%BB%B6%E5%A4%B9-%E2%80%94-git-init"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 初始化git文件夹 — git init</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E4%BB%93%E5%BA%93%E7%8A%B6%E6%80%81-%E2%80%94-git-status"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. 查看当前仓库状态 — git status</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E6%B7%BB%E5%8A%A0%E6%9B%B4%E6%94%B9%EF%BC%88%E8%BF%BD%E8%B8%AA%EF%BC%89-%E2%80%94-git-add"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. 添加更改（追踪） — git add .</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E6%9F%A5%E7%9C%8B%E6%9B%B4%E6%94%B9%E5%86%85%E5%AE%B9-%E2%80%94-git-diff"><span class="nav-number">1.1.4.</span> <span class="nav-text">4. 查看更改内容 — git diff</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E6%92%A4%E5%9B%9E%E8%BF%BD%E8%B8%AA-%E2%80%94-git-reset"><span class="nav-number">1.1.5.</span> <span class="nav-text">5. 撤回追踪 — git reset</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-%E6%8F%90%E4%BA%A4%E6%9B%B4%E6%94%B9-%E2%80%94-git-commit"><span class="nav-number">1.1.6.</span> <span class="nav-text">6. 提交更改 — git commit</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-%E8%AE%BE%E7%BD%AE%E4%B8%80%E4%BA%9B%E4%B8%8D%E6%8F%90%E4%BA%A4%E7%9A%84%E6%96%87%E4%BB%B6-%E2%80%94-%E5%88%9B%E5%BB%BA-gitignore"><span class="nav-number">1.1.7.</span> <span class="nav-text">7. 设置一些不提交的文件 — 创建.gitignore</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-%E5%88%A0%E9%99%A4%E5%B7%B2%E7%BB%8F%E5%AD%98%E5%9C%A8%E7%9A%84%E8%BF%BD%E8%B8%AA"><span class="nav-number">1.1.8.</span> <span class="nav-text">8. 删除已经存在的追踪</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81Git%E5%88%86%E6%94%AF-%E2%80%94-%E4%B8%8D%E5%90%8C%E7%9A%84%E6%97%B6%E9%97%B4%E7%BA%BF"><span class="nav-number">1.2.</span> <span class="nav-text">二、Git分支 — 不同的时间线</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E6%B7%BB%E5%8A%A0%E6%96%B0%E7%9A%84%E5%88%86%E6%94%AF"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 添加新的分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%9F%A5%E7%9C%8B%E5%88%86%E6%94%AF"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 查看分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%88%87%E6%8D%A2%E5%88%86%E6%94%AF"><span class="nav-number">1.2.3.</span> <span class="nav-text">3. 切换分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF"><span class="nav-number">1.2.4.</span> <span class="nav-text">4. 合并分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E5%88%A0%E9%99%A4%E5%88%86%E6%94%AF"><span class="nav-number">1.2.5.</span> <span class="nav-text">5. 删除分支</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81Git%E7%9A%84%E6%8F%90%E4%BA%A4"><span class="nav-number">1.3.</span> <span class="nav-text">三、Git的提交</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E6%8C%87%E5%AE%9A%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-number">1.3.1.</span> <span class="nav-text">1. 指定远程仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%8E%A8%E9%80%81%E5%88%B0%E8%BF%9C%E7%A8%8B%E7%AB%AF"><span class="nav-number">1.3.2.</span> <span class="nav-text">2. 推送到远程端</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E4%B8%8B%E8%BD%BD%E6%9B%B4%E6%96%B0%E8%BF%9C%E7%A8%8B%E7%AB%AF%E7%9A%84%E9%A1%B9%E7%9B%AE"><span class="nav-number">1.3.3.</span> <span class="nav-text">3. 下载更新远程端的项目</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
