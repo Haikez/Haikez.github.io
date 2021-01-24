@@ -189,7 +189,11 @@
   <entry>
     <title>Lazygit基操</title>
     <url>/2021/01/23/Lazygit%E5%9F%BA%E6%93%8D/</url>
-    <content><![CDATA[<h2 id="Lazygit-–-懒人必备的Git客户端"><a href="#Lazygit-–-懒人必备的Git客户端" class="headerlink" title="Lazygit – 懒人必备的Git客户端"></a>Lazygit – 懒人必备的Git客户端</h2>]]></content>
+    <content><![CDATA[<h2 id="Lazygit-—-懒人必备的Git客户端"><a href="#Lazygit-—-懒人必备的Git客户端" class="headerlink" title="Lazygit — 懒人必备的Git客户端"></a>Lazygit — 懒人必备的Git客户端</h2><h3 id="一、下载"><a href="#一、下载" class="headerlink" title="一、下载"></a>一、下载</h3><h4 id="1-Lazygit下载"><a href="#1-Lazygit下载" class="headerlink" title="1. Lazygit下载"></a>1. Lazygit下载</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">下载地址：</span><br><span class="line">https://github.com/jesseduffield/lazygit</span><br></pre></td></tr></table></figure>
+<h4 id="2-打开"><a href="#2-打开" class="headerlink" title="2. 打开"></a>2. 打开</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ lazygit</span><br></pre></td></tr></table></figure>
+<h3 id="二、-操作-用-x-查看各个面板帮助"><a href="#二、-操作-用-x-查看各个面板帮助" class="headerlink" title="二、 操作 (用 x 查看各个面板帮助)"></a>二、 操作 (用 x 查看各个面板帮助)</h3><h4 id="1-全部-stage-unstage-—-a"><a href="#1-全部-stage-unstage-—-a" class="headerlink" title="1. 全部 stage/unstage — a"></a>1. 全部 stage/unstage — a</h4><h4 id="相当于git-add"><a href="#相当于git-add" class="headerlink" title="(相当于git add .)"></a>(相当于git add .)</h4><p><img src="/2021/01/23/Lazygit%E5%9F%BA%E6%93%8D/Jan-24-2021%2010-39-33.gif"><br><img src="/2021/01/23/Lazygit%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-24%20%E4%B8%8A%E5%8D%8810.46.58.png"></p>
+<h4 id="2-可以用空格逐个stage"><a href="#2-可以用空格逐个stage" class="headerlink" title="2. 可以用空格逐个stage"></a>2. 可以用空格逐个stage</h4><p><img src="/2021/01/23/Lazygit%E5%9F%BA%E6%93%8D/Jan-24-2021%2010-50-36.gif"></p>
+]]></content>
       <categories>
         <category>是基操啦</category>
       </categories>
