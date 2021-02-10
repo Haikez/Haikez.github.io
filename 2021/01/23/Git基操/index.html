@@ -5,45 +5,45 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.3.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog-pages/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog-pages/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog-pages/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog-pages/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/blog-pages/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
-  <script src="/lib/pace/pace.min.js"></script>
+<link rel="stylesheet" href="/blog-pages/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/blog-pages/lib/pace/pace-theme-minimal.min.css">
+  <script src="/blog-pages/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"haikezi.vicp.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
+    var CONFIG = {"hostname":"haikez.gitee.io","root":"/blog-pages/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
   <meta name="description" content="Git — 必须得懂的版本管理工具一、 Git最基本操作1. 初始化git文件夹 — git init设项目文件夹为gittest 12$ cd gittest        #cd到项目文件夹$ git init          #初始化git文件夹 2. 查看当前仓库状态 — git status1$ git status  3. 添加更改（追踪） — git add .">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git基操">
-<meta property="og:url" content="http://haikezi.vicp.io/2021/01/23/Git%E5%9F%BA%E6%93%8D/index.html">
+<meta property="og:url" content="https://haikez.gitee.io/blog-pages/2021/01/23/Git%E5%9F%BA%E6%93%8D/index.html">
 <meta property="og:site_name" content="Haikez&#39;s Blog">
 <meta property="og:description" content="Git — 必须得懂的版本管理工具一、 Git最基本操作1. 初始化git文件夹 — git init设项目文件夹为gittest 12$ cd gittest        #cd到项目文件夹$ git init          #初始化git文件夹 2. 查看当前仓库状态 — git status1$ git status  3. 添加更改（追踪） — git add .">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://haikezi.vicp.io/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.21.18.png">
-<meta property="og:image" content="http://haikezi.vicp.io/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.26.31.png">
-<meta property="og:image" content="http://haikezi.vicp.io/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.29.27.png">
-<meta property="og:image" content="http://haikezi.vicp.io/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.32.58.png">
-<meta property="og:image" content="http://haikezi.vicp.io/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.43.25.png">
-<meta property="og:image" content="http://haikezi.vicp.io/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.43.42.png">
-<meta property="og:image" content="http://haikezi.vicp.io/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.44.19.png">
+<meta property="og:image" content="https://haikez.gitee.io/blog-pages/blog-pages/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.21.18.png">
+<meta property="og:image" content="https://haikez.gitee.io/blog-pages/blog-pages/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.26.31.png">
+<meta property="og:image" content="https://haikez.gitee.io/blog-pages/blog-pages/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.29.27.png">
+<meta property="og:image" content="https://haikez.gitee.io/blog-pages/blog-pages/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.32.58.png">
+<meta property="og:image" content="https://haikez.gitee.io/blog-pages/blog-pages/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.43.25.png">
+<meta property="og:image" content="https://haikez.gitee.io/blog-pages/blog-pages/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.43.42.png">
+<meta property="og:image" content="https://haikez.gitee.io/blog-pages/blog-pages/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.44.19.png">
 <meta property="article:published_time" content="2021-01-23T06:59:56.000Z">
 <meta property="article:modified_time" content="2021-01-28T04:53:24.347Z">
 <meta property="article:author" content="倪矗">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://haikezi.vicp.io/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.21.18.png">
+<meta name="twitter:image" content="https://haikez.gitee.io/blog-pages/blog-pages/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.21.18.png">
 
-<link rel="canonical" href="http://haikezi.vicp.io/2021/01/23/Git%E5%9F%BA%E6%93%8D/">
+<link rel="canonical" href="https://haikez.gitee.io/blog-pages/2021/01/23/Git%E5%9F%BA%E6%93%8D/">
 
 
 <script id="page-configurations">
@@ -105,7 +105,7 @@
 
   <div class="site-meta">
 
-    <a href="/" class="brand" rel="start">
+    <a href="/blog-pages/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <h1 class="site-title">Haikez's Blog</h1>
       <span class="logo-line-after"><i></i></span>
@@ -127,27 +127,27 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+    <a href="/blog-pages/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+    <a href="/blog-pages/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+    <a href="/blog-pages/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+    <a href="/blog-pages/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+    <a href="/blog-pages/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -204,10 +204,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://haikezi.vicp.io/2021/01/23/Git%E5%9F%BA%E6%93%8D/">
+    <link itemprop="mainEntityOfPage" href="https://haikez.gitee.io/blog-pages/2021/01/23/Git%E5%9F%BA%E6%93%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/blog-pages/images/avatar.gif">
       <meta itemprop="name" content="倪矗">
       <meta itemprop="description" content="每一个不曾起舞的日子，都是对生命的辜负。">
     </span>
@@ -242,7 +242,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%98%AF%E5%9F%BA%E6%93%8D%E5%95%A6/" itemprop="url" rel="index"><span itemprop="name">是基操啦</span></a>
+                  <a href="/blog-pages/categories/%E6%98%AF%E5%9F%BA%E6%93%8D%E5%95%A6/" itemprop="url" rel="index"><span itemprop="name">是基操啦</span></a>
                 </span>
             </span>
 
@@ -273,15 +273,15 @@
         <h2 id="Git-—-必须得懂的版本管理工具"><a href="#Git-—-必须得懂的版本管理工具" class="headerlink" title="Git — 必须得懂的版本管理工具"></a>Git — 必须得懂的版本管理工具</h2><h3 id="一、-Git最基本操作"><a href="#一、-Git最基本操作" class="headerlink" title="一、 Git最基本操作"></a>一、 Git最基本操作</h3><h4 id="1-初始化git文件夹-—-git-init"><a href="#1-初始化git文件夹-—-git-init" class="headerlink" title="1. 初始化git文件夹 — git init"></a>1. 初始化git文件夹 — git init</h4><p>设项目文件夹为gittest</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> gittest        <span class="comment">#cd到项目文件夹</span></span><br><span class="line">$ git init          <span class="comment">#初始化git文件夹</span></span><br></pre></td></tr></table></figure>
 <h4 id="2-查看当前仓库状态-—-git-status"><a href="#2-查看当前仓库状态-—-git-status" class="headerlink" title="2. 查看当前仓库状态 — git status"></a>2. 查看当前仓库状态 — git status</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.21.18.png"></p>
+<p><img src="/blog-pages/blog-pages/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.21.18.png"></p>
 <h4 id="3-添加更改（追踪）-—-git-add"><a href="#3-添加更改（追踪）-—-git-add" class="headerlink" title="3. 添加更改（追踪） — git add ."></a>3. 添加更改（追踪） — git add .</h4><a id="more"></a>
-<p><img src="/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.26.31.png"></p>
-<h4 id="4-查看更改内容-—-git-diff"><a href="#4-查看更改内容-—-git-diff" class="headerlink" title="4. 查看更改内容 — git diff"></a>4. 查看更改内容 — git diff</h4><p><img src="/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.29.27.png"><br>按q退出</p>
-<h4 id="5-撤回追踪-—-git-reset"><a href="#5-撤回追踪-—-git-reset" class="headerlink" title="5. 撤回追踪 — git reset"></a>5. 撤回追踪 — git reset</h4><p><img src="/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.32.58.png"></p>
+<p><img src="/blog-pages/blog-pages/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.26.31.png"></p>
+<h4 id="4-查看更改内容-—-git-diff"><a href="#4-查看更改内容-—-git-diff" class="headerlink" title="4. 查看更改内容 — git diff"></a>4. 查看更改内容 — git diff</h4><p><img src="/blog-pages/blog-pages/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.29.27.png"><br>按q退出</p>
+<h4 id="5-撤回追踪-—-git-reset"><a href="#5-撤回追踪-—-git-reset" class="headerlink" title="5. 撤回追踪 — git reset"></a>5. 撤回追踪 — git reset</h4><p><img src="/blog-pages/blog-pages/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.32.58.png"></p>
 <h4 id="6-提交更改-—-git-commit"><a href="#6-提交更改-—-git-commit" class="headerlink" title="6. 提交更改 — git commit"></a>6. 提交更改 — git commit</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m <span class="string">&quot;本次提交的描述&quot;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -a     <span class="comment">#自动添加并提交已追踪的修改</span></span><br></pre></td></tr></table></figure>
 <h4 id="7-设置一些不提交的文件-—-创建-gitignore"><a href="#7-设置一些不提交的文件-—-创建-gitignore" class="headerlink" title="7. 设置一些不提交的文件 — 创建.gitignore"></a>7. 设置一些不提交的文件 — 创建.gitignore</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git rm --cached 文件名        <span class="comment">#删除已经存在的追踪</span></span><br><span class="line">$ vim .gitignore        <span class="comment">#在该文件下写入不想提交的文件名称</span></span><br></pre></td></tr></table></figure>
-<p><img src="/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.43.25.png"><br>在.gitignore文件中写入不想提交的文件名<br><img src="/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.43.42.png"><br>git status 查看追踪列表中少了 “nocommit.md”<br><img src="/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.44.19.png"></p>
+<p><img src="/blog-pages/blog-pages/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.43.25.png"><br>在.gitignore文件中写入不想提交的文件名<br><img src="/blog-pages/blog-pages/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.43.42.png"><br>git status 查看追踪列表中少了 “nocommit.md”<br><img src="/blog-pages/blog-pages/2021/01/23/Git%E5%9F%BA%E6%93%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202021-01-23%20%E4%B8%8B%E5%8D%884.44.19.png"></p>
 <h4 id="8-删除已经存在的追踪"><a href="#8-删除已经存在的追踪" class="headerlink" title="8. 删除已经存在的追踪"></a>8. 删除已经存在的追踪</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git rm --cached 文件名        <span class="comment">#删除已经存在的追踪</span></span><br></pre></td></tr></table></figure>
 <p>从git系统中删除该文件，但依旧存在项目文件夹中，只是停止追踪而已。</p>
 <h3 id="二、Git分支-—-不同的时间线"><a href="#二、Git分支-—-不同的时间线" class="headerlink" title="二、Git分支 — 不同的时间线"></a>二、Git分支 — 不同的时间线</h3><p>设新分支名为: newbranch</p>
@@ -317,12 +317,12 @@
   <div id="qr" style="display: none;">
       
       <div style="display: inline-block;">
-        <img src="/images/wechatpay.png" alt="倪矗 微信支付">
+        <img src="/blog-pages/images/wechatpay.png" alt="倪矗 微信支付">
         <p>微信支付</p>
       </div>
       
       <div style="display: inline-block;">
-        <img src="/images/alipay.png" alt="倪矗 支付宝">
+        <img src="/blog-pages/images/alipay.png" alt="倪矗 支付宝">
         <p>支付宝</p>
       </div>
 
@@ -338,7 +338,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://haikezi.vicp.io/2021/01/23/Git%E5%9F%BA%E6%93%8D/" title="Git基操">http://haikezi.vicp.io/2021/01/23/Git基操/</a>
+    <a href="https://haikez.gitee.io/blog-pages/2021/01/23/Git%E5%9F%BA%E6%93%8D/" title="Git基操">https://haikez.gitee.io/blog-pages/2021/01/23/Git基操/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -349,7 +349,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Git/" rel="tag"># Git</a>
+              <a href="/blog-pages/tags/Git/" rel="tag"># Git</a>
           </div>
 
         
@@ -358,11 +358,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/01/02/Git+Nginx%E6%90%AD%E5%BB%BA%E8%BF%9C%E7%A8%8BWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="prev" title="Git+Nginx搭建远程Web服务器">
+    <a href="/blog-pages/2021/01/02/Git+Nginx%E6%90%AD%E5%BB%BA%E8%BF%9C%E7%A8%8BWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="prev" title="Git+Nginx搭建远程Web服务器">
       <i class="fa fa-chevron-left"></i> Git+Nginx搭建远程Web服务器
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/01/23/Lazygit%E5%9F%BA%E6%93%8D/" rel="next" title="Lazygit基操">
+    <a href="/blog-pages/2021/01/23/Lazygit%E5%9F%BA%E6%93%8D/" rel="next" title="Lazygit基操">
       Lazygit基操 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -430,27 +430,27 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="倪矗"
-      src="/images/avatar.gif">
+      src="/blog-pages/images/avatar.gif">
   <p class="site-author-name" itemprop="name">倪矗</p>
   <div class="site-description" itemprop="description">每一个不曾起舞的日子，都是对生命的辜负。</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
+          <a href="/blog-pages/archives/">
         
           <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="/categories/">
+            <a href="/blog-pages/categories/">
           
         <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
+            <a href="/blog-pages/tags/">
           
         <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">标签</span></a>
@@ -463,7 +463,7 @@
       </span>
   </div>
   <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/blog-pages/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
   </div>
 
 
@@ -481,7 +481,7 @@
             <h3 class="widget-title">Tag Cloud</h3>
             <div id="myCanvasContainer" class="widget tagcloud">
                 <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                    <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArchLinux/" rel="tag">ArchLinux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lazygit/" rel="tag">Lazygit</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSH%E7%A7%98%E9%92%A5%E7%AE%A1%E7%90%86/" rel="tag">SSH秘钥管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Termux/" rel="tag">Termux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" rel="tag">内网穿透</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" rel="tag">搭建个人博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%8E%86%E7%BB%83/" rel="tag">树莓派历练</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">树莓派服务器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%93%BE%E8%A1%A8/" rel="tag">链表</a><span class="tag-list-count">1</span></li></ul>
+                    <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog-pages/tags/ArchLinux/" rel="tag">ArchLinux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog-pages/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog-pages/tags/Lazygit/" rel="tag">Lazygit</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog-pages/tags/SSH%E7%A7%98%E9%92%A5%E7%AE%A1%E7%90%86/" rel="tag">SSH秘钥管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog-pages/tags/Termux/" rel="tag">Termux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog-pages/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" rel="tag">内网穿透</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog-pages/tags/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" rel="tag">搭建个人博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog-pages/tags/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%8E%86%E7%BB%83/" rel="tag">树莓派历练</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog-pages/tags/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">树莓派服务器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog-pages/tags/%E9%93%BE%E8%A1%A8/" rel="tag">链表</a><span class="tag-list-count">1</span></li></ul>
                 </canvas>
             </div>
         </div>
@@ -554,31 +554,31 @@
 
   
   
-  <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/blog-pages/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/blog-pages/lib/anime.min.js"></script>
+  <script src="/blog-pages/lib/velocity/velocity.min.js"></script>
+  <script src="/blog-pages/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/js/utils.js"></script>
+<script src="/blog-pages/js/utils.js"></script>
 
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
+<script src="/blog-pages/js/motion.js"></script>
 
 
-<script src="/js/next-boot.js"></script>
+<script src="/blog-pages/js/schemes/pisces.js"></script>
 
 
-
-
-  
+<script src="/blog-pages/js/next-boot.js"></script>
 
 
 
 
   
-<script src="/js/local-search.js"></script>
+
+
+
+
+  
+<script src="/blog-pages/js/local-search.js"></script>
 
 
 
