@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://haikez.github.io/2020/12/31/SSH%E7%A7%98%E9%92%A5%E5%AE%89%E8%A3%85%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
+    <lastmod>2021-02-27</lastmod>
+  </url>
+  <url>
+    <loc>https://haikez.github.io/2021/02/17/PicGo-Github%E7%99%BD%E5%AB%96%E5%9B%BE%E5%BA%8A/</loc>
+    <lastmod>2021-02-27</lastmod>
+  </url>
+  <url>
     <loc>https://haikez.github.io/2021/01/23/Lazygit%E5%9F%BA%E6%93%8D/</loc>
     <lastmod>2021-02-27</lastmod>
   </url>
@@ -33,19 +41,11 @@
     <lastmod>2021-02-27</lastmod>
   </url>
   <url>
-    <loc>https://haikez.github.io/2021/02/17/PicGo-Github%E7%99%BD%E5%AB%96%E5%9B%BE%E5%BA%8A/</loc>
-    <lastmod>2021-02-27</lastmod>
-  </url>
-  <url>
     <loc>https://haikez.github.io/2021/02/06/Termux%E7%89%9BX%E7%9A%84%E5%AE%89%E5%8D%93%E7%BB%88%E7%AB%AF/</loc>
     <lastmod>2021-02-26</lastmod>
   </url>
   <url>
     <loc>https://haikez.github.io/2020/12/15/ArchLinux%E5%AE%89%E8%A3%85/</loc>
     <lastmod>2021-01-28</lastmod>
-  </url>
-  <url>
-    <loc>https://haikez.github.io/2020/12/31/SSH%E7%A7%98%E9%92%A5%E5%AE%89%E8%A3%85%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
-    <lastmod>2021-01-24</lastmod>
   </url>
 </urlset> 
