@@ -215,12 +215,12 @@
     <content><![CDATA[<h2 id="Lazygit-—-懒人必备的Git客户端"><a href="#Lazygit-—-懒人必备的Git客户端" class="headerlink" title="Lazygit — 懒人必备的Git客户端"></a>Lazygit — 懒人必备的Git客户端</h2><p>! ! ! (用 x 查看各个面板帮助)</p>
 <h3 id="一、下载"><a href="#一、下载" class="headerlink" title="一、下载"></a>一、下载</h3><h4 id="1-Lazygit下载"><a href="#1-Lazygit下载" class="headerlink" title="1. Lazygit下载"></a>1. Lazygit下载</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">下载地址：</span><br><span class="line">https://github.com/jesseduffield/lazygit</span><br></pre></td></tr></table></figure>
 <h4 id="2-打开"><a href="#2-打开" class="headerlink" title="2. 打开"></a>2. 打开</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ lazygit</span><br></pre></td></tr></table></figure>
-<h3 id="二、-Stage-操作"><a href="#二、-Stage-操作" class="headerlink" title="二、 Stage 操作"></a>二、 Stage 操作</h3><h4 id="1-全部-stage-unstage-—-a"><a href="#1-全部-stage-unstage-—-a" class="headerlink" title="1. 全部 stage/unstage — a"></a>1. 全部 stage/unstage — a</h4><h4 id="相当于git-add"><a href="#相当于git-add" class="headerlink" title="(相当于git add .)"></a>(相当于git add .)</h4><p><img src="https://gitee.com/Haikez/images_bed/raw/master/Lazygit%E5%9F%BA%E6%93%8D/20210227083914.gif"></p>
+<h3 id="二、-Stage-操作"><a href="#二、-Stage-操作" class="headerlink" title="二、 Stage 操作"></a>二、 Stage 操作</h3><h4 id="1-全部-stage-unstage-—-a"><a href="#1-全部-stage-unstage-—-a" class="headerlink" title="1. 全部 stage/unstage — a"></a>1. 全部 stage/unstage — a</h4><h4 id="相当于git-add"><a href="#相当于git-add" class="headerlink" title="(相当于git add .)"></a>(相当于git add .)</h4><p><img src="/2021/01/23/Lazygit%E5%9F%BA%E6%93%8D/Jan-24-2021%2013-20-15.gif"></p>
 <a id="more"></a>
 <p><img src="https://gitee.com/Haikez/images_bed/raw/master/Lazygit%E5%9F%BA%E6%93%8D/20210227084430.png"></p>
-<h4 id="2-可以用空格逐个stage"><a href="#2-可以用空格逐个stage" class="headerlink" title="2. 可以用空格逐个stage"></a>2. 可以用空格逐个stage</h4><p><img src="https://gitee.com/Haikez/images_bed/raw/master/Lazygit%E5%9F%BA%E6%93%8D/20210227083854.gif"></p>
-<h4 id="3-H和L键可以实现左侧面板间的切换"><a href="#3-H和L键可以实现左侧面板间的切换" class="headerlink" title="3. H和L键可以实现左侧面板间的切换"></a>3. H和L键可以实现左侧面板间的切换</h4><p><img src="https://gitee.com/Haikez/images_bed/raw/master/Lazygit%E5%9F%BA%E6%93%8D/20210227084451.gif"></p>
-<h4 id="4-J和K键可以实现面板内文件的选择"><a href="#4-J和K键可以实现面板内文件的选择" class="headerlink" title="4. J和K键可以实现面板内文件的选择"></a>4. J和K键可以实现面板内文件的选择</h4><p><img src="https://gitee.com/Haikez/images_bed/raw/master/Lazygit%E5%9F%BA%E6%93%8D/20210227084502.gif"></p>
+<h4 id="2-可以用空格逐个stage"><a href="#2-可以用空格逐个stage" class="headerlink" title="2. 可以用空格逐个stage"></a>2. 可以用空格逐个stage</h4><p><img src="/2021/01/23/Lazygit%E5%9F%BA%E6%93%8D/Jan-24-2021%2013-23-31.gif"></p>
+<h4 id="3-H和L键可以实现左侧面板间的切换"><a href="#3-H和L键可以实现左侧面板间的切换" class="headerlink" title="3. H和L键可以实现左侧面板间的切换"></a>3. H和L键可以实现左侧面板间的切换</h4><p><img src="/2021/01/23/Lazygit%E5%9F%BA%E6%93%8D/Jan-26-2021%2020-30-36.gif"></p>
+<h4 id="4-J和K键可以实现面板内文件的选择"><a href="#4-J和K键可以实现面板内文件的选择" class="headerlink" title="4. J和K键可以实现面板内文件的选择"></a>4. J和K键可以实现面板内文件的选择</h4><p><img src="/2021/01/23/Lazygit%E5%9F%BA%E6%93%8D/Jan-26-2021%2020-36-31.gif"></p>
 <h5 id="按回车可以进入到选中的文件（按esc可以退回到主面板）"><a href="#按回车可以进入到选中的文件（按esc可以退回到主面板）" class="headerlink" title="按回车可以进入到选中的文件（按esc可以退回到主面板）"></a>按回车可以进入到选中的文件（按esc可以退回到主面板）</h5><p><img src="https://gitee.com/Haikez/images_bed/raw/master/Lazygit%E5%9F%BA%E6%93%8D/20210227084524.png"></p>
 <h5 id="按Tab键可以切换Stage-Unstage面板"><a href="#按Tab键可以切换Stage-Unstage面板" class="headerlink" title="按Tab键可以切换Stage/Unstage面板"></a>按Tab键可以切换Stage/Unstage面板</h5><p><img src="https://gitee.com/Haikez/images_bed/raw/master/Lazygit%E5%9F%BA%E6%93%8D/20210227084531.gif"></p>
 <h5 id="按d可以彻底删除Unstage中的修改内容"><a href="#按d可以彻底删除Unstage中的修改内容" class="headerlink" title="按d可以彻底删除Unstage中的修改内容"></a>按d可以彻底删除Unstage中的修改内容</h5><p><img src="https://gitee.com/Haikez/images_bed/raw/master/Lazygit%E5%9F%BA%E6%93%8D/20210227084542.png"></p>
@@ -347,7 +347,7 @@
   <entry>
     <title>树莓派系统安装和基本配置</title>
     <url>/2020/12/30/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%92%8C%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h2 id="树莓派系统安装"><a href="#树莓派系统安装" class="headerlink" title="树莓派系统安装"></a>树莓派系统安装</h2><h3 id="需要的工具："><a href="#需要的工具：" class="headerlink" title="需要的工具："></a>需要的工具：</h3><ol>
+    <content><![CDATA[<h2 id="树莓派系统安装、"><a href="#树莓派系统安装、" class="headerlink" title="树莓派系统安装、"></a>树莓派系统安装、</h2><h3 id="需要的工具："><a href="#需要的工具：" class="headerlink" title="需要的工具："></a>需要的工具：</h3><ol>
 <li>树莓派一个</li>
 <li>8G以上SD卡一张</li>
 <li>读卡器</li>
