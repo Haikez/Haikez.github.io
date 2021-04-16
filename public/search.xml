@@ -275,6 +275,49 @@
       </tags>
   </entry>
   <entry>
+    <title>Markdown基本操作</title>
+    <url>/2021/04/16/Markdown%E5%9F%BA%E6%93%8D%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<h1 id="这是一级标题"><a href="#这是一级标题" class="headerlink" title="#这是一级标题"></a>#这是一级标题</h1><h2 id="这是二级标题"><a href="#这是二级标题" class="headerlink" title="##这是二级标题"></a>##这是二级标题</h2><h2 id="这是三级标题"><a href="#这是三级标题" class="headerlink" title="###这是三级标题"></a>###这是三级标题</h2><h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><p>** <strong>Hello,World(粗体)</strong> **<br><strong>* *</strong>Hello,World(斜体加粗)<strong>* *</strong><br>*<em>Hello,World(斜体)</em> *<br>~~ <del>Hello,World(删除线)</del> ~~</p>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><blockquote>
+<p>这是一段引用</p>
+</blockquote>
+<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><hr>
+<p>(—)</p>
+<hr>
+<p>(***)</p>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><ol>
+<li>A</li>
+<li>B</li>
+<li>C</li>
+</ol>
+<ul>
+<li>A</li>
+<li>B</li>
+<li>C<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><a href="https://www.baidu.com/">超链接</a></li>
+</ul>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><table>
+<thead>
+<tr>
+<th>姓名</th>
+<th>性别</th>
+<th>生日</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>张三</td>
+<td>男</td>
+<td>2001</td>
+</tr>
+</tbody></table>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>是基操啦</category>
+      </categories>
+      <tags>
+        <tag>Markdown基操</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PicGo+Github白嫖图床</title>
     <url>/2021/02/17/PicGo-Github%E7%99%BD%E5%AB%96%E5%9B%BE%E5%BA%8A/</url>
     <content><![CDATA[<h2 id="PicGo-Github白嫖图床"><a href="#PicGo-Github白嫖图床" class="headerlink" title="PicGo+Github白嫖图床"></a>PicGo+Github白嫖图床</h2><h3 id="一、简介："><a href="#一、简介：" class="headerlink" title="一、简介："></a>一、简介：</h3><h4 id="图床就是个人云图库，我们可以把照片放到图床里，图床就会为照片生成超链接，我们通过浏览器就能访问到里面的照片，非常方便！所以图床几乎成了各大博主开发个人博客的必备工具。但这样的云服务几乎都是收费的。然而Github这个开源的云仓库为免费图床的搭建提供了平台。"><a href="#图床就是个人云图库，我们可以把照片放到图床里，图床就会为照片生成超链接，我们通过浏览器就能访问到里面的照片，非常方便！所以图床几乎成了各大博主开发个人博客的必备工具。但这样的云服务几乎都是收费的。然而Github这个开源的云仓库为免费图床的搭建提供了平台。" class="headerlink" title="图床就是个人云图库，我们可以把照片放到图床里，图床就会为照片生成超链接，我们通过浏览器就能访问到里面的照片，非常方便！所以图床几乎成了各大博主开发个人博客的必备工具。但这样的云服务几乎都是收费的。然而Github这个开源的云仓库为免费图床的搭建提供了平台。"></a>图床就是个人云图库，我们可以把照片放到图床里，图床就会为照片生成超链接，我们通过浏览器就能访问到里面的照片，非常方便！所以图床几乎成了各大博主开发个人博客的必备工具。但这样的云服务几乎都是收费的。然而Github这个开源的云仓库为免费图床的搭建提供了平台。</h4><p><img src="https://gitee.com/Haikez/images_bed/raw/master/PicGo-Github%E7%99%BD%E5%AB%96%E5%9B%BE%E5%BA%8A/20210227085305.jpg"></p>
