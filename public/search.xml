@@ -718,4 +718,28 @@ bool ListDelete(LinkNode *&L,int i,ElemType &e)
         <tag>链表</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Java的封装</title>
+    <url>/2021/04/17/Java%E7%9A%84%E5%B0%81%E8%A3%85/</url>
+    <content><![CDATA[<h1 id="Java的封装"><a href="#Java的封装" class="headerlink" title="Java的封装"></a>Java的封装</h1><h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><p><img src="https://gitee.com/Haikez/images_bed/raw/master/Java%E5%9F%BA%E7%A1%80/20210417212632.png"></p>
+<h2 id="重点记住-属性私有，get-set"><a href="#重点记住-属性私有，get-set" class="headerlink" title="重点记住:属性私有，get/set"></a>重点记住:属性私有，get/set</h2><h2 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作:"></a>具体操作:</h2><h3 id="1-用private关键字对类中的属性进行修饰，被修饰的属性不能直接被调用。"><a href="#1-用private关键字对类中的属性进行修饰，被修饰的属性不能直接被调用。" class="headerlink" title="1. 用private关键字对类中的属性进行修饰，被修饰的属性不能直接被调用。"></a>1. 用private关键字对类中的属性进行修饰，被修饰的属性不能直接被调用。</h3><p><img src="https://gitee.com/Haikez/images_bed/raw/master/Java%E5%9F%BA%E7%A1%80/20210417213825.png"></p>
+<h3 id="2-在本类中提供一些set、get方法可以操作该属性。"><a href="#2-在本类中提供一些set、get方法可以操作该属性。" class="headerlink" title="2. 在本类中提供一些set、get方法可以操作该属性。"></a>2. 在本类中提供一些set、get方法可以操作该属性。</h3><p><img src="https://gitee.com/Haikez/images_bed/raw/master/Java%E5%9F%BA%E7%A1%80/20210417214414.png"></p>
+<h3 id="3-IDEA一键生成get-set方法。"><a href="#3-IDEA一键生成get-set方法。" class="headerlink" title="3.IDEA一键生成get/set方法。"></a>3.IDEA一键生成get/set方法。</h3><h4 id="Mac下按ctrl-enter"><a href="#Mac下按ctrl-enter" class="headerlink" title="Mac下按ctrl+enter"></a>Mac下按ctrl+enter</h4><p><img src="https://gitee.com/Haikez/images_bed/raw/master/Java%E5%9F%BA%E7%A1%80/20210417214718.png"><br><img src="https://gitee.com/Haikez/images_bed/raw/master/Java%E5%9F%BA%E7%A1%80/20210417214841.png"><br><img src="https://gitee.com/Haikez/images_bed/raw/master/Java%E5%9F%BA%E7%A1%80/20210417214851.png"></p>
+]]></content>
+      <categories>
+        <category>Java基础</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Java的继承</title>
+    <url>/2021/04/17/Java%E7%9A%84%E7%BB%A7%E6%89%BF/</url>
+    <content><![CDATA[<h1 id="Java的继承"><a href="#Java的继承" class="headerlink" title="Java的继承"></a>Java的继承</h1><h2 id="继承的本质是对某一批类的抽象，从而实现对世界更好的建模。"><a href="#继承的本质是对某一批类的抽象，从而实现对世界更好的建模。" class="headerlink" title="继承的本质是对某一批类的抽象，从而实现对世界更好的建模。"></a>继承的本质是对某一批类的抽象，从而实现对世界更好的建模。</h2><h2 id="子类继承父类，子类可拥有父类中所有的属性和方法。"><a href="#子类继承父类，子类可拥有父类中所有的属性和方法。" class="headerlink" title="子类继承父类，子类可拥有父类中所有的属性和方法。"></a>子类继承父类，子类可拥有父类中所有的属性和方法。</h2><p><img src="https://gitee.com/Haikez/images_bed/raw/master/Java%E5%9F%BA%E7%A1%80/20210417221138.png"></p>
+<h2 id="父类中的属性也可以用private关键字修复，从而达到封装的效果。"><a href="#父类中的属性也可以用private关键字修复，从而达到封装的效果。" class="headerlink" title="父类中的属性也可以用private关键字修复，从而达到封装的效果。"></a>父类中的属性也可以用private关键字修复，从而达到封装的效果。</h2><p><img src="https://gitee.com/Haikez/images_bed/raw/master/Java%E5%9F%BA%E7%A1%80/20210417221441.png"></p>
+<h2 id="IDEA中按ctrl-h可以快速查看继承列表。"><a href="#IDEA中按ctrl-h可以快速查看继承列表。" class="headerlink" title="IDEA中按ctrl+h可以快速查看继承列表。"></a>IDEA中按ctrl+h可以快速查看继承列表。</h2><p><img src="https://gitee.com/Haikez/images_bed/raw/master/Java%E5%9F%BA%E7%A1%80/20210417221729.png"></p>
+<h2 id="super关键字"><a href="#super关键字" class="headerlink" title="super关键字"></a>super关键字</h2><p>父类可以不写无参构造但是子类必须调用父类的有参构造</p>
+]]></content>
+      <categories>
+        <category>Java基础</category>
+      </categories>
+  </entry>
 </search>

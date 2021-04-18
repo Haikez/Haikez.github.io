@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://haikez.github.io/2021/04/17/Java%E7%9A%84%E7%BB%A7%E6%89%BF/</loc>
+    
+    <lastmod>2021-04-17</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://haikez.github.io/2021/04/17/Java%E7%9A%84%E5%B0%81%E8%A3%85/</loc>
+    
+    <lastmod>2021-04-17</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://haikez.github.io/2021/04/17/Java%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95/</loc>
     
     <lastmod>2021-04-17</lastmod>
@@ -144,7 +158,7 @@
 
   <url>
     <loc>https://haikez.github.io/</loc>
-    <lastmod>2021-04-17</lastmod>
+    <lastmod>2021-04-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -152,91 +166,91 @@
   
   <url>
     <loc>https://haikez.github.io/tags/ArchLinux/</loc>
-    <lastmod>2021-04-17</lastmod>
+    <lastmod>2021-04-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://haikez.github.io/tags/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
-    <lastmod>2021-04-17</lastmod>
+    <lastmod>2021-04-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://haikez.github.io/tags/Git/</loc>
-    <lastmod>2021-04-17</lastmod>
+    <lastmod>2021-04-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://haikez.github.io/tags/Hexo/</loc>
-    <lastmod>2021-04-17</lastmod>
+    <lastmod>2021-04-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://haikez.github.io/tags/Lazygit/</loc>
-    <lastmod>2021-04-17</lastmod>
+    <lastmod>2021-04-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://haikez.github.io/tags/Markdown%E5%9F%BA%E6%93%8D/</loc>
-    <lastmod>2021-04-17</lastmod>
+    <lastmod>2021-04-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://haikez.github.io/tags/%E5%9B%BE%E5%BA%8A/</loc>
-    <lastmod>2021-04-17</lastmod>
+    <lastmod>2021-04-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://haikez.github.io/tags/SSH%E7%A7%98%E9%92%A5%E7%AE%A1%E7%90%86/</loc>
-    <lastmod>2021-04-17</lastmod>
+    <lastmod>2021-04-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://haikez.github.io/tags/Termux/</loc>
-    <lastmod>2021-04-17</lastmod>
+    <lastmod>2021-04-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://haikez.github.io/tags/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%8E%86%E7%BB%83/</loc>
-    <lastmod>2021-04-17</lastmod>
+    <lastmod>2021-04-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://haikez.github.io/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</loc>
-    <lastmod>2021-04-17</lastmod>
+    <lastmod>2021-04-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://haikez.github.io/tags/Seeker%E5%97%85%E6%8E%A2%E5%AE%9A%E4%BD%8D/</loc>
-    <lastmod>2021-04-17</lastmod>
+    <lastmod>2021-04-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://haikez.github.io/tags/%E9%93%BE%E8%A1%A8/</loc>
-    <lastmod>2021-04-17</lastmod>
+    <lastmod>2021-04-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -245,42 +259,42 @@
   
   <url>
     <loc>https://haikez.github.io/categories/Linux%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2021-04-17</lastmod>
+    <lastmod>2021-04-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://haikez.github.io/categories/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%8F%8D%E5%87%BB/</loc>
-    <lastmod>2021-04-17</lastmod>
+    <lastmod>2021-04-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://haikez.github.io/categories/%E6%98%AF%E5%9F%BA%E6%93%8D%E5%95%A6/</loc>
-    <lastmod>2021-04-17</lastmod>
+    <lastmod>2021-04-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://haikez.github.io/categories/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2021-04-17</lastmod>
+    <lastmod>2021-04-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://haikez.github.io/categories/Java%E5%9F%BA%E7%A1%80/</loc>
-    <lastmod>2021-04-17</lastmod>
+    <lastmod>2021-04-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://haikez.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2021-04-17</lastmod>
+    <lastmod>2021-04-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
