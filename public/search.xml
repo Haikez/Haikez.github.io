@@ -805,4 +805,19 @@ bool ListDelete(LinkNode *&L,int i,ElemType &e)
         <tag>链表</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Java的多种内部类</title>
+    <url>/2021/04/20/Java%E7%9A%84%E5%A4%9A%E7%A7%8D%E5%86%85%E9%83%A8%E7%B1%BB/</url>
+    <content><![CDATA[<h1 id="Java的多种内部类"><a href="#Java的多种内部类" class="headerlink" title="Java的多种内部类"></a>Java的多种内部类</h1><h2 id="1-成员内部类"><a href="#1-成员内部类" class="headerlink" title="1.成员内部类"></a>1.成员内部类</h2><h3 id="1-通过外部类实例化成员内部类"><a href="#1-通过外部类实例化成员内部类" class="headerlink" title="1. 通过外部类实例化成员内部类"></a>1. 通过外部类实例化成员内部类</h3><p><img src="https://gitee.com/Haikez/images_bed/raw/master/Java%E5%9F%BA%E7%A1%80/20210420162757.png"><br><img src="https://gitee.com/Haikez/images_bed/raw/master/Java%E5%9F%BA%E7%A1%80/20210420163344.png"></p>
+<a id="more"></a>
+<h3 id="2-成员内部类可以获得外部类的-私有属性"><a href="#2-成员内部类可以获得外部类的-私有属性" class="headerlink" title="2. 成员内部类可以获得外部类的 私有属性"></a>2. 成员内部类可以获得外部类的 <strong><em>私有属性</em></strong></h3><p><img src="https://gitee.com/Haikez/images_bed/raw/master/Java%E5%9F%BA%E7%A1%80/20210420163242.png"></p>
+<h2 id="2-静态内部类"><a href="#2-静态内部类" class="headerlink" title="2. 静态内部类"></a>2. 静态内部类</h2><h3 id="用static关键字修饰的内部类"><a href="#用static关键字修饰的内部类" class="headerlink" title="用static关键字修饰的内部类"></a>用static关键字修饰的内部类</h3><p><img src="https://gitee.com/Haikez/images_bed/raw/master/Java%E5%9F%BA%E7%A1%80/20210420164620.png"></p>
+<h2 id="3-局部内部类"><a href="#3-局部内部类" class="headerlink" title="3. 局部内部类"></a>3. 局部内部类</h2><h3 id="写在方法区的内部类"><a href="#写在方法区的内部类" class="headerlink" title="写在方法区的内部类"></a>写在方法区的内部类</h3><p><img src="https://gitee.com/Haikez/images_bed/raw/master/Java%E5%9F%BA%E7%A1%80/20210420164801.png"></p>
+<h2 id="4-匿名内部类"><a href="#4-匿名内部类" class="headerlink" title="4. 匿名内部类"></a>4. 匿名内部类</h2><h3 id="没有名字初始化类，不用将实例保存到变量中"><a href="#没有名字初始化类，不用将实例保存到变量中" class="headerlink" title="没有名字初始化类，不用将实例保存到变量中"></a>没有名字初始化类，不用将实例保存到变量中</h3><p><img src="https://gitee.com/Haikez/images_bed/raw/master/Java%E5%9F%BA%E7%A1%80/20210420164318.png"></p>
+<h3 id="可以用匿名内部类实现接口"><a href="#可以用匿名内部类实现接口" class="headerlink" title="可以用匿名内部类实现接口"></a>可以用匿名内部类实现接口</h3><p><img src="https://gitee.com/Haikez/images_bed/raw/master/Java%E5%9F%BA%E7%A1%80/20210420164406.png"><br><img src="https://gitee.com/Haikez/images_bed/raw/master/Java%E5%9F%BA%E7%A1%80/20210420164417.png"></p>
+]]></content>
+      <categories>
+        <category>Java基础</category>
+      </categories>
+  </entry>
 </search>
