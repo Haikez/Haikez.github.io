@@ -886,4 +886,40 @@ bool ListDelete(LinkNode *&L,int i,ElemType &e)
         <category>Java的多线程</category>
       </categories>
   </entry>
+  <entry>
+    <title>线程的五大状态</title>
+    <url>/2021/04/22/%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BA%94%E5%A4%A7%E7%8A%B6%E6%80%81/</url>
+    <content><![CDATA[<h1 id="线程的五大状态"><a href="#线程的五大状态" class="headerlink" title="线程的五大状态"></a>线程的五大状态</h1><p><img src="https://gitee.com/Haikez/images_bed/raw/master/Java%E5%9F%BA%E7%A1%80/20210422193657.png"></p>
+<a id="more"></a>
+<h1 id="操作线程的方法"><a href="#操作线程的方法" class="headerlink" title="操作线程的方法"></a>操作线程的方法</h1><p><img src="https://gitee.com/Haikez/images_bed/raw/master/Java%E5%9F%BA%E7%A1%80/20210422193901.png"></p>
+<h2 id="一、线程的停止-stop"><a href="#一、线程的停止-stop" class="headerlink" title="一、线程的停止_stop()"></a>一、线程的停止_stop()</h2><h3 id="建议手动在线程中写stop-方法"><a href="#建议手动在线程中写stop-方法" class="headerlink" title="建议手动在线程中写stop()方法"></a>建议手动在线程中写stop()方法</h3><p><img src="https://gitee.com/Haikez/images_bed/raw/master/Java%E5%9F%BA%E7%A1%80/20210422194057.png"></p>
+<h2 id="二、线程的休眠-sleep"><a href="#二、线程的休眠-sleep" class="headerlink" title="二、线程的休眠_sleep()"></a>二、线程的休眠_sleep()</h2><h3 id="1-sleep-方法会导致线程阻塞，必须等到时间结束过后线程才能继续执行。"><a href="#1-sleep-方法会导致线程阻塞，必须等到时间结束过后线程才能继续执行。" class="headerlink" title="1. sleep()方法会导致线程阻塞，必须等到时间结束过后线程才能继续执行。"></a>1. sleep()方法会导致线程<em>阻塞</em>，必须等到时间结束过后线程才能继续执行。</h3><h3 id="2-使用：Thread-sleep-1000"><a href="#2-使用：Thread-sleep-1000" class="headerlink" title="2. 使用：Thread.sleep(1000);"></a>2. 使用：Thread.sleep(1000);</h3><h3 id="3-使用时需要加上异常处理"><a href="#3-使用时需要加上异常处理" class="headerlink" title="3. 使用时需要加上异常处理"></a>3. 使用时需要加上异常处理</h3><p><img src="https://gitee.com/Haikez/images_bed/raw/master/Java%E5%9F%BA%E7%A1%80/20210423102725.png"></p>
+<h2 id="三、线程的礼让-yield"><a href="#三、线程的礼让-yield" class="headerlink" title="三、线程的礼让_yield()"></a>三、线程的礼让_yield()</h2><h3 id="1-使用：Thread-yield"><a href="#1-使用：Thread-yield" class="headerlink" title="1. 使用：Thread.yield();"></a>1. 使用：Thread.yield();</h3><h3 id="2-线程的礼让是让当前线程回到就绪状态，等待CPU调度，相当于回到同一起跑线。"><a href="#2-线程的礼让是让当前线程回到就绪状态，等待CPU调度，相当于回到同一起跑线。" class="headerlink" title="2. 线程的礼让是让当前线程回到就绪状态，等待CPU调度，相当于回到同一起跑线。"></a>2. 线程的礼让是让当前线程回到就绪状态，等待CPU调度，相当于回到同一起跑线。</h3><p><img src="https://gitee.com/Haikez/images_bed/raw/master/Java%E5%9F%BA%E7%A1%80/20210423101047.png"></p>
+<h2 id="四、线程的强制执行-join"><a href="#四、线程的强制执行-join" class="headerlink" title="四、线程的强制执行_join()"></a>四、线程的强制执行_join()</h2><h3 id="1-使用：线程类对象-join"><a href="#1-使用：线程类对象-join" class="headerlink" title="1. 使用：线程类对象.join();"></a>1. 使用：线程类对象.join();</h3><h3 id="2-线程的强制执行会导致别的线程阻塞，直到插入的线程完成过后，其余线程才会继续执行。"><a href="#2-线程的强制执行会导致别的线程阻塞，直到插入的线程完成过后，其余线程才会继续执行。" class="headerlink" title="2. 线程的强制执行会导致别的线程阻塞，直到插入的线程完成过后，其余线程才会继续执行。"></a>2. 线程的强制执行会导致别的线程阻塞，直到插入的线程完成过后，其余线程才会继续执行。</h3><p><img src="https://gitee.com/Haikez/images_bed/raw/master/Java%E5%9F%BA%E7%A1%80/20210423102208.png"><br><img src="https://gitee.com/Haikez/images_bed/raw/master/Java%E5%9F%BA%E7%A1%80/20210423102257.png"></p>
+<blockquote>
+<p>直到插入的线程执行完毕，其余线程才能继续执行。</p>
+</blockquote>
+<h2 id="五、观测线程状态-Thread-State"><a href="#五、观测线程状态-Thread-State" class="headerlink" title="五、观测线程状态(Thread.State)"></a>五、观测线程状态(Thread.State)</h2><h3 id="使用：线程类对象-getState"><a href="#使用：线程类对象-getState" class="headerlink" title="使用：线程类对象.getState();"></a>使用：线程类对象.getState();</h3><h3 id="返回值类型：Thread-State"><a href="#返回值类型：Thread-State" class="headerlink" title="返回值类型：Thread.State"></a>返回值类型：Thread.State</h3><p><img src="https://gitee.com/Haikez/images_bed/raw/master/Java%E5%9F%BA%E7%A1%80/20210423112056.png"></p>
+]]></content>
+      <categories>
+        <category>Java的多线程</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Lambda表达式</title>
+    <url>/2021/04/22/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="Lambda表达式"><a href="#Lambda表达式" class="headerlink" title="Lambda表达式"></a>Lambda表达式</h1><h2 id="一、Lambda表达式意义："><a href="#一、Lambda表达式意义：" class="headerlink" title="一、Lambda表达式意义："></a>一、Lambda表达式意义：</h2><ul>
+<li><h3 id="避免匿名内部类定义过多。"><a href="#避免匿名内部类定义过多。" class="headerlink" title="避免匿名内部类定义过多。"></a>避免匿名内部类定义过多。</h3></li>
+<li><h3 id="可以让代码看起来更简洁。"><a href="#可以让代码看起来更简洁。" class="headerlink" title="可以让代码看起来更简洁。"></a>可以让代码看起来更简洁。</h3></li>
+<li><h3 id="去掉一些没有意义的代码，只留下核心逻辑。"><a href="#去掉一些没有意义的代码，只留下核心逻辑。" class="headerlink" title="去掉一些没有意义的代码，只留下核心逻辑。"></a>去掉一些没有意义的代码，只留下核心逻辑。</h3><h2 id="二、Lambda表达式只能创建函数式接口的对象。"><a href="#二、Lambda表达式只能创建函数式接口的对象。" class="headerlink" title="二、Lambda表达式只能创建函数式接口的对象。"></a>二、Lambda表达式只能创建函数式接口的对象。</h2><h3 id="函数式接口-只含有一个抽象方法的接口。"><a href="#函数式接口-只含有一个抽象方法的接口。" class="headerlink" title="函数式接口:只含有一个抽象方法的接口。"></a>函数式接口:只含有一个抽象方法的接口。</h3><h2 id="三、Lambda表达式的实现过程"><a href="#三、Lambda表达式的实现过程" class="headerlink" title="三、Lambda表达式的实现过程:"></a>三、Lambda表达式的实现过程:</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义一个函数式接口。</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Like</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">lambda</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Lamda</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        <span class="comment">//用接口类实现一个对象并用Lambda表达式实现。</span></span><br><span class="line">        Like like = ()-&gt;&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;Lambda表达式&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        like.lambda();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//上面代码等价于</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">       </span></span><br><span class="line"><span class="comment">        Like like = new Like()&#123;</span></span><br><span class="line"><span class="comment">            @Override</span></span><br><span class="line"><span class="comment">            public void lambda()&#123;</span></span><br><span class="line"><span class="comment">                System.out.println(&quot;匿名内部类&quot;);</span></span><br><span class="line"><span class="comment">            &#125;</span></span><br><span class="line"><span class="comment">        &#125;;</span></span><br><span class="line"><span class="comment">        like.lambda();</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="四、Lambda表达式总结："><a href="#四、Lambda表达式总结：" class="headerlink" title="四、Lambda表达式总结："></a>四、Lambda表达式总结：</h2></li>
+<li><h3 id="lambda表达式只能在一行代码的前提下才能简化为一行，其他情况下必须用代码块包裹。"><a href="#lambda表达式只能在一行代码的前提下才能简化为一行，其他情况下必须用代码块包裹。" class="headerlink" title="lambda表达式只能在一行代码的前提下才能简化为一行，其他情况下必须用代码块包裹。"></a>lambda表达式只能在一行代码的前提下才能简化为一行，其他情况下必须用代码块包裹。</h3></li>
+<li><h3 id="只能实现函数式接口。"><a href="#只能实现函数式接口。" class="headerlink" title="只能实现函数式接口。"></a>只能实现函数式接口。</h3></li>
+<li><h3 id="多个参数可以去掉数据类型，要去掉就全去掉，必须加上括号。"><a href="#多个参数可以去掉数据类型，要去掉就全去掉，必须加上括号。" class="headerlink" title="多个参数可以去掉数据类型，要去掉就全去掉，必须加上括号。"></a>多个参数可以去掉数据类型，要去掉就全去掉，必须加上括号。</h3></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Java的多线程</category>
+      </categories>
+  </entry>
 </search>
