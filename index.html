@@ -192,6 +192,438 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://haikez.github.io/2021/04/29/Servlet%E8%AF%A6%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="倪矗">
+      <meta itemprop="description" content="每一个不曾起舞的日子，都是对生命的辜负。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="倪矗的BLOG">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/29/Servlet%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">Servlet详解</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-29 11:23:48 / 修改时间：11:24:07" itemprop="dateCreated datePublished" datetime="2021-04-29T11:23:48+08:00">2021-04-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaWeb%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">JavaWeb学习</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>9</span>
+            </span>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Servlet详解"><a href="#Servlet详解" class="headerlink" title="Servlet详解"></a>Servlet详解</h1>
+      
+    </div>
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://haikez.github.io/2021/04/27/Maven%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="倪矗">
+      <meta itemprop="description" content="每一个不曾起舞的日子，都是对生命的辜负。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="倪矗的BLOG">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/27/Maven%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="post-title-link" itemprop="url">Maven环境搭建</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-27 17:07:16" itemprop="dateCreated datePublished" datetime="2021-04-27T17:07:16+08:00">2021-04-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-29 11:23:10" itemprop="dateModified" datetime="2021-04-29T11:23:10+08:00">2021-04-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaWeb%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">JavaWeb学习</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>634</span>
+            </span>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Maven环境搭建"><a href="#Maven环境搭建" class="headerlink" title="Maven环境搭建"></a>Maven环境搭建</h1><p>为什么要学习Maven？</p>
+<ol>
+<li>在Javaweb开发中，需要使用大量的jar包，我们手动去导入；</li>
+<li>如何能够让一个对象帮我们去导入和配置这个jar包，由此，Maven诞生。<h2 id="1-Maven-项目架构管理工具"><a href="#1-Maven-项目架构管理工具" class="headerlink" title="1. Maven:项目架构管理工具"></a>1. Maven:项目架构管理工具</h2></li></ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/04/27/Maven%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://haikez.github.io/2021/04/27/HTTP%E5%8D%8F%E8%AE%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="倪矗">
+      <meta itemprop="description" content="每一个不曾起舞的日子，都是对生命的辜负。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="倪矗的BLOG">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/27/HTTP%E5%8D%8F%E8%AE%AE/" class="post-title-link" itemprop="url">HTTP协议</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-27 17:02:48 / 修改时间：17:06:37" itemprop="dateCreated datePublished" datetime="2021-04-27T17:02:48+08:00">2021-04-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaWeb%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">JavaWeb学习</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>70</span>
+            </span>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h1><p>什么是HTTP协议<br>HTTP（超文本传输协议）是一个简单的请求–响应协议，通常应用在TCP之上</p>
+<ul>
+<li>html、字符</li>
+<li>图片、音频、视频、定位</li>
+</ul>
+
+      
+    </div>
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://haikez.github.io/2021/04/27/Tomcat%E8%AF%A6%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="倪矗">
+      <meta itemprop="description" content="每一个不曾起舞的日子，都是对生命的辜负。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="倪矗的BLOG">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/27/Tomcat%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">Tomcat详解</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-27 16:20:32 / 修改时间：17:00:34" itemprop="dateCreated datePublished" datetime="2021-04-27T16:20:32+08:00">2021-04-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaWeb%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">JavaWeb学习</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>510</span>
+            </span>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Tomcat详解"><a href="#Tomcat详解" class="headerlink" title="Tomcat详解"></a>Tomcat详解</h1><h2 id="1、安装Tomcat"><a href="#1、安装Tomcat" class="headerlink" title="1、安装Tomcat"></a>1、安装Tomcat</h2><h3 id="1-1、下载"><a href="#1-1、下载" class="headerlink" title="1.1、下载"></a>1.1、下载</h3><p>Tomcat官网：<a target="_blank" rel="noopener" href="https://tomcat.apache.org/">https://tomcat.apache.org/</a><br><img src="https://gitee.com/Haikez/images_bed/raw/master/JavaWeb/20210427162705.png"><br><img src="https://gitee.com/Haikez/images_bed/raw/master/JavaWeb/20210427162715.png"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/04/27/Tomcat%E8%AF%A6%E8%A7%A3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://haikez.github.io/2021/04/27/Web%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="倪矗">
+      <meta itemprop="description" content="每一个不曾起舞的日子，都是对生命的辜负。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="倪矗的BLOG">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/27/Web%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="post-title-link" itemprop="url">Web基本概念</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-27 14:55:57 / 修改时间：16:21:27" itemprop="dateCreated datePublished" datetime="2021-04-27T14:55:57+08:00">2021-04-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaWeb%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">JavaWeb学习</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>956</span>
+            </span>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Web基本概念"><a href="#Web基本概念" class="headerlink" title="Web基本概念"></a>Web基本概念</h1><h2 id="1、-基本概念"><a href="#1、-基本概念" class="headerlink" title="1、 基本概念"></a>1、 基本概念</h2><h3 id="1-1、前言"><a href="#1-1、前言" class="headerlink" title="1.1、前言"></a>1.1、前言</h3><p>web开发：</p>
+<ul>
+<li>静态web<ul>
+<li>html，css</li>
+<li>提供给所有人看的数据始终不发生改变！</li>
+</ul>
+</li>
+<li>动态web<ul>
+<li>淘宝，几乎所有的网站；</li>
+<li>提供给所有人看的数据始终发生改变，每个人在不同时间，不同地点看到的信息各不相同。</li>
+<li>技术栈：<strong>Servlet/JSP</strong> , <strong>ASP</strong>, <strong>PHP</strong></li>
+</ul>
+</li>
+</ul>
+<p>在Java中，动态web资源开发的技术统称为JavaWeb。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/04/27/Web%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://haikez.github.io/2021/04/25/%E7%BA%BF%E7%A8%8B%E5%8D%8F%E4%BD%9C%E4%B9%8B%E7%94%9F%E4%BA%A7%E8%80%85%E6%B6%88%E8%B4%B9%E8%80%85%E6%A8%A1%E5%9E%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -223,8 +655,17 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-26 15:31:24" itemprop="dateModified" datetime="2021-04-26T15:31:24+08:00">2021-04-26</time>
+                <time title="修改时间：2021-04-29 11:22:03" itemprop="dateModified" datetime="2021-04-29T11:22:03+08:00">2021-04-29</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java%E7%9A%84%E5%A4%9A%E7%BA%BF%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">Java的多线程</span></a>
+                </span>
+            </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -597,448 +1038,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://haikez.github.io/2021/04/25/%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7%E5%92%8C%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="倪矗">
-      <meta itemprop="description" content="每一个不曾起舞的日子，都是对生命的辜负。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="倪矗的BLOG">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/25/%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7%E5%92%8C%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" class="post-title-link" itemprop="url">线程的优先级和守护线程</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-25 11:10:49 / 修改时间：16:22:58" itemprop="dateCreated datePublished" datetime="2021-04-25T11:10:49+08:00">2021-04-25</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java%E7%9A%84%E5%A4%9A%E7%BA%BF%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">Java的多线程</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
-            </span>
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="线程的优先级和守护线程"><a href="#线程的优先级和守护线程" class="headerlink" title="线程的优先级和守护线程"></a>线程的优先级和守护线程</h1><h2 id="一、设置线程优先级：线程类对象-setPriority-int-xxx"><a href="#一、设置线程优先级：线程类对象-setPriority-int-xxx" class="headerlink" title="一、设置线程优先级：线程类对象.setPriority(int xxx);"></a>一、设置线程优先级：线程类对象.setPriority(int xxx);</h2><h3 id="1-线程优先级范围：1-10。"><a href="#1-线程优先级范围：1-10。" class="headerlink" title="1. 线程优先级范围：1~10。"></a>1. 线程优先级范围：1~10。</h3><h3 id="2-先设置线程优先级后启动线程。"><a href="#2-先设置线程优先级后启动线程。" class="headerlink" title="2. 先设置线程优先级后启动线程。"></a>2. 先设置线程优先级后启动线程。</h3><h3 id="3-线程优先级高的说明被CPU调度的概率高-具体调度顺序还是靠CPU调度。"><a href="#3-线程优先级高的说明被CPU调度的概率高-具体调度顺序还是靠CPU调度。" class="headerlink" title="3. 线程优先级高的说明被CPU调度的概率高,具体调度顺序还是靠CPU调度。"></a>3. 线程优先级高的说明被CPU调度的概率高,具体调度顺序还是靠CPU调度。</h3><h3 id="4-获取线程优先级"><a href="#4-获取线程优先级" class="headerlink" title="4. 获取线程优先级:"></a>4. 获取线程优先级:<img src="https://gitee.com/Haikez/images_bed/raw/master/Java%E5%9F%BA%E7%A1%80/20210425113142.png"></h3>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/04/25/%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7%E5%92%8C%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    <div>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://haikez.github.io/2021/04/22/%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BA%94%E5%A4%A7%E7%8A%B6%E6%80%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="倪矗">
-      <meta itemprop="description" content="每一个不曾起舞的日子，都是对生命的辜负。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="倪矗的BLOG">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/22/%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BA%94%E5%A4%A7%E7%8A%B6%E6%80%81/" class="post-title-link" itemprop="url">线程的五大状态</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-22 19:33:52" itemprop="dateCreated datePublished" datetime="2021-04-22T19:33:52+08:00">2021-04-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-23 15:20:24" itemprop="dateModified" datetime="2021-04-23T15:20:24+08:00">2021-04-23</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java%E7%9A%84%E5%A4%9A%E7%BA%BF%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">Java的多线程</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>368</span>
-            </span>
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="线程的五大状态"><a href="#线程的五大状态" class="headerlink" title="线程的五大状态"></a>线程的五大状态</h1><p><img src="https://gitee.com/Haikez/images_bed/raw/master/Java%E5%9F%BA%E7%A1%80/20210422193657.png"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/04/22/%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BA%94%E5%A4%A7%E7%8A%B6%E6%80%81/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    <div>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://haikez.github.io/2021/04/22/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="倪矗">
-      <meta itemprop="description" content="每一个不曾起舞的日子，都是对生命的辜负。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="倪矗的BLOG">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/22/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="post-title-link" itemprop="url">Lambda表达式</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-22 18:31:24" itemprop="dateCreated datePublished" datetime="2021-04-22T18:31:24+08:00">2021-04-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-23 15:21:41" itemprop="dateModified" datetime="2021-04-23T15:21:41+08:00">2021-04-23</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java%E7%9A%84%E5%A4%9A%E7%BA%BF%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">Java的多线程</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>631</span>
-            </span>
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Lambda表达式"><a href="#Lambda表达式" class="headerlink" title="Lambda表达式"></a>Lambda表达式</h1><h2 id="一、Lambda表达式意义："><a href="#一、Lambda表达式意义：" class="headerlink" title="一、Lambda表达式意义："></a>一、Lambda表达式意义：</h2><ul>
-<li><h3 id="避免匿名内部类定义过多。"><a href="#避免匿名内部类定义过多。" class="headerlink" title="避免匿名内部类定义过多。"></a>避免匿名内部类定义过多。</h3></li>
-<li><h3 id="可以让代码看起来更简洁。"><a href="#可以让代码看起来更简洁。" class="headerlink" title="可以让代码看起来更简洁。"></a>可以让代码看起来更简洁。</h3></li>
-<li><h3 id="去掉一些没有意义的代码，只留下核心逻辑。"><a href="#去掉一些没有意义的代码，只留下核心逻辑。" class="headerlink" title="去掉一些没有意义的代码，只留下核心逻辑。"></a>去掉一些没有意义的代码，只留下核心逻辑。</h3><h2 id="二、Lambda表达式只能创建函数式接口的对象。"><a href="#二、Lambda表达式只能创建函数式接口的对象。" class="headerlink" title="二、Lambda表达式只能创建函数式接口的对象。"></a>二、Lambda表达式只能创建函数式接口的对象。</h2><h3 id="函数式接口-只含有一个抽象方法的接口。"><a href="#函数式接口-只含有一个抽象方法的接口。" class="headerlink" title="函数式接口:只含有一个抽象方法的接口。"></a>函数式接口:只含有一个抽象方法的接口。</h3></li></ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/04/22/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    <div>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://haikez.github.io/2021/04/22/%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B9%8B%E5%AE%9E%E7%8E%B0Runnable%E6%8E%A5%E5%8F%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="倪矗">
-      <meta itemprop="description" content="每一个不曾起舞的日子，都是对生命的辜负。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="倪矗的BLOG">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/22/%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B9%8B%E5%AE%9E%E7%8E%B0Runnable%E6%8E%A5%E5%8F%A3/" class="post-title-link" itemprop="url">线程的创建之实现Runnable接口</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-22 15:07:36 / 修改时间：18:28:34" itemprop="dateCreated datePublished" datetime="2021-04-22T15:07:36+08:00">2021-04-22</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java%E7%9A%84%E5%A4%9A%E7%BA%BF%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">Java的多线程</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>318</span>
-            </span>
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="线程的创建之实现Runnable接口"><a href="#线程的创建之实现Runnable接口" class="headerlink" title="线程的创建之实现Runnable接口"></a>线程的创建之实现Runnable接口</h1><h2 id="一、实现步骤"><a href="#一、实现步骤" class="headerlink" title="一、实现步骤:"></a>一、实现步骤:</h2><h3 id="1-创建实现类实现Runnable接口。"><a href="#1-创建实现类实现Runnable接口。" class="headerlink" title="1. 创建实现类实现Runnable接口。"></a>1. 创建实现类实现Runnable接口。</h3><h3 id="2-实现Runnable接口中的run-方法。"><a href="#2-实现Runnable接口中的run-方法。" class="headerlink" title="2. 实现Runnable接口中的run()方法。"></a>2. 实现Runnable接口中的run()方法。</h3><p><img src="https://gitee.com/Haikez/images_bed/raw/master/Java%E5%9F%BA%E7%A1%80/20210422152108.png"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/04/22/%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B9%8B%E5%AE%9E%E7%8E%B0Runnable%E6%8E%A5%E5%8F%A3/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    <div>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://haikez.github.io/2021/04/21/%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B9%8B%E7%BB%A7%E6%89%BFThread%E7%B1%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="倪矗">
-      <meta itemprop="description" content="每一个不曾起舞的日子，都是对生命的辜负。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="倪矗的BLOG">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/21/%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B9%8B%E7%BB%A7%E6%89%BFThread%E7%B1%BB/" class="post-title-link" itemprop="url">线程的创建之继承Thread类</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-21 16:37:21" itemprop="dateCreated datePublished" datetime="2021-04-21T16:37:21+08:00">2021-04-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-22 15:20:24" itemprop="dateModified" datetime="2021-04-22T15:20:24+08:00">2021-04-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java%E7%9A%84%E5%A4%9A%E7%BA%BF%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">Java的多线程</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
-            </span>
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="线程的创建之继承Thread类"><a href="#线程的创建之继承Thread类" class="headerlink" title="线程的创建之继承Thread类"></a>线程的创建之继承Thread类</h1><h2 id="一、线程的创建"><a href="#一、线程的创建" class="headerlink" title="一、线程的创建"></a>一、线程的创建</h2><ul>
-<li><h3 id="用一个类继承Thread类，并重写Thread类中的run-方法即可实现线程的创建。"><a href="#用一个类继承Thread类，并重写Thread类中的run-方法即可实现线程的创建。" class="headerlink" title="用一个类继承Thread类，并重写Thread类中的run()方法即可实现线程的创建。"></a>用一个类继承Thread类，并重写Thread类中的run()方法即可实现线程的创建。</h3><img src="https://gitee.com/Haikez/images_bed/raw/master/Java%E5%9F%BA%E7%A1%80/20210421165555.png"></li></ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/04/21/%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B9%8B%E7%BB%A7%E6%89%BFThread%E7%B1%BB/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    <div>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1110,14 +1109,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -1185,7 +1184,7 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">33k</span>
+    <span title="站点总字数">35k</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
