@@ -585,14 +585,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Termux牛X的安卓终端</title>
-    <url>/2021/02/06/Termux%E7%89%9BX%E7%9A%84%E5%AE%89%E5%8D%93%E7%BB%88%E7%AB%AF/</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>Termux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>同步方法和同步块</title>
     <url>/2021/04/25/%E5%90%8C%E6%AD%A5%E6%96%B9%E6%B3%95%E5%92%8C%E5%90%8C%E6%AD%A5%E5%9D%97/</url>
     <content><![CDATA[<h1 id="同步方法和同步块-synchronized"><a href="#同步方法和同步块-synchronized" class="headerlink" title="同步方法和同步块(synchronized)"></a>同步方法和同步块(synchronized)</h1><h2 id="一、-同步方法"><a href="#一、-同步方法" class="headerlink" title="一、 同步方法"></a>一、 同步方法</h2><h3 id="1-public-synchronized-void-method"><a href="#1-public-synchronized-void-method" class="headerlink" title="1. public synchronized void method(){}"></a>1. public synchronized void method(){}</h3><p><strong>synchronized</strong>方法控制对 <strong><em>“对象”</em></strong> 的访问，每个对象对应一把锁，每个synchronized方法都必须获得调用该方法的对象锁才能执行。否则会导致阻塞。方法一旦执行，就独占该锁，直到该方法返回才释放锁，后面被阻塞的线程才能获得这个锁，继续执行。</p>
@@ -1015,7 +1007,7 @@ bool ListDelete(LinkNode *&L,int i,ElemType &e)
 <h2 id="2-下载安装Maven"><a href="#2-下载安装Maven" class="headerlink" title="2. 下载安装Maven"></a>2. 下载安装Maven</h2>Maven官网:<a href="http://maven.apache.org/download.cgi">http://maven.apache.org/download.cgi</a><br>进入官网下载解压即可<br><img src="https://gitee.com/Haikez/images_bed/raw/master/JavaWeb/20210427171401.png"><h2 id="3-配置环境变量"><a href="#3-配置环境变量" class="headerlink" title="3. 配置环境变量"></a>3. 配置环境变量</h2><img src="https://gitee.com/Haikez/images_bed/raw/master/JavaWeb/20210427172947.png"><h2 id="4-Maven的相关配置"><a href="#4-Maven的相关配置" class="headerlink" title="4. Maven的相关配置"></a>4. Maven的相关配置</h2></li>
 </ol>
 <ul>
-<li>配置文件位置:<strong>/conf/settings.xml</strong><h2 id="5-配置阿里云镜像"><a href="#5-配置阿里云镜像" class="headerlink" title="5. 配置阿里云镜像"></a>5. 配置阿里云镜像</h2></li>
+<li>配置文件位置(Maven目录下):<strong>/conf/settings.xml</strong><h2 id="5-配置阿里云镜像"><a href="#5-配置阿里云镜像" class="headerlink" title="5. 配置阿里云镜像"></a>5. 配置阿里云镜像</h2></li>
 <li>镜像：mirrors<ul>
 <li>作用：加速下载</li>
 </ul>
