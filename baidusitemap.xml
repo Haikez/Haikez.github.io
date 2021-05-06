@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://haikez.github.io/2021/04/29/Servlet%E8%AF%A6%E8%A7%A3/</loc>
+    <lastmod>2021-05-05</lastmod>
+  </url>
+  <url>
     <loc>https://haikez.github.io/2021/04/27/HTTP%E5%8D%8F%E8%AE%AE/</loc>
     <lastmod>2021-05-05</lastmod>
   </url>
@@ -18,10 +22,6 @@
   </url>
   <url>
     <loc>https://haikez.github.io/2021/04/27/Tomcat%E8%AF%A6%E8%A7%A3/</loc>
-    <lastmod>2021-05-05</lastmod>
-  </url>
-  <url>
-    <loc>https://haikez.github.io/2021/04/29/Servlet%E8%AF%A6%E8%A7%A3/</loc>
     <lastmod>2021-05-05</lastmod>
   </url>
   <url>
