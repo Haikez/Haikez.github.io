@@ -1,1 +1,1 @@
-https://haikez.github.io/2021/04/29/Servlet%E8%AF%A6%E8%A7%A3/
+https://haikez.github.io/2021/05/09/Cookie%E5%92%8CSession/
