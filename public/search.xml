@@ -1221,9 +1221,10 @@ bool ListDelete(LinkNode *&L,int i,ElemType &e)
 </ul>
 <p><strong>session</strong></p>
 <ul>
-<li>服务器技术，利用这个技术，可以保存用户的会话信息？ 我们可以把信息或者数据放在Session中！</li>
+<li>服务器技术，利用这个技术，可以保存用户的会话信息？ 我们可以把信息或者数据放在Session中！<a id="more"></a>
+<h2 id="三、Cookie"><a href="#三、Cookie" class="headerlink" title="三、Cookie"></a>三、Cookie</h2></li>
 </ul>
-<h2 id="三、Cookie"><a href="#三、Cookie" class="headerlink" title="三、Cookie"></a>三、Cookie</h2><p><strong>cookie：一般会保存在本地的 用户目录下 appdata；</strong></p>
+<p><strong>cookie：一般会保存在本地的 用户目录下 appdata；</strong></p>
 <p>一个网站cookie是否存在上限！聊聊细节问题</p>
 <ul>
 <li>一个Cookie只能保存一个信息；</li>
