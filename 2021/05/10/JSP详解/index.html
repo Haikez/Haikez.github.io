@@ -32,8 +32,10 @@
 <meta property="og:image" content="https://gitee.com/Haikez/images_bed/raw/master/JavaWeb/20210510164627.png">
 <meta property="og:image" content="https://gitee.com/Haikez/images_bed/raw/master/JavaWeb/20210510173603.png">
 <meta property="og:image" content="https://gitee.com/Haikez/images_bed/raw/master/JavaWeb/20210510181153.png">
+<meta property="og:image" content="https://gitee.com/Haikez/images_bed/raw/master/JavaWeb/20210510230556.png">
+<meta property="og:image" content="https://gitee.com/Haikez/images_bed/raw/master/JavaWeb/20210511150512.png">
 <meta property="article:published_time" content="2021-05-10T08:10:44.000Z">
-<meta property="article:modified_time" content="2021-05-10T14:54:34.634Z">
+<meta property="article:modified_time" content="2021-05-11T07:59:20.807Z">
 <meta property="article:author" content="倪矗">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://gitee.com/Haikez/images_bed/raw/master/JavaWeb/20210510164627.png">
@@ -221,10 +223,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-05-10 16:10:44 / 修改时间：22:54:34" itemprop="dateCreated datePublished" datetime="2021-05-10T16:10:44+08:00">2021-05-10</time>
+              <time title="创建时间：2021-05-10 16:10:44" itemprop="dateCreated datePublished" datetime="2021-05-10T16:10:44+08:00">2021-05-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-11 15:59:20" itemprop="dateModified" datetime="2021-05-11T15:59:20+08:00">2021-05-11</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -248,7 +256,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.8k</span>
+              <span>6.9k</span>
             </span>
         </div>
       </header>
@@ -305,7 +313,45 @@
 <p><img src="https://gitee.com/Haikez/images_bed/raw/master/JavaWeb/20210510181153.png"></p>
 <p><strong>配置错误页面方法二</strong>：直接在xml中配置(推荐使用)</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">error-page</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--错误代码--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">error-code</span>&gt;</span>404<span class="tag">&lt;/<span class="name">error-code</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--错误页面路径（相对于项目地址）--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">location</span>&gt;</span>/error/404.jsp<span class="tag">&lt;/<span class="name">location</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">error-page</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="2-include指令"><a href="#2-include指令" class="headerlink" title="2. include指令"></a>2. include指令</h3><p>include可以拼接页面，将别的页面拼接到本页</p>
+<h3 id="2-include指令"><a href="#2-include指令" class="headerlink" title="2. include指令"></a>2. include指令</h3><ul>
+<li><h4 id="include可以拼接页面，将别的页面拼接到本页"><a href="#include可以拼接页面，将别的页面拼接到本页" class="headerlink" title="include可以拼接页面，将别的页面拼接到本页"></a>include可以拼接页面，将别的页面拼接到本页</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;%<span class="meta">@include</span> file=<span class="string">&quot;common/header.jsp&quot;</span>%&gt;</span><br><span class="line">&lt;h1&gt;我是主体&lt;/h1&gt;</span><br><span class="line">&lt;%<span class="meta">@include</span> file=<span class="string">&quot;common/footer.jsp&quot;</span>%&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="拼接页面的第二种方式（jsp-include标签引用）"><a href="#拼接页面的第二种方式（jsp-include标签引用）" class="headerlink" title="拼接页面的第二种方式（jsp:include标签引用）"></a>拼接页面的第二种方式（jsp:include标签引用）</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;jsp:include page=<span class="string">&quot;common/header.jsp&quot;</span>/&gt;</span><br><span class="line">&lt;h1&gt;我是主体&lt;/h1&gt;</span><br><span class="line">&lt;jsp:include page=<span class="string">&quot;common/footer.jsp&quot;</span>/&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<p>最终效果<br><img src="https://gitee.com/Haikez/images_bed/raw/master/JavaWeb/20210510230556.png"></p>
+</li>
+</ul>
+<p><strong>注意：include是将header.jsp和footer.jsp的内容拼接到当前页面中。<br>相当于复制粘贴过来。然而，jsp:include标签则是相当于引用</strong></p>
+<h2 id="五、JSP内置对象及作用域"><a href="#五、JSP内置对象及作用域" class="headerlink" title="五、JSP内置对象及作用域"></a>五、JSP内置对象及作用域</h2><h3 id="九大内置对象"><a href="#九大内置对象" class="headerlink" title="九大内置对象"></a>九大内置对象</h3><ul>
+<li>PageContext 存东西</li>
+<li>Request 存东西</li>
+<li>Response</li>
+<li>Session 存东西</li>
+<li>Application【ServletContext】 存东西</li>
+<li>config【ServletConfig】</li>
+<li>out 输出</li>
+<li>page</li>
+<li>exception</li>
+</ul>
+<h3 id="JSP存数据对象的作用域"><a href="#JSP存数据对象的作用域" class="headerlink" title="JSP存数据对象的作用域:"></a>JSP存数据对象的作用域:</h3><p>PageContext<br>Request<br>Session<br>Application</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pageContext.setAttribute(<span class="string">&quot;name1&quot;</span>,<span class="string">&quot;倪矗1号&quot;</span>);<span class="comment">//保存的数据只在一个页面内有效</span></span><br><span class="line">request.setAttribute(<span class="string">&quot;name2&quot;</span>,<span class="string">&quot;倪矗2号&quot;</span>);    <span class="comment">//保存的数据只在一次请求中有效，请求转发会携带这个数据</span></span><br><span class="line">session.setAttribute(<span class="string">&quot;name3&quot;</span>,<span class="string">&quot;倪矗3号&quot;</span>);    <span class="comment">//保存的数据只在一次会话中有效，从打开浏览器到关闭浏览器</span></span><br><span class="line">application.setAttribute(<span class="string">&quot;name4&quot;</span>,<span class="string">&quot;倪矗4号&quot;</span>);<span class="comment">//保存的数据只在服务器中有效，从打开服务器到关闭服务器</span></span><br></pre></td></tr></table></figure>
+<h3 id="修改pageContext对象的作用域"><a href="#修改pageContext对象的作用域" class="headerlink" title="修改pageContext对象的作用域"></a>修改pageContext对象的作用域</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pageContext.setAttribute(<span class="string">&quot;name1&quot;</span>,<span class="string">&quot;倪矗1号&quot;</span>,PageContext.SESSION_SCOPE);</span><br><span class="line"><span class="comment">// public static final int PAGE_SCOPE = 1;</span></span><br><span class="line"><span class="comment">// public static final int REQUEST_SCOPE = 2;</span></span><br><span class="line"><span class="comment">// public static final int SESSION_SCOPE = 3;</span></span><br><span class="line"><span class="comment">// public static final int APPLICATION_SCOPE = 4;</span></span><br></pre></td></tr></table></figure>
+<h4 id="使用场景："><a href="#使用场景：" class="headerlink" title="使用场景："></a>使用场景：</h4><p>request：客户端向服务器发送请求，产生的数据，用户看完就没用了<br>session：客户端向服务器发送请求，产生的数据，用户用完一会儿还要用<br>application：客户端向服务器发送请求，产生的数据，一个用户用完了，其他的用户还肯使用。</p>
+<h4 id="pageContext实现请求转发"><a href="#pageContext实现请求转发" class="headerlink" title="pageContext实现请求转发:"></a>pageContext实现请求转发:</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pageContext.forward(<span class="string">&quot;/index.jsp&quot;</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="六、JSP标签、JSTL表达式、EL表达式"><a href="#六、JSP标签、JSTL表达式、EL表达式" class="headerlink" title="六、JSP标签、JSTL表达式、EL表达式"></a>六、JSP标签、JSTL表达式、EL表达式</h2><h3 id="EL表达式"><a href="#EL表达式" class="headerlink" title="EL表达式: ${}"></a>EL表达式: ${}</h3><ul>
+<li>获取数据</li>
+<li>执行运算</li>
+<li>获取web开发的常用对象</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;coreif.jsp&quot;</span> <span class="attr">method</span>=<span class="string">&quot;get&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">    EL表达式获取表单中的数据</span></span><br><span class="line"><span class="comment">    $&#123;param.参数名&#125; </span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;param.usernaem&#125;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;登录&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-JSP标签："><a href="#1-JSP标签：" class="headerlink" title="1. JSP标签："></a>1. JSP标签：</h3><p><img src="https://gitee.com/Haikez/images_bed/raw/master/JavaWeb/20210511150512.png"></p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- <span class="number">1.</span> 请求转发标签 --&gt;</span><br><span class="line">&lt;jsp:forward page=<span class="string">&quot;/pageContextDemo01.jsp&quot;</span>&gt;</span><br><span class="line">    &lt;jsp:param name=<span class="string">&quot;name&quot;</span> value=<span class="string">&quot;倪矗&quot;</span>/&gt;</span><br><span class="line">    &lt;jsp:param name=<span class="string">&quot;age&quot;</span> value=<span class="string">&quot;18&quot;</span>/&gt;</span><br><span class="line">&lt;/jsp:forward&gt;</span><br><span class="line">&lt;!-- <span class="number">2.</span> 引用文件标签 --&gt;</span><br><span class="line">&lt;jsp:include page=<span class="string">&quot;common/header.jsp&quot;</span>/&gt;</span><br><span class="line">&lt;h1&gt;我是主体&lt;/h1&gt;</span><br><span class="line">&lt;jsp:include page=<span class="string">&quot;common/footer.jsp&quot;</span>/&gt;</span><br><span class="line">&lt;!-- <span class="number">3.</span> 引用实体类（JavaBean）标签 --&gt;</span><br><span class="line">&lt;jsp:useBean id=<span class="string">&quot;people&quot;</span>（对象） <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;com.nichu.People&quot;</span>（类） scope=<span class="string">&quot;page&quot;</span>（作用域）/&gt;</span><br><span class="line">&lt;!-- <span class="number">4.</span> 给对象赋值 --&gt;</span><br><span class="line">&lt;jsp:setProperty name=<span class="string">&quot;people&quot;</span> property=<span class="string">&quot;address&quot;</span> value=<span class="string">&quot;杭州&quot;</span>/&gt;</span><br><span class="line">&lt;jsp:setProperty name=<span class="string">&quot;people&quot;</span> property=<span class="string">&quot;name&quot;</span> value=<span class="string">&quot;倪矗&quot;</span>/&gt;</span><br><span class="line">&lt;jsp:setProperty name=<span class="string">&quot;people&quot;</span> property=<span class="string">&quot;id&quot;</span> value=<span class="string">&quot;1&quot;</span>/&gt;</span><br><span class="line">&lt;jsp:setProperty name=<span class="string">&quot;people&quot;</span> property=<span class="string">&quot;age&quot;</span> value=<span class="string">&quot;18&quot;</span>/&gt;</span><br><span class="line">&lt;!-- <span class="number">5.</span> 取值 --&gt;</span><br><span class="line">&lt;jsp:getProperty name=<span class="string">&quot;people&quot;</span> property=<span class="string">&quot;name&quot;</span>/&gt;</span><br><span class="line">&lt;jsp:getProperty name=<span class="string">&quot;people&quot;</span> property=<span class="string">&quot;id&quot;</span>/&gt;</span><br><span class="line">&lt;jsp:getProperty name=<span class="string">&quot;people&quot;</span> property=<span class="string">&quot;adress&quot;</span>/&gt;</span><br><span class="line">&lt;jsp:getProperty name=<span class="string">&quot;people&quot;</span> property=<span class="string">&quot;age&quot;</span>/&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="2-JSTL表达式"><a href="#2-JSTL表达式" class="headerlink" title="2. JSTL表达式"></a>2. JSTL表达式</h3><p>JSTL标签库的使用是为了弥补HTML标签的不足；它自定义了许多标签，可以供我们使用，标签库的功能和java代码一样！<br><a target="_blank" rel="noopener" href="https://www.runoob.com/jsp/jsp-jstl.html">JSTL标签库</a></p>
+<h2 id="七、JavaBean"><a href="#七、JavaBean" class="headerlink" title="七、JavaBean"></a>七、JavaBean</h2><p>实体类<br>JavaBean有特定写法</p>
+<ul>
+<li>必须要有一个无参构造</li>
+<li>属性必须私有化</li>
+<li>必须有get、set方法</li>
+</ul>
 
     </div>
     <div>
@@ -371,7 +417,10 @@
     <a href="/2021/05/09/Cookie%E5%92%8CSession/" rel="prev" title="Cookie和Session">
       <i class="fa fa-chevron-left"></i> Cookie和Session
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/05/11/MVC%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84/" rel="next" title="MVC三层架构">
+      MVC三层架构 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -430,7 +479,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JSP%E8%AF%A6%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">JSP详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AFJSP"><span class="nav-number">1.1.</span> <span class="nav-text">一、什么是JSP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81JSP%E5%8E%9F%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">二、JSP原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81JSP%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">三、JSP基础语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-JSP%E5%AF%BC%E5%8C%85%EF%BC%9A"><span class="nav-number">1.3.1.</span> <span class="nav-text">1. JSP导包：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-JSP%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">1.3.2.</span> <span class="nav-text">2. JSP表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-JSP%E8%84%9A%E6%9C%AC%E7%89%87%E6%AE%B5"><span class="nav-number">1.3.3.</span> <span class="nav-text">3. JSP脚本片段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-JSP%E5%A3%B0%E6%98%8E"><span class="nav-number">1.3.4.</span> <span class="nav-text">4. JSP声明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81-JSP%E6%8C%87%E4%BB%A4-%EF%BC%88page%E3%80%81include%E3%80%81taglib%EF%BC%89"><span class="nav-number">1.4.</span> <span class="nav-text">四、 JSP指令 （page、include、taglib）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-page%E6%8C%87%E4%BB%A4"><span class="nav-number">1.4.1.</span> <span class="nav-text">1. page指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-include%E6%8C%87%E4%BB%A4"><span class="nav-number">1.4.2.</span> <span class="nav-text">2. include指令</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JSP%E8%AF%A6%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">JSP详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AFJSP"><span class="nav-number">1.1.</span> <span class="nav-text">一、什么是JSP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81JSP%E5%8E%9F%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">二、JSP原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81JSP%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">三、JSP基础语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-JSP%E5%AF%BC%E5%8C%85%EF%BC%9A"><span class="nav-number">1.3.1.</span> <span class="nav-text">1. JSP导包：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-JSP%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">1.3.2.</span> <span class="nav-text">2. JSP表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-JSP%E8%84%9A%E6%9C%AC%E7%89%87%E6%AE%B5"><span class="nav-number">1.3.3.</span> <span class="nav-text">3. JSP脚本片段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-JSP%E5%A3%B0%E6%98%8E"><span class="nav-number">1.3.4.</span> <span class="nav-text">4. JSP声明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81-JSP%E6%8C%87%E4%BB%A4-%EF%BC%88page%E3%80%81include%E3%80%81taglib%EF%BC%89"><span class="nav-number">1.4.</span> <span class="nav-text">四、 JSP指令 （page、include、taglib）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-page%E6%8C%87%E4%BB%A4"><span class="nav-number">1.4.1.</span> <span class="nav-text">1. page指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-include%E6%8C%87%E4%BB%A4"><span class="nav-number">1.4.2.</span> <span class="nav-text">2. include指令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#include%E5%8F%AF%E4%BB%A5%E6%8B%BC%E6%8E%A5%E9%A1%B5%E9%9D%A2%EF%BC%8C%E5%B0%86%E5%88%AB%E7%9A%84%E9%A1%B5%E9%9D%A2%E6%8B%BC%E6%8E%A5%E5%88%B0%E6%9C%AC%E9%A1%B5"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">include可以拼接页面，将别的页面拼接到本页</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8B%BC%E6%8E%A5%E9%A1%B5%E9%9D%A2%E7%9A%84%E7%AC%AC%E4%BA%8C%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%88jsp-include%E6%A0%87%E7%AD%BE%E5%BC%95%E7%94%A8%EF%BC%89"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">拼接页面的第二种方式（jsp:include标签引用）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81JSP%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1%E5%8F%8A%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">1.5.</span> <span class="nav-text">五、JSP内置对象及作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B9%9D%E5%A4%A7%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.5.1.</span> <span class="nav-text">九大内置对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSP%E5%AD%98%E6%95%B0%E6%8D%AE%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">1.5.2.</span> <span class="nav-text">JSP存数据对象的作用域:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9pageContext%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">1.5.3.</span> <span class="nav-text">修改pageContext对象的作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%9A"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">使用场景：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pageContext%E5%AE%9E%E7%8E%B0%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91"><span class="nav-number">1.5.3.2.</span> <span class="nav-text">pageContext实现请求转发:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81JSP%E6%A0%87%E7%AD%BE%E3%80%81JSTL%E8%A1%A8%E8%BE%BE%E5%BC%8F%E3%80%81EL%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">1.6.</span> <span class="nav-text">六、JSP标签、JSTL表达式、EL表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#EL%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">1.6.1.</span> <span class="nav-text">EL表达式: ${}</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-JSP%E6%A0%87%E7%AD%BE%EF%BC%9A"><span class="nav-number">1.6.2.</span> <span class="nav-text">1. JSP标签：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-JSTL%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">1.6.3.</span> <span class="nav-text">2. JSTL表达式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E3%80%81JavaBean"><span class="nav-number">1.7.</span> <span class="nav-text">七、JavaBean</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -446,7 +495,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-count">41</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -521,7 +570,7 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">57k</span>
+    <span title="站点总字数">65k</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

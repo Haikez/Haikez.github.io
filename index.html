@@ -192,6 +192,186 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://haikez.github.io/2021/05/11/%E8%BF%87%E6%BB%A4%E5%99%A8%E4%B8%8E%E7%9B%91%E5%90%AC%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="倪矗">
+      <meta itemprop="description" content="每一个不曾起舞的日子，都是对生命的辜负。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="倪矗的BLOG">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/11/%E8%BF%87%E6%BB%A4%E5%99%A8%E4%B8%8E%E7%9B%91%E5%90%AC%E5%99%A8/" class="post-title-link" itemprop="url">过滤器与监听器</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-11 16:22:18 / 修改时间：22:51:02" itemprop="dateCreated datePublished" datetime="2021-05-11T16:22:18+08:00">2021-05-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaWeb%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">JavaWeb学习</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.2k</span>
+            </span>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="过滤器与监听器"><a href="#过滤器与监听器" class="headerlink" title="过滤器与监听器"></a>过滤器与监听器</h1><h2 id="一、过滤器（Filter）"><a href="#一、过滤器（Filter）" class="headerlink" title="一、过滤器（Filter）"></a>一、过滤器（Filter）</h2><p>用于过滤网站的数据；</p>
+<ul>
+<li>处理中文代码</li>
+<li>登录验证<br><img src="https://gitee.com/Haikez/images_bed/raw/master/JavaWeb/20210511162438.png"><h3 id="1-创建过滤器"><a href="#1-创建过滤器" class="headerlink" title="1. 创建过滤器"></a>1. 创建过滤器</h3><h4 id="编写一个过滤器实现Filter接口（注意导包）"><a href="#编写一个过滤器实现Filter接口（注意导包）" class="headerlink" title="编写一个过滤器实现Filter接口（注意导包）"></a>编写一个过滤器<strong>实现Filter接口</strong>（注意导包）</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//统计网站在线人数：统计session</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CharacterEncodingFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="comment">//初始化服务器启动的时候就已经初始化了，随时等待过滤对象的出现</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(FilterConfig filterConfig)</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;CharacterEncodingFilter初始化&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">        <span class="comment">//将servlet请求设置编码</span></span><br><span class="line">        servletRequest.setCharacterEncoding(<span class="string">&quot;utf-8&quot;</span>);</span><br><span class="line">        <span class="comment">//将servlet响应设置编码</span></span><br><span class="line">        servletResponse.setCharacterEncoding(<span class="string">&quot;utf-8&quot;</span>);</span><br><span class="line">        servletResponse.setContentType(<span class="string">&quot;text/html;charset=utf-8&quot;</span>);</span><br><span class="line">        <span class="comment">//链接下一个过滤器（固定不变）</span></span><br><span class="line">        filterChain.doFilter(servletRequest,servletResponse);<span class="comment">//让我们的请求继续走，如果不写，程序到这里就被拦截停止！！</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="comment">//销毁：服务器关闭的时候自动销毁</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;CharacterEncodingFilter销毁&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>记住创建过滤器的时候，要链接到下一个过滤器。filterChain.doFilter(servletRequest,servletResponse);（固定不变的代码）</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="2-在web-xml中配置过滤器（和servlet类似）"><a href="#2-在web-xml中配置过滤器（和servlet类似）" class="headerlink" title="2. 在web.xml中配置过滤器（和servlet类似）"></a>2. 在web.xml中配置过滤器（和servlet类似）</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--创建映射，这点和servlet类似--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CharacterEncodingFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>com.nichu.filter.CharacterEncodingFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CharacterEncodingFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">  指定过滤器的作用范围 例如：</span></span><br><span class="line"><span class="comment">  只要是/hello的任何请求都会经过这个过滤器--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/hello/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>过滤器本质上就是一个servelt程序</strong></p>
+<h2 id="二、监听器（Listener）"><a href="#二、监听器（Listener）" class="headerlink" title="二、监听器（Listener）"></a>二、监听器（Listener）</h2><h3 id="1-监测网站在线人数（基于session）"><a href="#1-监测网站在线人数（基于session）" class="headerlink" title="1. 监测网站在线人数（基于session）"></a>1. 监测网站在线人数（基于session）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//统计网站在线人数：统计session</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OnlineCountListener</span> <span class="keyword">implements</span> <span class="title">HttpSessionListener</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="comment">//创建session监听：看你的一举一动</span></span><br><span class="line">    <span class="comment">//一但创建一个session就会自动触发这个</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sessionCreated</span><span class="params">(HttpSessionEvent httpSessionEvent)</span> </span>&#123;</span><br><span class="line">        ServletContext ctx = httpSessionEvent.getSession().getServletContext();</span><br><span class="line">        Integer onlineCount = (Integer) ctx.getAttribute(<span class="string">&quot;onlineCount&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(onlineCount==<span class="keyword">null</span>)&#123;</span><br><span class="line">            onlineCount=<span class="keyword">new</span> Integer(<span class="number">1</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">int</span> count=onlineCount.intValue();</span><br><span class="line">            onlineCount=<span class="keyword">new</span> Integer(count+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        ctx.setAttribute(<span class="string">&quot;onlineCount&quot;</span>,onlineCount);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="comment">//销毁session监听</span></span><br><span class="line">    <span class="comment">//一但创建一个session就会自动触发这个</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sessionDestroyed</span><span class="params">(HttpSessionEvent httpSessionEvent)</span> </span>&#123;</span><br><span class="line">        ServletContext ctx = httpSessionEvent.getSession().getServletContext();</span><br><span class="line">        Integer onlineCount = (Integer) ctx.getAttribute(<span class="string">&quot;onlineCount&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(onlineCount==<span class="number">0</span>)&#123;</span><br><span class="line">            onlineCount=<span class="keyword">new</span> Integer(<span class="number">1</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">int</span> count=onlineCount.intValue();</span><br><span class="line">            onlineCount=<span class="keyword">new</span> Integer(count-<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        ctx.setAttribute(<span class="string">&quot;onlineCount&quot;</span>,onlineCount);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-编写index-jsp页面"><a href="#2-编写index-jsp页面" class="headerlink" title="2. 编写index.jsp页面"></a>2. 编写index.jsp页面</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;%<span class="meta">@page</span> contentType=<span class="string">&quot;text/html; charset=utf-8&quot;</span> %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;h1&gt;当前有&lt;span&gt;&lt;%=this.getServletConfig().getServletContext().getAttribute(&quot;onlineCount&quot;)%&gt;&lt;/span&gt;人在线&lt;/h1&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="3-在web-xml中注册监听器"><a href="#3-在web-xml中注册监听器" class="headerlink" title="3. 在web.xml中注册监听器"></a>3. 在web.xml中注册监听器</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--注册监听器--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">listener</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">listener-class</span>&gt;</span>com.nichu.listener.OnlineCountListener<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">listener</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-session销毁方法"><a href="#4-session销毁方法" class="headerlink" title="4. session销毁方法"></a>4. session销毁方法</h3><ul>
+<li>手动销毁 getSession().invalidate();</li>
+<li>自动销毁 在web.xml中设置超时时间<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">session-config</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--以分钟为单位 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">session-timeout</span>&gt;</span>1<span class="tag">&lt;/<span class="name">session-timeout</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">session-config</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://haikez.github.io/2021/05/11/MVC%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="倪矗">
+      <meta itemprop="description" content="每一个不曾起舞的日子，都是对生命的辜负。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="倪矗的BLOG">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/11/MVC%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84/" class="post-title-link" itemprop="url">MVC三层架构</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-11 16:07:46 / 修改时间：21:38:24" itemprop="dateCreated datePublished" datetime="2021-05-11T16:07:46+08:00">2021-05-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaWeb%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">JavaWeb学习</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>335</span>
+            </span>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="MVC三层架构"><a href="#MVC三层架构" class="headerlink" title="MVC三层架构"></a>MVC三层架构</h1><p>什么是MVC：Model、View、Controller  模型 视图 控制器</p>
+<h2 id="早些年"><a href="#早些年" class="headerlink" title="早些年"></a>早些年</h2><p><img src="https://gitee.com/Haikez/images_bed/raw/master/JavaWeb/20210511161128.png"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/11/MVC%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://haikez.github.io/2021/05/10/JSP%E8%AF%A6%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -215,10 +395,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-05-10 16:10:44 / 修改时间：22:54:34" itemprop="dateCreated datePublished" datetime="2021-05-10T16:10:44+08:00">2021-05-10</time>
+              <time title="创建时间：2021-05-10 16:10:44" itemprop="dateCreated datePublished" datetime="2021-05-10T16:10:44+08:00">2021-05-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-11 15:59:20" itemprop="dateModified" datetime="2021-05-11T15:59:20+08:00">2021-05-11</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -235,7 +421,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.8k</span>
+              <span>6.9k</span>
             </span>
         </div>
       </header>
@@ -411,7 +597,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-09 22:40:30" itemprop="dateModified" datetime="2021-05-09T22:40:30+08:00">2021-05-09</time>
+                <time title="修改时间：2021-05-11 14:52:12" itemprop="dateModified" datetime="2021-05-11T14:52:12+08:00">2021-05-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -429,7 +615,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>12k</span>
+              <span>13k</span>
             </span>
         </div>
       </header>
@@ -937,176 +1123,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://haikez.github.io/2021/04/25/ReentrantLock%E9%94%81-%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="倪矗">
-      <meta itemprop="description" content="每一个不曾起舞的日子，都是对生命的辜负。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="倪矗的BLOG">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/25/ReentrantLock%E9%94%81-%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81/" class="post-title-link" itemprop="url">ReentrantLock锁--可重入锁</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-25 16:24:08" itemprop="dateCreated datePublished" datetime="2021-04-25T16:24:08+08:00">2021-04-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-26 15:31:24" itemprop="dateModified" datetime="2021-04-26T15:31:24+08:00">2021-04-26</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java%E7%9A%84%E5%A4%9A%E7%BA%BF%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">Java的多线程</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>231</span>
-            </span>
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="ReentrantLock锁–可重入锁"><a href="#ReentrantLock锁–可重入锁" class="headerlink" title="ReentrantLock锁–可重入锁"></a>ReentrantLock锁–可重入锁</h1><h2 id="ReentrantLock是Lock接口的实现类，它拥有和synchronized相同的并发性和内存语义，通常使用ReentrantLock锁进行安全控制。它可以实现显示加锁、释放锁。"><a href="#ReentrantLock是Lock接口的实现类，它拥有和synchronized相同的并发性和内存语义，通常使用ReentrantLock锁进行安全控制。它可以实现显示加锁、释放锁。" class="headerlink" title="ReentrantLock是Lock接口的实现类，它拥有和synchronized相同的并发性和内存语义，通常使用ReentrantLock锁进行安全控制。它可以实现显示加锁、释放锁。"></a>ReentrantLock是Lock接口的实现类，它拥有和synchronized相同的并发性和内存语义，通常使用ReentrantLock锁进行安全控制。它可以实现显示加锁、释放锁。</h2><h2 id="ReentrantLock锁的实现步骤："><a href="#ReentrantLock锁的实现步骤：" class="headerlink" title="ReentrantLock锁的实现步骤："></a>ReentrantLock锁的实现步骤：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Lock lock = <span class="keyword">new</span> ReentrantLock();</span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    lock.lock();<span class="comment">//加锁操作</span></span><br><span class="line">&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">    lock.unlock();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <div>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://haikez.github.io/2021/04/25/%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%AD%BB%E9%94%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="倪矗">
-      <meta itemprop="description" content="每一个不曾起舞的日子，都是对生命的辜负。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="倪矗的BLOG">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/25/%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%AD%BB%E9%94%81/" class="post-title-link" itemprop="url">线程的死锁</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-25 15:32:55 / 修改时间：16:22:58" itemprop="dateCreated datePublished" datetime="2021-04-25T15:32:55+08:00">2021-04-25</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java%E7%9A%84%E5%A4%9A%E7%BA%BF%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">Java的多线程</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
-            </span>
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="线程的死锁"><a href="#线程的死锁" class="headerlink" title="线程的死锁"></a>线程的死锁</h1><h2 id="产生死锁的必要条件"><a href="#产生死锁的必要条件" class="headerlink" title="产生死锁的必要条件"></a>产生死锁的必要条件</h2><h3 id="1-互斥条件：一个资源一次只能被一个进程使用。"><a href="#1-互斥条件：一个资源一次只能被一个进程使用。" class="headerlink" title="1. 互斥条件：一个资源一次只能被一个进程使用。"></a>1. 互斥条件：一个资源一次只能被一个进程使用。</h3><h3 id="2-请求与保持条件：一个进程因请求资源而阻塞的时候，对已获得的资源保持不放。"><a href="#2-请求与保持条件：一个进程因请求资源而阻塞的时候，对已获得的资源保持不放。" class="headerlink" title="2. 请求与保持条件：一个进程因请求资源而阻塞的时候，对已获得的资源保持不放。"></a>2. 请求与保持条件：一个进程因请求资源而阻塞的时候，对已获得的资源保持不放。</h3><h3 id="3-不剥夺条件：进程以及获得资源，在未使用完成前，不能强行剥夺。"><a href="#3-不剥夺条件：进程以及获得资源，在未使用完成前，不能强行剥夺。" class="headerlink" title="3. 不剥夺条件：进程以及获得资源，在未使用完成前，不能强行剥夺。"></a>3. 不剥夺条件：进程以及获得资源，在未使用完成前，不能强行剥夺。</h3><h3 id="4-循环等待条件：若干进程之间形成头尾相接的循环等待资源关系。"><a href="#4-循环等待条件：若干进程之间形成头尾相接的循环等待资源关系。" class="headerlink" title="4. 循环等待条件：若干进程之间形成头尾相接的循环等待资源关系。"></a>4. 循环等待条件：若干进程之间形成头尾相接的循环等待资源关系。</h3>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/04/25/%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%AD%BB%E9%94%81/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    <div>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1174,7 +1194,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-count">41</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1249,7 +1269,7 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">57k</span>
+    <span title="站点总字数">65k</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
