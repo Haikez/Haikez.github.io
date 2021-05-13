@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://haikez.github.io/2021/05/11/%E8%BF%87%E6%BB%A4%E5%99%A8%E4%B8%8E%E7%9B%91%E5%90%AC%E5%99%A8/</loc>
-    <lastmod>2021-05-11</lastmod>
+    <loc>https://haikez.github.io/2021/05/12/JDBC%E8%AF%A6%E8%A7%A3/</loc>
+    <lastmod>2021-05-13</lastmod>
   </url>
   <url>
     <loc>https://haikez.github.io/2021/05/11/MVC%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84/</loc>
+    <lastmod>2021-05-13</lastmod>
+  </url>
+  <url>
+    <loc>https://haikez.github.io/2021/05/11/%E8%BF%87%E6%BB%A4%E5%99%A8%E4%B8%8E%E7%9B%91%E5%90%AC%E5%99%A8/</loc>
     <lastmod>2021-05-11</lastmod>
   </url>
   <url>
