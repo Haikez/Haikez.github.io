@@ -22,30 +22,37 @@
     var CONFIG = {"hostname":"haikez.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="每一个不曾起舞的日子，都是对生命的辜负。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="倪矗的BLOG">
-<meta property="og:url" content="https://haikez.github.io/index.html">
+  <meta name="description" content="SMBMS项目学习基本架构 在数据库中创建对应的表一、 搭建项目环境（准备工作）1. 搭建一个maven web项目2. 配置Tomcat3. 测试项目是否能正常运行4. 导入项目jar包   jsp,Servlet,mysql驱动，jstl，standard… 5. 创建项目包结构    6. 编写实体类pojo7. 编写基础公共类1. 数据库配置文件db.properties 1234dirv">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SMBMS项目学习">
+<meta property="og:url" content="https://haikez.github.io/2021/05/14/SMBMS%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="倪矗的BLOG">
-<meta property="og:description" content="每一个不曾起舞的日子，都是对生命的辜负。">
+<meta property="og:description" content="SMBMS项目学习基本架构 在数据库中创建对应的表一、 搭建项目环境（准备工作）1. 搭建一个maven web项目2. 配置Tomcat3. 测试项目是否能正常运行4. 导入项目jar包   jsp,Servlet,mysql驱动，jstl，standard… 5. 创建项目包结构    6. 编写实体类pojo7. 编写基础公共类1. 数据库配置文件db.properties 1234dirv">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190925140503738.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NsaXNrcw==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://gitee.com/Haikez/images_bed/raw/master/JavaWeb/20210514105149.png">
+<meta property="og:image" content="https://gitee.com/Haikez/images_bed/raw/master/JavaWeb/20210515092051.png">
+<meta property="og:image" content="https://kuangstudy.oss-cn-beijing.aliyuncs.com/bbs/2021/03/27/kuangstudya6d03a8e-56f9-47d7-88db-e65e3ad92f20.png">
+<meta property="article:published_time" content="2021-05-14T01:52:51.000Z">
+<meta property="article:modified_time" content="2021-05-19T12:25:14.991Z">
 <meta property="article:author" content="倪矗">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190925140503738.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NsaXNrcw==,size_16,color_FFFFFF,t_70">
 
-<link rel="canonical" href="https://haikez.github.io/">
+<link rel="canonical" href="https://haikez.github.io/2021/05/14/SMBMS%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>倪矗的BLOG</title>
+  <title>SMBMS项目学习 | 倪矗的BLOG</title>
   
 
 
@@ -186,9 +193,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -204,10 +212,9 @@
       <meta itemprop="name" content="倪矗的BLOG">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/14/SMBMS%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">SMBMS项目学习</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          SMBMS项目学习
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -235,7 +242,14 @@
                 </span>
             </span>
 
-          <br>
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
             <span class="post-meta-item" title="本文字数">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
@@ -252,7 +266,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="SMBMS项目学习"><a href="#SMBMS项目学习" class="headerlink" title="SMBMS项目学习"></a>SMBMS项目学习</h1><h2 id="基本架构"><a href="#基本架构" class="headerlink" title="基本架构"></a>基本架构</h2><p><img src="https://img-blog.csdnimg.cn/20190925140503738.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NsaXNrcw==,size_16,color_FFFFFF,t_70"></p>
+        <h1 id="SMBMS项目学习"><a href="#SMBMS项目学习" class="headerlink" title="SMBMS项目学习"></a>SMBMS项目学习</h1><h2 id="基本架构"><a href="#基本架构" class="headerlink" title="基本架构"></a>基本架构</h2><p><img src="https://img-blog.csdnimg.cn/20190925140503738.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NsaXNrcw==,size_16,color_FFFFFF,t_70"></p>
 <h2 id="在数据库中创建对应的表"><a href="#在数据库中创建对应的表" class="headerlink" title="在数据库中创建对应的表"></a>在数据库中创建对应的表</h2><h2 id="一、-搭建项目环境（准备工作）"><a href="#一、-搭建项目环境（准备工作）" class="headerlink" title="一、 搭建项目环境（准备工作）"></a>一、 搭建项目环境（准备工作）</h2><h3 id="1-搭建一个maven-web项目"><a href="#1-搭建一个maven-web项目" class="headerlink" title="1. 搭建一个maven web项目"></a>1. 搭建一个maven web项目</h3><h3 id="2-配置Tomcat"><a href="#2-配置Tomcat" class="headerlink" title="2. 配置Tomcat"></a>2. 配置Tomcat</h3><h3 id="3-测试项目是否能正常运行"><a href="#3-测试项目是否能正常运行" class="headerlink" title="3. 测试项目是否能正常运行"></a>3. 测试项目是否能正常运行</h3><h3 id="4-导入项目jar包"><a href="#4-导入项目jar包" class="headerlink" title="4. 导入项目jar包"></a>4. 导入项目jar包</h3><p>   jsp,Servlet,mysql驱动，jstl，standard…</p>
 <h3 id="5-创建项目包结构"><a href="#5-创建项目包结构" class="headerlink" title="5. 创建项目包结构"></a>5. 创建项目包结构</h3><p>   <img src="https://gitee.com/Haikez/images_bed/raw/master/JavaWeb/20210514105149.png"></p>
 <h3 id="6-编写实体类pojo"><a href="#6-编写实体类pojo" class="headerlink" title="6. 编写实体类pojo"></a>6. 编写实体类pojo</h3><h3 id="7-编写基础公共类"><a href="#7-编写基础公共类" class="headerlink" title="7. 编写基础公共类"></a>7. 编写基础公共类</h3><pre><code>1. 数据库配置文件db.properties
@@ -327,862 +341,78 @@
 <h3 id="4-编写Servlet类"><a href="#4-编写Servlet类" class="headerlink" title="4.编写Servlet类"></a>4.编写Servlet类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//添加一个if判断</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        String method = req.getParameter(<span class="string">&quot;method&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (method.equals(<span class="string">&quot;savepwd&quot;</span>)&amp;&amp;method!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">this</span>.updatePwd(req,resp);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (method.equals(<span class="string">&quot;pwdmodify&quot;</span>)&amp;&amp;method!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">this</span>.pwdModify(req, resp);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (method.equals(<span class="string">&quot;query&quot;</span>)&amp;&amp;method!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">this</span>.query(req, resp);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//query方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">query</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//查询用户列表</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//从前端获取数据；</span></span><br><span class="line">        String queryUserName = req.getParameter(<span class="string">&quot;queryname&quot;</span>);</span><br><span class="line">        String temp = req.getParameter(<span class="string">&quot;queryUserRole&quot;</span>);</span><br><span class="line">        String pageIndex = req.getParameter(<span class="string">&quot;pageIndex&quot;</span>);</span><br><span class="line">        <span class="keyword">int</span> queryUserRole = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取用户列表</span></span><br><span class="line">        UserServiceImpl userService = <span class="keyword">new</span> UserServiceImpl();</span><br><span class="line">        List&lt;User&gt; userList = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//第一次走这个请求，一定是第一页，页面大小固定的；</span></span><br><span class="line">        <span class="keyword">int</span> pageSize = <span class="number">5</span>; <span class="comment">//可以把这个些到配置文件中，方便后期修改；</span></span><br><span class="line">        <span class="keyword">int</span> currentPageNo = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (queryUserName ==<span class="keyword">null</span>)&#123;</span><br><span class="line">            queryUserName = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (temp!=<span class="keyword">null</span> &amp;&amp; !temp.equals(<span class="string">&quot;&quot;</span>))&#123;</span><br><span class="line">            queryUserRole = Integer.parseInt(temp);  <span class="comment">//给查询赋值！0,1,2,3</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (pageIndex!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            currentPageNo = Integer.parseInt(pageIndex);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取用户的总数 (分页：  上一页，下一页的情况)</span></span><br><span class="line">        <span class="keyword">int</span> totalCount = userService.getUserCount(queryUserName, queryUserRole);</span><br><span class="line">        <span class="comment">//总页数支持</span></span><br><span class="line">        PageSupport pageSupport = <span class="keyword">new</span> PageSupport();</span><br><span class="line">        pageSupport.setCurrentPageNo(currentPageNo);</span><br><span class="line">        pageSupport.setPageSize(pageSize);</span><br><span class="line">        pageSupport.setTotalCount(totalCount);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> totalPageCount = ((<span class="keyword">int</span>)(totalCount/pageSize))+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//控制首页和尾页</span></span><br><span class="line">        <span class="comment">//如果页面要小于1了，就显示第一页的东西</span></span><br><span class="line">        <span class="keyword">if</span> (currentPageNo&lt;<span class="number">1</span>)&#123;</span><br><span class="line">            currentPageNo = <span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (currentPageNo&gt;totalPageCount)&#123; <span class="comment">//当前页面大于了最后一页；</span></span><br><span class="line">            currentPageNo = totalPageCount;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取用户列表展示</span></span><br><span class="line">        userList = userService.getUserList(queryUserName, queryUserRole, currentPageNo, pageSize);</span><br><span class="line">        req.setAttribute(<span class="string">&quot;userList&quot;</span>,userList);</span><br><span class="line"></span><br><span class="line">        RoleServiceImpl roleService = <span class="keyword">new</span> RoleServiceImpl();</span><br><span class="line">        List&lt;Role&gt; roleList = roleService.getRoleList();</span><br><span class="line">        req.setAttribute(<span class="string">&quot;roleList&quot;</span>,roleList);</span><br><span class="line">        req.setAttribute(<span class="string">&quot;totalCount&quot;</span>,totalCount);</span><br><span class="line">        req.setAttribute(<span class="string">&quot;currentPageNo&quot;</span>,currentPageNo);</span><br><span class="line">        req.setAttribute(<span class="string">&quot;totalPageCount&quot;</span>,totalPageCount);</span><br><span class="line">        req.setAttribute(<span class="string">&quot;queryUserName&quot;</span>,queryUserName);</span><br><span class="line">        req.setAttribute(<span class="string">&quot;queryUserRole&quot;</span>,queryUserRole);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//返回前端</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            req.getRequestDispatcher(<span class="string">&quot;userlist.jsp&quot;</span>).forward(req,resp);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ServletException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
 
-      
     </div>
     <div>
       
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
     </div>
 
     
     
     
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
+        <div class="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
       
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://haikez.github.io/2021/05/12/JDBC%E8%AF%A6%E8%A7%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="倪矗">
-      <meta itemprop="description" content="每一个不曾起舞的日子，都是对生命的辜负。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="倪矗的BLOG">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/12/JDBC%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">JDBC详解</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-12 14:29:54" itemprop="dateCreated datePublished" datetime="2021-05-12T14:29:54+08:00">2021-05-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-13 16:50:57" itemprop="dateModified" datetime="2021-05-13T16:50:57+08:00">2021-05-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaWeb%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">JavaWeb学习</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>5.7k</span>
-            </span>
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="倪矗 微信支付">
+        <p>微信支付</p>
+      </div>
       
-          <h1 id="JDBC详解"><a href="#JDBC详解" class="headerlink" title="JDBC详解"></a>JDBC详解</h1><h2 id="一、什么是JDBC"><a href="#一、什么是JDBC" class="headerlink" title="一、什么是JDBC"></a>一、什么是JDBC</h2><p>JDBC：Java连接数据库！<br><img src="https://gitee.com/Haikez/images_bed/raw/master/JavaWeb/20210512143552.png"><br>需要的jar包支持</p>
-<ul>
-<li>java.sql</li>
-<li>javax.sql</li>
-<li>mysql-connecter-java…连接驱动(必须要导入)</li>
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="倪矗 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>倪矗
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://haikez.github.io/2021/05/14/SMBMS%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/" title="SMBMS项目学习">https://haikez.github.io/2021/05/14/SMBMS项目学习/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
 </ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/12/JDBC%E8%AF%A6%E8%A7%A3/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    <div>
-      
-    </div>
+</div>
 
-    
-    
-    
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/05/12/JDBC%E8%AF%A6%E8%A7%A3/" rel="prev" title="JDBC详解">
+      <i class="fa fa-chevron-left"></i> JDBC详解
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
       </footer>
+    
   </article>
   
   
   
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://haikez.github.io/2021/05/11/%E8%BF%87%E6%BB%A4%E5%99%A8%E4%B8%8E%E7%9B%91%E5%90%AC%E5%99%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="倪矗">
-      <meta itemprop="description" content="每一个不曾起舞的日子，都是对生命的辜负。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="倪矗的BLOG">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/11/%E8%BF%87%E6%BB%A4%E5%99%A8%E4%B8%8E%E7%9B%91%E5%90%AC%E5%99%A8/" class="post-title-link" itemprop="url">过滤器与监听器</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-11 16:22:18 / 修改时间：22:51:47" itemprop="dateCreated datePublished" datetime="2021-05-11T16:22:18+08:00">2021-05-11</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaWeb%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">JavaWeb学习</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.2k</span>
-            </span>
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="过滤器与监听器"><a href="#过滤器与监听器" class="headerlink" title="过滤器与监听器"></a>过滤器与监听器</h1><h2 id="一、过滤器（Filter）"><a href="#一、过滤器（Filter）" class="headerlink" title="一、过滤器（Filter）"></a>一、过滤器（Filter）</h2><p>用于过滤网站的数据；</p>
-<ul>
-<li>处理中文代码</li>
-<li>登录验证<br><img src="https://gitee.com/Haikez/images_bed/raw/master/JavaWeb/20210511162438.png"></li></ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/11/%E8%BF%87%E6%BB%A4%E5%99%A8%E4%B8%8E%E7%9B%91%E5%90%AC%E5%99%A8/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    <div>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://haikez.github.io/2021/05/11/MVC%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="倪矗">
-      <meta itemprop="description" content="每一个不曾起舞的日子，都是对生命的辜负。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="倪矗的BLOG">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/11/MVC%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84/" class="post-title-link" itemprop="url">MVC三层架构</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-11 16:07:46" itemprop="dateCreated datePublished" datetime="2021-05-11T16:07:46+08:00">2021-05-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-13 16:50:19" itemprop="dateModified" datetime="2021-05-13T16:50:19+08:00">2021-05-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaWeb%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">JavaWeb学习</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>333</span>
-            </span>
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="MVC三层架构"><a href="#MVC三层架构" class="headerlink" title="MVC三层架构"></a>MVC三层架构</h1><p>什么是MVC：Model、View、Controller  模型 视图 控制器</p>
-<h2 id="早些年"><a href="#早些年" class="headerlink" title="早些年"></a>早些年</h2><p><img src="https://gitee.com/Haikez/images_bed/raw/master/JavaWeb/20210511161128.png"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/11/MVC%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    <div>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://haikez.github.io/2021/05/10/JSP%E8%AF%A6%E8%A7%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="倪矗">
-      <meta itemprop="description" content="每一个不曾起舞的日子，都是对生命的辜负。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="倪矗的BLOG">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/10/JSP%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">JSP详解</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-10 16:10:44" itemprop="dateCreated datePublished" datetime="2021-05-10T16:10:44+08:00">2021-05-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-11 15:59:20" itemprop="dateModified" datetime="2021-05-11T15:59:20+08:00">2021-05-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaWeb%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">JavaWeb学习</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>6.9k</span>
-            </span>
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="JSP详解"><a href="#JSP详解" class="headerlink" title="JSP详解"></a>JSP详解</h1><h2 id="一、什么是JSP"><a href="#一、什么是JSP" class="headerlink" title="一、什么是JSP"></a>一、什么是JSP</h2><p>Java Server Pages：Java服务端页面，也和Servlet一样开发动态web<br>最大特点：</p>
-<ul>
-<li>写JSP就像在写HTML</li>
-<li>区别：<ul>
-<li>HTML只给用户提供静态数据</li>
-<li>JSP页面中可以嵌入JAVA代码，为用户提供动态数据；</li>
-</ul>
-</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/10/JSP%E8%AF%A6%E8%A7%A3/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    <div>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://haikez.github.io/2021/05/09/Cookie%E5%92%8CSession/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="倪矗">
-      <meta itemprop="description" content="每一个不曾起舞的日子，都是对生命的辜负。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="倪矗的BLOG">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/09/Cookie%E5%92%8CSession/" class="post-title-link" itemprop="url">Cookie和Session</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-09 16:11:57" itemprop="dateCreated datePublished" datetime="2021-05-09T16:11:57+08:00">2021-05-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-10 22:52:07" itemprop="dateModified" datetime="2021-05-10T22:52:07+08:00">2021-05-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaWeb%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">JavaWeb学习</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>4.7k</span>
-            </span>
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Cookie和Session"><a href="#Cookie和Session" class="headerlink" title="Cookie和Session"></a>Cookie和Session</h1><h2 id="一、会话"><a href="#一、会话" class="headerlink" title="一、会话"></a>一、会话</h2><h3 id="1-会话：用户打开一个浏览器，点击了很多超链接，访问多个web资源，关闭浏览器，这个过程可以称之为会话；"><a href="#1-会话：用户打开一个浏览器，点击了很多超链接，访问多个web资源，关闭浏览器，这个过程可以称之为会话；" class="headerlink" title="1. 会话：用户打开一个浏览器，点击了很多超链接，访问多个web资源，关闭浏览器，这个过程可以称之为会话；"></a>1. 会话：用户打开一个浏览器，点击了很多超链接，访问多个web资源，关闭浏览器，这个过程可以称之为会话；</h3><h3 id="2-有状态会话：一个同学来过教室，下次再来教室，我们会知道这个同学，曾经来过，称之为有状态会话；"><a href="#2-有状态会话：一个同学来过教室，下次再来教室，我们会知道这个同学，曾经来过，称之为有状态会话；" class="headerlink" title="2. 有状态会话：一个同学来过教室，下次再来教室，我们会知道这个同学，曾经来过，称之为有状态会话；"></a>2. 有状态会话：一个同学来过教室，下次再来教室，我们会知道这个同学，曾经来过，称之为有状态会话；</h3><h2 id="二、保存会话的两种技术"><a href="#二、保存会话的两种技术" class="headerlink" title="二、保存会话的两种技术"></a>二、保存会话的两种技术</h2><p><strong>cookie</strong></p>
-<ul>
-<li>客户端技术（响应、请求）</li>
-</ul>
-<p><strong>session</strong></p>
-<ul>
-<li>服务器技术，利用这个技术，可以保存用户的会话信息？ 我们可以把信息或者数据放在Session中！</li></ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/09/Cookie%E5%92%8CSession/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    <div>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://haikez.github.io/2021/04/29/Servlet%E8%AF%A6%E8%A7%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="倪矗">
-      <meta itemprop="description" content="每一个不曾起舞的日子，都是对生命的辜负。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="倪矗的BLOG">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/29/Servlet%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">Servlet详解</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-29 11:23:48" itemprop="dateCreated datePublished" datetime="2021-04-29T11:23:48+08:00">2021-04-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-11 14:52:12" itemprop="dateModified" datetime="2021-05-11T14:52:12+08:00">2021-05-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaWeb%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">JavaWeb学习</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>13k</span>
-            </span>
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Servlet详解"><a href="#Servlet详解" class="headerlink" title="Servlet详解"></a>Servlet详解</h1><h2 id="一、什么是Servlet"><a href="#一、什么是Servlet" class="headerlink" title="一、什么是Servlet"></a>一、什么是Servlet</h2><p>1、Servlet 是 JavaEE 规范之一。规范就是接口<br>2、Servlet 就 JavaWeb 三大组件之一。三大组件分别是：Servlet 程序、Filter 过滤器、Listener 监听器。<br>3、Servlet 是运行在服务器上的一个 java 小程序，它可以接收客户端发送过来的请求，并响应数据给客户端.<br>4、把实现了Servlet接口的Java程序叫做，Servlet。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/04/29/Servlet%E8%AF%A6%E8%A7%A3/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    <div>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://haikez.github.io/2021/04/27/Maven%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="倪矗">
-      <meta itemprop="description" content="每一个不曾起舞的日子，都是对生命的辜负。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="倪矗的BLOG">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/27/Maven%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="post-title-link" itemprop="url">Maven环境搭建</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-27 17:07:16" itemprop="dateCreated datePublished" datetime="2021-04-27T17:07:16+08:00">2021-04-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-05 13:24:53" itemprop="dateModified" datetime="2021-05-05T13:24:53+08:00">2021-05-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaWeb%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">JavaWeb学习</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>644</span>
-            </span>
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Maven环境搭建"><a href="#Maven环境搭建" class="headerlink" title="Maven环境搭建"></a>Maven环境搭建</h1><p>为什么要学习Maven？</p>
-<ol>
-<li>在Javaweb开发中，需要使用大量的jar包，我们手动去导入；</li>
-<li>如何能够让一个对象帮我们去导入和配置这个jar包，由此，Maven诞生。<h2 id="1-Maven-项目架构管理工具"><a href="#1-Maven-项目架构管理工具" class="headerlink" title="1. Maven:项目架构管理工具"></a>1. Maven:项目架构管理工具</h2></li></ol>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/04/27/Maven%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    <div>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://haikez.github.io/2021/04/27/HTTP%E5%8D%8F%E8%AE%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="倪矗">
-      <meta itemprop="description" content="每一个不曾起舞的日子，都是对生命的辜负。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="倪矗的BLOG">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/27/HTTP%E5%8D%8F%E8%AE%AE/" class="post-title-link" itemprop="url">HTTP协议</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-27 17:02:48" itemprop="dateCreated datePublished" datetime="2021-04-27T17:02:48+08:00">2021-04-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-05 15:14:17" itemprop="dateModified" datetime="2021-05-05T15:14:17+08:00">2021-05-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaWeb%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">JavaWeb学习</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>493</span>
-            </span>
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h1><h2 id="什么是HTTP协议"><a href="#什么是HTTP协议" class="headerlink" title="什么是HTTP协议"></a>什么是HTTP协议</h2><p>HTTP（超文本传输协议）是一个简单的请求–响应协议，通常应用在TCP之上</p>
-<ul>
-<li>html、字符</li>
-<li>图片、音频、视频、定位</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/04/27/HTTP%E5%8D%8F%E8%AE%AE/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    <div>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://haikez.github.io/2021/04/27/Tomcat%E8%AF%A6%E8%A7%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="倪矗">
-      <meta itemprop="description" content="每一个不曾起舞的日子，都是对生命的辜负。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="倪矗的BLOG">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/27/Tomcat%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">Tomcat详解</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-27 16:20:32" itemprop="dateCreated datePublished" datetime="2021-04-27T16:20:32+08:00">2021-04-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-05 13:21:34" itemprop="dateModified" datetime="2021-05-05T13:21:34+08:00">2021-05-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaWeb%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">JavaWeb学习</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>510</span>
-            </span>
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Tomcat详解"><a href="#Tomcat详解" class="headerlink" title="Tomcat详解"></a>Tomcat详解</h1><h2 id="1、安装Tomcat"><a href="#1、安装Tomcat" class="headerlink" title="1、安装Tomcat"></a>1、安装Tomcat</h2><h3 id="1-1、下载"><a href="#1-1、下载" class="headerlink" title="1.1、下载"></a>1.1、下载</h3><p>Tomcat官网：<a target="_blank" rel="noopener" href="https://tomcat.apache.org/">https://tomcat.apache.org/</a><br><img src="https://gitee.com/Haikez/images_bed/raw/master/JavaWeb/20210427162705.png"><br><img src="https://gitee.com/Haikez/images_bed/raw/master/JavaWeb/20210427162715.png"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/04/27/Tomcat%E8%AF%A6%E8%A7%A3/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    <div>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
 
 
 
@@ -1234,6 +464,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SMBMS%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0"><span class="nav-number">1.</span> <span class="nav-text">SMBMS项目学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%9E%B6%E6%9E%84"><span class="nav-number">1.1.</span> <span class="nav-text">基本架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E5%88%9B%E5%BB%BA%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A1%A8"><span class="nav-number">1.2.</span> <span class="nav-text">在数据库中创建对应的表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81-%E6%90%AD%E5%BB%BA%E9%A1%B9%E7%9B%AE%E7%8E%AF%E5%A2%83%EF%BC%88%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">一、 搭建项目环境（准备工作）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAmaven-web%E9%A1%B9%E7%9B%AE"><span class="nav-number">1.3.1.</span> <span class="nav-text">1. 搭建一个maven web项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E9%85%8D%E7%BD%AETomcat"><span class="nav-number">1.3.2.</span> <span class="nav-text">2. 配置Tomcat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%B5%8B%E8%AF%95%E9%A1%B9%E7%9B%AE%E6%98%AF%E5%90%A6%E8%83%BD%E6%AD%A3%E5%B8%B8%E8%BF%90%E8%A1%8C"><span class="nav-number">1.3.3.</span> <span class="nav-text">3. 测试项目是否能正常运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%AF%BC%E5%85%A5%E9%A1%B9%E7%9B%AEjar%E5%8C%85"><span class="nav-number">1.3.4.</span> <span class="nav-text">4. 导入项目jar包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE%E5%8C%85%E7%BB%93%E6%9E%84"><span class="nav-number">1.3.5.</span> <span class="nav-text">5. 创建项目包结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E7%BC%96%E5%86%99%E5%AE%9E%E4%BD%93%E7%B1%BBpojo"><span class="nav-number">1.3.6.</span> <span class="nav-text">6. 编写实体类pojo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E7%BC%96%E5%86%99%E5%9F%BA%E7%A1%80%E5%85%AC%E5%85%B1%E7%B1%BB"><span class="nav-number">1.3.7.</span> <span class="nav-text">7. 编写基础公共类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-%E5%AF%BC%E5%85%A5%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90"><span class="nav-number">1.3.8.</span> <span class="nav-text">8. 导入静态资源</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%99%BB%E5%BD%95%E9%A1%B5%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.4.</span> <span class="nav-text">二、登录页功能实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E7%99%BB%E5%BD%95%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.4.1.</span> <span class="nav-text">1、登录功能实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E6%B3%A8%E9%94%80%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.4.2.</span> <span class="nav-text">2、注销功能实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81-%E7%99%BB%E5%BD%95%E6%8B%A6%E6%88%AA%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.4.3.</span> <span class="nav-text">3、 登录拦截功能实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.4.4.</span> <span class="nav-text">二、密码修改的实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.5.</span> <span class="nav-text">三、用户管理实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%AF%BC%E5%85%A5%E5%88%86%E9%A1%B5%E7%9A%84%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="nav-number">1.5.1.</span> <span class="nav-text">1. 导入分页的工具类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E6%95%B0%E9%87%8F"><span class="nav-number">1.5.2.</span> <span class="nav-text">2. 获取用户数量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E5%88%97%E8%A1%A8"><span class="nav-number">1.5.3.</span> <span class="nav-text">2.获取用户列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E8%8E%B7%E5%8F%96%E8%A7%92%E8%89%B2%E6%93%8D%E4%BD%9C"><span class="nav-number">1.5.4.</span> <span class="nav-text">3.获取角色操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E7%BC%96%E5%86%99Servlet%E7%B1%BB"><span class="nav-number">1.5.5.</span> <span class="nav-text">4.编写Servlet类</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
