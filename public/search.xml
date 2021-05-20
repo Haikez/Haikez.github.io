@@ -1466,7 +1466,8 @@ bool ListDelete(LinkNode *&L,int i,ElemType &e)
     <title>SMBMS项目学习</title>
     <url>/2021/05/14/SMBMS%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<h1 id="SMBMS项目学习"><a href="#SMBMS项目学习" class="headerlink" title="SMBMS项目学习"></a>SMBMS项目学习</h1><h2 id="基本架构"><a href="#基本架构" class="headerlink" title="基本架构"></a>基本架构</h2><p><img src="https://img-blog.csdnimg.cn/20190925140503738.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NsaXNrcw==,size_16,color_FFFFFF,t_70"></p>
-<h2 id="在数据库中创建对应的表"><a href="#在数据库中创建对应的表" class="headerlink" title="在数据库中创建对应的表"></a>在数据库中创建对应的表</h2><h2 id="一、-搭建项目环境（准备工作）"><a href="#一、-搭建项目环境（准备工作）" class="headerlink" title="一、 搭建项目环境（准备工作）"></a>一、 搭建项目环境（准备工作）</h2><h3 id="1-搭建一个maven-web项目"><a href="#1-搭建一个maven-web项目" class="headerlink" title="1. 搭建一个maven web项目"></a>1. 搭建一个maven web项目</h3><h3 id="2-配置Tomcat"><a href="#2-配置Tomcat" class="headerlink" title="2. 配置Tomcat"></a>2. 配置Tomcat</h3><h3 id="3-测试项目是否能正常运行"><a href="#3-测试项目是否能正常运行" class="headerlink" title="3. 测试项目是否能正常运行"></a>3. 测试项目是否能正常运行</h3><h3 id="4-导入项目jar包"><a href="#4-导入项目jar包" class="headerlink" title="4. 导入项目jar包"></a>4. 导入项目jar包</h3><p>   jsp,Servlet,mysql驱动，jstl，standard…</p>
+<h2 id="在数据库中创建对应的表"><a href="#在数据库中创建对应的表" class="headerlink" title="在数据库中创建对应的表"></a>在数据库中创建对应的表</h2><a id="more"></a>
+<h2 id="一、-搭建项目环境（准备工作）"><a href="#一、-搭建项目环境（准备工作）" class="headerlink" title="一、 搭建项目环境（准备工作）"></a>一、 搭建项目环境（准备工作）</h2><h3 id="1-搭建一个maven-web项目"><a href="#1-搭建一个maven-web项目" class="headerlink" title="1. 搭建一个maven web项目"></a>1. 搭建一个maven web项目</h3><h3 id="2-配置Tomcat"><a href="#2-配置Tomcat" class="headerlink" title="2. 配置Tomcat"></a>2. 配置Tomcat</h3><h3 id="3-测试项目是否能正常运行"><a href="#3-测试项目是否能正常运行" class="headerlink" title="3. 测试项目是否能正常运行"></a>3. 测试项目是否能正常运行</h3><h3 id="4-导入项目jar包"><a href="#4-导入项目jar包" class="headerlink" title="4. 导入项目jar包"></a>4. 导入项目jar包</h3><p>   jsp,Servlet,mysql驱动，jstl，standard…</p>
 <h3 id="5-创建项目包结构"><a href="#5-创建项目包结构" class="headerlink" title="5. 创建项目包结构"></a>5. 创建项目包结构</h3><p>   <img src="https://gitee.com/Haikez/images_bed/raw/master/JavaWeb/20210514105149.png"></p>
 <h3 id="6-编写实体类pojo"><a href="#6-编写实体类pojo" class="headerlink" title="6. 编写实体类pojo"></a>6. 编写实体类pojo</h3><h3 id="7-编写基础公共类"><a href="#7-编写基础公共类" class="headerlink" title="7. 编写基础公共类"></a>7. 编写基础公共类</h3><pre><code>1. 数据库配置文件db.properties
 <figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">dirver</span>=<span class="string">com.mysql.jdbc.Driver</span></span><br><span class="line"><span class="attr">url</span>=<span class="string">jdbc:mysql://localhost:3306?useUnicode=true&amp;characterEncoding=utf-8</span></span><br><span class="line"><span class="attr">username</span>=<span class="string">root</span></span><br><span class="line"><span class="attr">password</span>=<span class="string">nc20011019</span></span><br></pre></td></tr></table></figure>
@@ -1543,5 +1544,10 @@ bool ListDelete(LinkNode *&L,int i,ElemType &e)
       <categories>
         <category>JavaWeb学习</category>
       </categories>
+  </entry>
+  <entry>
+    <title>Java文件上传</title>
+    <url>/2021/05/20/Java%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
