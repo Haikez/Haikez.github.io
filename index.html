@@ -192,6 +192,97 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://haikez.github.io/2021/05/21/Mybatis%E7%9A%84CRUD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="倪矗">
+      <meta itemprop="description" content="每一个不曾起舞的日子，都是对生命的辜负。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="倪矗的BLOG">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/21/Mybatis%E7%9A%84CRUD/" class="post-title-link" itemprop="url">Mybatis的CRUD</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-21 14:26:29 / 修改时间：22:59:40" itemprop="dateCreated datePublished" datetime="2021-05-21T14:26:29+08:00">2021-05-21</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Mybatis%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">Mybatis学习</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.4k</span>
+            </span>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Mybatis的CRUD"><a href="#Mybatis的CRUD" class="headerlink" title="Mybatis的CRUD"></a>Mybatis的CRUD</h1><h2 id="一、注意点"><a href="#一、注意点" class="headerlink" title="一、注意点"></a>一、注意点</h2><h4 id="1-namespace中的包名要和Dao-Mapper接口的包名一致"><a href="#1-namespace中的包名要和Dao-Mapper接口的包名一致" class="headerlink" title="1. namespace中的包名要和Dao/Mapper接口的包名一致"></a>1. namespace中的包名要和Dao/Mapper<strong>接口</strong>的包名一致</h4><h4 id="2-执行增删改操作时需要提交事务！！！"><a href="#2-执行增删改操作时需要提交事务！！！" class="headerlink" title="2. 执行增删改操作时需要提交事务！！！"></a>2. 执行增删改操作时需要提交事务！！！</h4><h4 id="3-增删改操作返回值类型为int，查询的返回值类型是实体类"><a href="#3-增删改操作返回值类型为int，查询的返回值类型是实体类" class="headerlink" title="3. 增删改操作返回值类型为int，查询的返回值类型是实体类"></a>3. 增删改操作返回值类型为int，查询的返回值类型是实体类</h4><h2 id="二、增删改查功能的实现"><a href="#二、增删改查功能的实现" class="headerlink" title="二、增删改查功能的实现"></a>二、增删改查功能的实现</h2><h3 id="1、-查询"><a href="#1、-查询" class="headerlink" title="1、 查询"></a>1、 查询</h3><h4 id="1-在Dao层接口中添加查询方法"><a href="#1-在Dao层接口中添加查询方法" class="headerlink" title="1. 在Dao层接口中添加查询方法"></a>1. 在<strong>Dao层接口</strong>中添加查询方法</h4><pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserMapper</span> </span>&#123;</span><br><span class="line">    <span class="function">List&lt;User&gt; <span class="title">getUserList</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre>
+<h4 id="2-在Dao层的接口配置文件中配置查询语句-lt-select-gt-标签"><a href="#2-在Dao层的接口配置文件中配置查询语句-lt-select-gt-标签" class="headerlink" title="2. 在Dao层的接口配置文件中配置查询语句 &lt;select&gt;标签"></a>2. 在Dao层的接口配置文件中配置查询语句 <strong>&lt;select&gt;标签</strong></h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;getUserList&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;com.nichu.pojo.User&quot;</span>&gt;</span></span><br><span class="line">    select * from mybatis.user</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-编写测试程序"><a href="#3-编写测试程序" class="headerlink" title="3. 编写测试程序"></a>3. 编写测试程序</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">    SqlSession sqlSession = MybatisUtils.getSqlSession();</span><br><span class="line">    UserMapper mapper = sqlSession.getMapper(UserMapper.class);</span><br><span class="line">    List&lt;User&gt; userList = mapper.getUserList();</span><br><span class="line">    <span class="keyword">for</span> (User user : userList) &#123;</span><br><span class="line">        System.out.println(user);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//用完记得关闭sqlSession</span></span><br><span class="line">    sqlSession.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2、-增加"><a href="#2、-增加" class="headerlink" title="2、 增加"></a>2、 增加</h3><h4 id="1-在Dao层接口中添加增加操作方法"><a href="#1-在Dao层接口中添加增加操作方法" class="headerlink" title="1. 在Dao层接口中添加增加操作方法"></a>1. 在<strong>Dao层接口</strong>中添加增加操作方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserMapper</span> </span>&#123;</span><br><span class="line">    <span class="comment">//注意参数类型</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">addUser</span><span class="params">(User user)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-在Dao层的接口配置文件中配置语句-lt-insert-gt-标签"><a href="#2-在Dao层的接口配置文件中配置语句-lt-insert-gt-标签" class="headerlink" title="2. 在Dao层的接口配置文件中配置语句 &lt;insert&gt;标签"></a>2. 在<strong>Dao层的接口配置文件</strong>中配置语句 <strong>&lt;insert&gt;标签</strong></h4><pre><code><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">&quot;addUser&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;com.nichu.pojo.User&quot;</span>&gt;</span></span><br><span class="line">    insert into mybatis.user (id, name, pwd)</span><br><span class="line">    values (#&#123;id&#125;,#&#123;name&#125;,#&#123;pwd&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br></pre></td></tr></table></figure>
+- **parameterType** 是传入的参数类型，指向实体类 **&quot;com.nichu.pojo.User&quot;**
+- 使用 #&#123;&#125; 来获取传入的值
+- #&#123;&#125;,括号内是实体类属性/数据库字段</code></pre>
+<h4 id="3-编写测试程序-1"><a href="#3-编写测试程序-1" class="headerlink" title="3. 编写测试程序"></a>3. 编写测试程序</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span></span>&#123;</span><br><span class="line">    SqlSession sqlSession = MybatisUtils.getSqlSession();</span><br><span class="line">    UserMapper mapper = sqlSession.getMapper(UserMapper.class);</span><br><span class="line">    mapper.addUser(<span class="keyword">new</span> User(<span class="number">5</span>,<span class="string">&quot;倪矗5&quot;</span>,<span class="string">&quot;234333&quot;</span>));</span><br><span class="line">    <span class="comment">// 千万不要忘记提交事务</span></span><br><span class="line">    sqlSession.commit();</span><br><span class="line">    sqlSession.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>一定要记得提交事务！！！</strong></p>
+<h3 id="3、-修改"><a href="#3、-修改" class="headerlink" title="3、 修改"></a>3、 修改</h3><h4 id="1-在Dao层接口中添加修改操作方法"><a href="#1-在Dao层接口中添加修改操作方法" class="headerlink" title="1. 在Dao层接口中添加修改操作方法"></a>1. 在<strong>Dao层接口</strong>中添加修改操作方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserMapper</span> </span>&#123;</span><br><span class="line">    <span class="comment">//注意参数类型</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">updUser</span><span class="params">(User user)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-在Dao层的接口配置文件中配置语句-lt-update-gt-标签"><a href="#2-在Dao层的接口配置文件中配置语句-lt-update-gt-标签" class="headerlink" title="2. 在Dao层的接口配置文件中配置语句 &lt;update&gt;标签"></a>2. 在<strong>Dao层的接口配置文件</strong>中配置语句 <strong>&lt;update&gt;标签</strong></h4><pre><code><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">update</span> <span class="attr">id</span>=<span class="string">&quot;updUser&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;com.nichu.pojo.User&quot;</span>&gt;</span></span><br><span class="line">    update mybatis.user set name=#&#123;name&#125;, pwd=#&#123;pwd&#125; where id =#&#123;id&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">update</span>&gt;</span></span><br></pre></td></tr></table></figure></code></pre>
+<h4 id="3-编写测试程序-2"><a href="#3-编写测试程序-2" class="headerlink" title="3. 编写测试程序"></a>3. 编写测试程序</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">test4</span><span class="params">()</span></span>&#123;</span><br><span class="line">    SqlSession sqlSession = MybatisUtils.getSqlSession();</span><br><span class="line">    UserMapper mapper = sqlSession.getMapper(UserMapper.class);</span><br><span class="line">    mapper.updUser(<span class="keyword">new</span> User(<span class="number">5</span>,<span class="string">&quot;倪矗6&quot;</span>,<span class="string">&quot;234333&quot;</span>));</span><br><span class="line">    <span class="comment">// 千万不要忘记提交事务</span></span><br><span class="line">    sqlSession.commit();</span><br><span class="line">    sqlSession.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4、删除"><a href="#4、删除" class="headerlink" title="4、删除"></a>4、删除</h3><h4 id="1-在Dao层接口中添加增加操作方法-1"><a href="#1-在Dao层接口中添加增加操作方法-1" class="headerlink" title="1. 在Dao层接口中添加增加操作方法"></a>1. 在<strong>Dao层接口</strong>中添加增加操作方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserMapper</span> </span>&#123;</span><br><span class="line">    <span class="comment">//注意参数类型</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">delUser</span><span class="params">(<span class="keyword">int</span> id)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-在Dao层的接口配置文件中配置语句-lt-delete-gt-标签"><a href="#2-在Dao层的接口配置文件中配置语句-lt-delete-gt-标签" class="headerlink" title="2. 在Dao层的接口配置文件中配置语句 &lt;delete&gt;标签"></a>2. 在<strong>Dao层的接口配置文件</strong>中配置语句 <strong>&lt;delete&gt;标签</strong></h4><pre><code><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">delete</span> <span class="attr">id</span>=<span class="string">&quot;delUser&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;int&quot;</span>&gt;</span></span><br><span class="line">    delete  from mybatis.user where id =#&#123;id&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">delete</span>&gt;</span></span><br></pre></td></tr></table></figure></code></pre>
+<h4 id="3-编写测试程序-3"><a href="#3-编写测试程序-3" class="headerlink" title="3. 编写测试程序"></a>3. 编写测试程序</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">test3</span><span class="params">()</span></span>&#123;</span><br><span class="line">    SqlSession sqlSession = MybatisUtils.getSqlSession();</span><br><span class="line">    UserMapper mapper = sqlSession.getMapper(UserMapper.class);</span><br><span class="line">    mapper.delUser(<span class="number">3</span>);</span><br><span class="line">    <span class="comment">// 千万不要忘记提交事务</span></span><br><span class="line">    sqlSession.commit();</span><br><span class="line">    sqlSession.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://haikez.github.io/2021/05/21/%E7%AC%AC%E4%B8%80%E4%B8%AAMybatis%E7%A8%8B%E5%BA%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -217,7 +308,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-21 10:36:06 / 修改时间：12:48:07" itemprop="dateCreated datePublished" datetime="2021-05-21T10:36:06+08:00">2021-05-21</time>
+              <time title="创建时间：2021-05-21 10:36:06 / 修改时间：14:56:52" itemprop="dateCreated datePublished" datetime="2021-05-21T10:36:06+08:00">2021-05-21</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -235,7 +326,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2k</span>
+              <span>5k</span>
             </span>
         </div>
       </header>
@@ -247,20 +338,16 @@
 
       
           <h1 id="第一个Mybatis程序"><a href="#第一个Mybatis程序" class="headerlink" title="第一个Mybatis程序"></a>第一个Mybatis程序</h1><p>流程：搭建环境–&gt;导入Mybatis–&gt;编写代码–&gt;测试</p>
-<h2 id="搭建环境"><a href="#搭建环境" class="headerlink" title="搭建环境"></a>搭建环境</h2><h3 id="搭建数据库"><a href="#搭建数据库" class="headerlink" title="搭建数据库"></a>搭建数据库</h3><p><img src="https://gitee.com/Haikez/images_bed/raw/master/Mybatis/20210521105721.png"></p>
+<h2 id="一、搭建环境"><a href="#一、搭建环境" class="headerlink" title="一、搭建环境"></a>一、搭建环境</h2><h3 id="1-搭建数据库"><a href="#1-搭建数据库" class="headerlink" title="1. 搭建数据库"></a>1. 搭建数据库</h3><p><img src="https://gitee.com/Haikez/images_bed/raw/master/Mybatis/20210521105721.png"></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> DATABASE `mybatis`;</span><br><span class="line">USE `mybatis`;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `<span class="keyword">user</span>`(</span><br><span class="line">	`id` <span class="type">INT</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span>,</span><br><span class="line">	`name` <span class="type">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">	`pwd` <span class="type">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span></span><br><span class="line">)ENGINE<span class="operator">=</span>INNODB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8;</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `<span class="keyword">user</span>`(`id`,`name`,`pwd`) <span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>,<span class="string">&#x27;倪矗1&#x27;</span>,<span class="string">&#x27;1234&#x27;</span>),</span><br><span class="line">(<span class="number">2</span>,<span class="string">&#x27;倪矗2&#x27;</span>,<span class="string">&#x27;123456&#x27;</span>),</span><br><span class="line">(<span class="number">3</span>,<span class="string">&#x27;倪矗3&#x27;</span>,<span class="string">&#x27;12346&#x27;</span>),</span><br><span class="line">(<span class="number">4</span>,<span class="string">&#x27;倪矗4&#x27;</span>,<span class="string">&#x27;123654&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<p>新建项目(作为父项目)</p>
-<ol>
-<li>新建一个普通的Maven项目</li>
-<li>删除src文件</li>
-<li>导入jar包<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">   <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--mysql驱动--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.1.47<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--mybatis依赖--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.5.7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--junit--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.13<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
-创建模块(作为子项目，子项目可以直接使用父项目的依赖)</li>
-</ol>
-<ul>
-<li>编写mybatis核心配置文件  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">configuration</span></span></span><br><span class="line"><span class="meta">        <span class="meta-keyword">PUBLIC</span> <span class="meta-string">&quot;-//mybatis.org//DTD Config 3.0//EN&quot;</span></span></span><br><span class="line"><span class="meta">        <span class="meta-string">&quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--核心配置文件--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">environments</span> <span class="attr">default</span>=<span class="string">&quot;development&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">environment</span> <span class="attr">id</span>=<span class="string">&quot;development&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">transactionManager</span> <span class="attr">type</span>=<span class="string">&quot;JDBC&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dataSource</span> <span class="attr">type</span>=<span class="string">&quot;POOLED&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;driver&quot;</span> <span class="attr">value</span>=<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;url&quot;</span> </span></span><br><span class="line"><span class="tag">                        <span class="attr">value</span>=<span class="string">&quot;jdbc:mysql://localhost:3306/mybatis?useSSL=false<span class="symbol">&amp;amp;</span>useUnicode=true<span class="symbol">&amp;amp;</span>characterEncoding=UTF-8&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">value</span>=<span class="string">&quot;root&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">value</span>=<span class="string">&quot;nc20011019&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dataSource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">environment</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">environments</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li>编写mybatis工具类</li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/21/%E7%AC%AC%E4%B8%80%E4%B8%AAMybatis%E7%A8%8B%E5%BA%8F/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
     <div>
@@ -307,7 +394,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-21 10:05:16 / 修改时间：12:48:07" itemprop="dateCreated datePublished" datetime="2021-05-21T10:05:16+08:00">2021-05-21</time>
+              <time title="创建时间：2021-05-21 10:05:16 / 修改时间：12:53:13" itemprop="dateCreated datePublished" datetime="2021-05-21T10:05:16+08:00">2021-05-21</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -325,7 +412,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>964</span>
+              <span>978</span>
             </span>
         </div>
       </header>
@@ -336,7 +423,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Mybatis简介"><a href="#Mybatis简介" class="headerlink" title="Mybatis简介"></a>Mybatis简介</h1><h2 id="什么是-MyBatis？"><a href="#什么是-MyBatis？" class="headerlink" title="什么是 MyBatis？"></a>什么是 MyBatis？</h2><p><img src="https://mybatis.org/images/mybatis-logo.png"></p>
+          <h1 id="Mybatis简介"><a href="#Mybatis简介" class="headerlink" title="Mybatis简介"></a>Mybatis简介</h1><h2 id="一、什么是-MyBatis？"><a href="#一、什么是-MyBatis？" class="headerlink" title="一、什么是 MyBatis？"></a>一、什么是 MyBatis？</h2><p><img src="https://mybatis.org/images/mybatis-logo.png"></p>
 <ul>
 <li><p>MyBatis 是一款优秀的<strong>持久层框架</strong>。</p>
 </li>
@@ -348,49 +435,15 @@
 </li>
 <li><p>MyBatis 本是apache的一个开源项目iBatis, 2010年这个项目由apache software foundation 迁移到了google code，并且改名为MyBatis 。</p>
 </li>
-<li><p>2013年11月迁移到Github。</p>
-<!-- - more -->
-<h2 id="如何获得Mybatis"><a href="#如何获得Mybatis" class="headerlink" title="如何获得Mybatis?"></a>如何获得Mybatis?</h2></li>
-<li><p>maven仓库 :</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.mybatis/mybatis --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.5.7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li><p>Github : <a target="_blank" rel="noopener" href="https://github.com/mybatis/mybatis-3/releases">https://github.com/mybatis/mybatis-3/releases</a></p>
-</li>
-<li><p>中文文档 : <a target="_blank" rel="noopener" href="https://mybatis.org/mybatis-3/zh/index.html">https://mybatis.org/mybatis-3/zh/index.html</a></p>
-<h2 id="什么是持久层"><a href="#什么是持久层" class="headerlink" title="什么是持久层"></a>什么是持久层</h2><h3 id="数据持久化"><a href="#数据持久化" class="headerlink" title="数据持久化"></a>数据持久化</h3></li>
-<li><p>持久化就是将程序的数据在持久状态和瞬时状态转化的过程。</p>
-</li>
-<li><p>内存：<strong>断电即失</strong></p>
-</li>
-<li><p>数据库（jdbc）,io文件持久化。</p>
-</li>
-<li><p>生活中：冷藏</p>
-</li>
-</ul>
-<h3 id="为什么需要持久化"><a href="#为什么需要持久化" class="headerlink" title="为什么需要持久化"></a>为什么需要持久化</h3><ul>
-<li>有一些对象，不能让他丢掉</li>
-<li>内存太贵</li>
-</ul>
-<h2 id="持久层"><a href="#持久层" class="headerlink" title="持久层"></a>持久层</h2><h3 id="Dao层，Service层，Controller层"><a href="#Dao层，Service层，Controller层" class="headerlink" title="Dao层，Service层，Controller层"></a>Dao层，Service层，Controller层</h3><ul>
-<li>完成持久化工作的代码。</li>
-<li>层界限十分明显。</li>
-</ul>
-<h2 id="为什么需要Mybatis？"><a href="#为什么需要Mybatis？" class="headerlink" title="为什么需要Mybatis？"></a>为什么需要Mybatis？</h2><ul>
-<li>帮助程序员将数据存入数据库中。</li>
-<li>方便</li>
-<li>传统的JDBC代码太复杂。简化，框架。自动化。</li>
-<li>不用Mybatis也可以。只不过用了更容易上手。<strong>技术没有高低之分</strong>。</li>
-<li>优点： <ul>
-<li>简单</li>
-<li>灵活</li>
-<li>sql和代码分离，提高了可维护性</li>
-<li>提供映射标签，支持对象与数据库的orm字段关系映射</li>
-<li>提供对象关系映射，支持对象关系组建维护</li>
-<li>提供xml标签，支持编写动态sql。</li>
-</ul>
-</li>
-</ul>
-<p><strong>最重要的一点： 使用的人多</strong></p>
-
+<li><p>2013年11月迁移到Github。</p></li></ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/21/Mybatis%E7%AE%80%E4%BB%8B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
     <div>
@@ -1042,96 +1095,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://haikez.github.io/2021/04/29/Servlet%E8%AF%A6%E8%A7%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="倪矗">
-      <meta itemprop="description" content="每一个不曾起舞的日子，都是对生命的辜负。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="倪矗的BLOG">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/29/Servlet%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">Servlet详解</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-29 11:23:48" itemprop="dateCreated datePublished" datetime="2021-04-29T11:23:48+08:00">2021-04-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-11 14:52:12" itemprop="dateModified" datetime="2021-05-11T14:52:12+08:00">2021-05-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaWeb%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">JavaWeb学习</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>13k</span>
-            </span>
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Servlet详解"><a href="#Servlet详解" class="headerlink" title="Servlet详解"></a>Servlet详解</h1><h2 id="一、什么是Servlet"><a href="#一、什么是Servlet" class="headerlink" title="一、什么是Servlet"></a>一、什么是Servlet</h2><p>1、Servlet 是 JavaEE 规范之一。规范就是接口<br>2、Servlet 就 JavaWeb 三大组件之一。三大组件分别是：Servlet 程序、Filter 过滤器、Listener 监听器。<br>3、Servlet 是运行在服务器上的一个 java 小程序，它可以接收客户端发送过来的请求，并响应数据给客户端.<br>4、把实现了Servlet接口的Java程序叫做，Servlet。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/04/29/Servlet%E8%AF%A6%E8%A7%A3/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    <div>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1203,7 +1166,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1278,7 +1241,7 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">97k</span>
+    <span title="站点总字数">102k</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

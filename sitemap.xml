@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://haikez.github.io/2021/04/27/Maven%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</loc>
+    <loc>https://haikez.github.io/2021/05/21/Mybatis%E7%9A%84CRUD/</loc>
     
     <lastmod>2021-05-21</lastmod>
     
@@ -17,6 +17,13 @@
   
   <url>
     <loc>https://haikez.github.io/2021/05/21/Mybatis%E7%AE%80%E4%BB%8B/</loc>
+    
+    <lastmod>2021-05-21</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://haikez.github.io/2021/04/27/Maven%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</loc>
     
     <lastmod>2021-05-21</lastmod>
     

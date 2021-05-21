@@ -1,1 +1,1 @@
-https://haikez.github.io/2021/05/21/%E7%AC%AC%E4%B8%80%E4%B8%AAMybatis%E7%A8%8B%E5%BA%8F/
+https://haikez.github.io/2021/05/21/Mybatis%E7%9A%84CRUD/
