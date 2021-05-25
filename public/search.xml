@@ -150,7 +150,7 @@
   </entry>
   <entry>
     <title>Git+Nginx搭建远程Web服务器</title>
-    <url>/2021/01/02/Git+Nginx%E6%90%AD%E5%BB%BA%E8%BF%9C%E7%A8%8BWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
+    <url>/2021/01/02/Git-Nginx%E6%90%AD%E5%BB%BA%E8%BF%9C%E7%A8%8BWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
     <content><![CDATA[<h2 id="Git-Nginx搭建远程Web服务器"><a href="#Git-Nginx搭建远程Web服务器" class="headerlink" title="Git+Nginx搭建远程Web服务器"></a>Git+Nginx搭建远程Web服务器</h2><h3 id="一、服务器端配置"><a href="#一、服务器端配置" class="headerlink" title="一、服务器端配置"></a>一、服务器端配置</h3><h4 id="1-创建git文件夹用于存放网站文件"><a href="#1-创建git文件夹用于存放网站文件" class="headerlink" title="1. 创建git文件夹用于存放网站文件"></a>1. 创建git文件夹用于存放网站文件</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span></span><br><span class="line">$ mkdir .myblog</span><br><span class="line">$ <span class="built_in">cd</span> .myblog/</span><br><span class="line">$ git init --bare</span><br></pre></td></tr></table></figure>
 <p><img src="https://gitee.com/Haikez/images_bed/raw/master/Git+Nginx%E6%90%AD%E5%BB%BA%E8%BF%9C%E7%A8%8BWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/20210227082417.png"></p>
 <a id="more"></a>
@@ -1653,6 +1653,11 @@ bool ListDelete(LinkNode *&L,int i,ElemType &e)
       </tags>
   </entry>
   <entry>
+    <title>Test</title>
+    <url>//Test</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>SMBMS项目学习</title>
     <url>/2021/05/14/SMBMS%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<h1 id="SMBMS项目学习"><a href="#SMBMS项目学习" class="headerlink" title="SMBMS项目学习"></a>SMBMS项目学习</h1><h2 id="基本架构"><a href="#基本架构" class="headerlink" title="基本架构"></a>基本架构</h2><p><img src="https://img-blog.csdnimg.cn/20190925140503738.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NsaXNrcw==,size_16,color_FFFFFF,t_70"></p>
@@ -1813,10 +1818,5 @@ bool ListDelete(LinkNode *&L,int i,ElemType &e)
       <categories>
         <category>JavaWeb学习</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Test</title>
-    <url>//Test</url>
-    <content><![CDATA[]]></content>
   </entry>
 </search>
