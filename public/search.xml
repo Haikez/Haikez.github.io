@@ -1814,4 +1814,9 @@ bool ListDelete(LinkNode *&L,int i,ElemType &e)
         <category>JavaWeb学习</category>
       </categories>
   </entry>
+  <entry>
+    <title>Test</title>
+    <url>//Test</url>
+    <content><![CDATA[]]></content>
+  </entry>
 </search>
