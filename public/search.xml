@@ -1655,7 +1655,8 @@ bool ListDelete(LinkNode *&L,int i,ElemType &e)
   <entry>
     <title>Test</title>
     <url>//Test</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h1 id="dkljfjfjlf"><a href="#dkljfjfjlf" class="headerlink" title="dkljfjfjlf"></a>dkljfjfjlf</h1><p>adjfklajfkljf<br>adsfjakldsjfkl</p>
+]]></content>
   </entry>
   <entry>
     <title>SMBMS项目学习</title>
